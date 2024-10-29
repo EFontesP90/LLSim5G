@@ -171,13 +171,13 @@ class Scenario(object):
         if number_sat > 0:
             assert number_sat == np.array(sat_coord_lla).shape[0], f"The number of ABS {number_sat} is not equal to the entered ABS coordinates ({np.array(sat_coord_lla).shape[0]})!"
 
-        assert number_ue == sum(mg_members), f"The number of MG members: {sum(mg_members)} must be equal to the total number of UE: {number_ue}!"
+        assert number_ue == sum(mg_members), f"The number of multicast group (MG) members: {sum(mg_members)} must be equal to the total number of users (UEs): {number_ue}!"
         assert np.shape(np.array(mg_members))[0] == number_mg, f"The MG members array (mg_members) must have the same dimensions that the number of MGs: {number_mg}!"
         assert np.shape(np.array(mg_reference_location))[0] == number_mg, f"The MGs reference location array (mg_reference_location) must have the same dimensions that the number of MGs: {number_mg}!"
         assert np.shape(np.array(mg_grid_size_ratio))[0] == number_mg, f"The MGs grid size ratio array (mg_grid_size_ratio) must have the same dimensions that the number of MGs: {number_mg}!"
         assert np.shape(np.array(mg_min_max_velocity))[0] == number_mg, f"The MGs min-max velocity array (mg_min_max_velocity) must have the same dimensions that the number of MGs: {number_mg}!"
         assert np.shape(np.array(mg_wait_time))[0] == number_mg, f"The MGs wait time array (mg_wait_time) must have the same dimensions that the number of MGs: {number_mg}!"
-        assert np.shape(np.array(mg_mobility_model))[0] == number_mg, f"The MGs mobiliti models array (mg_mobility_model) must have the same dimensions that the number of MGs: {number_mg}!"
+        assert np.shape(np.array(mg_mobility_model))[0] == number_mg, f"The MGs mobility models array (mg_mobility_model) must have the same dimensions that the number of MGs: {number_mg}!"
 
         for mg in range(number_mg):
 
@@ -208,40 +208,40 @@ class Scenario(object):
 
 
         self.save_scenario_xlsx = save_scenario_xlsx
-        self.show_video = show_video  # Boolean variable to enable or not the scenario video display
-        self.save_video = save_video  # Boolean variable to enable or not saving the scenario video
-        self.video_format = video_format # String variable to define the video format for saving the scenario video. The options are: mo4, gif, Both
-        self.video_velocity = video_velocity  # To adjust the velocity of the video
-        self.simulation_time = simulation_time  # To adjust the simulation time, e.g. 60 seconds
-        self.simulation_resolution = simulation_resolution  # To adjust the simulation resolution along the time, e.g. 0.1 seconds
+        self.show_video = show_video  # Boolean variable to enable or not the scenario video display.
+        self.save_video = save_video  # Boolean variable to enable or not saving the scenario video.
+        self.video_format = video_format # String variable to define the video format for saving the scenario video. The options are: mp4, gif, both (TODO to enable mp4 for GitHub version).
+        self.video_velocity = video_velocity  # To adjust the velocity of the video.
+        self.simulation_time = simulation_time  # To adjust the simulation time, e.g., 60 seconds.
+        self.simulation_resolution = simulation_resolution  # To adjust the simulation resolution along the time, e.g., 0.1 seconds.
 
         self.number_tbs = number_tbs  # Number of Terrestrial BSs
         self.number_abs = number_abs  # Number of Aerial BS (UAV)
         self.number_sat = number_sat  # Number of Sat BS (Sat)
         # self.tbs_coord_xyz = tbs_coord_xyz  # Array (number_tbs x 3) with the x,y,z coordinates of the terrestrial BSs (tbs), e.g, [[50, 50, 10],[25,25,10], ... [x,y,z]]
         # self.abs_coord_xyz = abs_coord_xyz  # Array (number_abs x 3) with the initial x,y,z coordinates of the aerial BSs (abs), e.g, [[50, 50, 100],[25,25,100], ... [x,y,z]]
-        # self.abs_mobility_model = abs_mobility_model  # (Not implemented) Array (number_abs x 1) with the mobility model of the abs, e.g, [static, personalized_mobility, ... , etc]
+        # self.abs_mobility_model = abs_mobility_model  # TODO Array (number_abs x 1) with the mobility model of the abs, e.g, [static, personalized_mobility, ... , etc]
 
-        self.number_ue = number_ue  # Number of user equipments (ue)
-        self.fixed_height_ue = fixed_height_ue  # A fixed value of height for all the UEs, (to be consider if to enable a posible variable or different users height)
+        self.number_ue = number_ue  # Number of user equipments (UE)
+        self.fixed_height_ue = fixed_height_ue  # A fixed value of height for all the UEs, (to be considered if it is enabled a posible variable or different users height)
         self.min_max_height = min_max_height
         self.number_mg = number_mg  # Number of multicast groups (MG)
         self.mg_members = mg_members  # Array (number_mg x 1) with the number of MG members (MG members x number_mg = number_ue)
         self.sub_types = sub_types  # Array with the definition of the subgroup of users type
-        self.mg_grid_size_ratio = mg_grid_size_ratio  # Array (number_mg x 2) with the grid size ratio (e.g. 20 % of the total x, and 20 % of the total y) covered by each MG regarding the full grid size, e.g, [[0.2, 0.2],[0.2,1], ... [%x,%y]]
+        self.mg_grid_size_ratio = mg_grid_size_ratio  # Array (number_mg x 2) with the grid size ratio (e.g. 20 % of the total x, and 20 % of the total y) covered by each MG regarding the full grid size, e.g., [[0.2, 0.2], [0.2,1], ... [%x,%y]]
         self.mg_aggregation = mg_aggregation  # Array (number_mg x 1) that defines the MGs aggregation, how close are the MG members. It is a value between 0 and 1, where 1 means not aggregation at all.
 
 
-        self.mg_reference_location = mg_reference_location  # Array (number_mg x 2) that define the initial reference location of each MG inside the grid, e.g, [[50, 50],[10,20], ... [x,y]]
-        self.mg_min_max_velocity = mg_min_max_velocity  # Array (number_mg x 2) that define the minimum and maximum velocity of the members of each MG in meters per second, e.g, [[0.4, 1],[5,10], ... [x,y]]
-        self.mg_wait_time = mg_wait_time  # Array (number_mg x 1) that define the random posible wait time (in seconds) of each member of the MG
-        self.mg_mobility_model = mg_mobility_model  # Array (number_mg x 1) that define the mobility model that follow the members of ech MG, e.g, [["static"],["random_walk"], ... [...]]
-        self.number_mg_rpg_model = number_mg_rpg_model # Array (number_mg x 1) that is used for the mobility model Reference Point Group model, and define in how meny subgroups with be splitted the MGs with this mobility model
+        self.mg_reference_location = mg_reference_location  # Array (number_mg x 2) that defines the initial reference location of each MG inside the grid, e.g, [[50, 50], [10,20], ... [x,y]]
+        self.mg_min_max_velocity = mg_min_max_velocity  # Array (number_mg x 2) that defines the minimum and maximum velocity of the members of each MG in meters per second, e.g, [[0.4, 1], [5,10], ... [x,y]]
+        self.mg_wait_time = mg_wait_time  # Array (number_mg x 1) that defines the random possible wait time (in seconds) of each member of the MG
+        self.mg_mobility_model = mg_mobility_model  # Array (number_mg x 1) that defines the mobility model that follow the members of ech MG, e.g, [["static"], ["random_walk"], ... [...]]
+        self.number_mg_rpg_model = number_mg_rpg_model # Array (number_mg x 1) that is used for the mobility model Reference Point Group model, and it defines in how many subgroups are splitted the MGs with this mobility model
 
-        self.simulation_steps = int(self.simulation_time / self.simulation_resolution) # This value define the total steps the simulation must follow, e.g., if simulation_time=10 and simulation_resolution=0.1, then simulation_steps = 100
+        self.simulation_steps = int(self.simulation_time / self.simulation_resolution) # This value defines the total steps the simulation must follow, e.g., if simulation_time=10 and simulation_resolution=0.1, then simulation_steps = 100
 
     def scenario(self):
-        time_Map = np.zeros([self.simulation_steps], dtype=float)  # array of the resulting ShadowingMap of the K users respect to the BS and each proximity user in D2D comm , [time stamp, shadowing]
+        time_Map = np.zeros([self.simulation_steps], dtype=float)  # Array of the resulting ShadowingMap of the K users respect to the BS and each proximity user in D2D communication, [time stamp, shadowing]
 
         # rw = {}
         overall_mob_map = []
@@ -259,7 +259,7 @@ class Scenario(object):
             video_velocity = self.video_velocity
             aggregation = self.mg_aggregation[g]
 
-            mobility_map = np.zeros([self.simulation_steps, K_nodes, 3])  # array of the resulting ShadowingMap of the K users respect to the BS and each proximity user in D2D comm , [time stamp, shadowing]
+            mobility_map = np.zeros([self.simulation_steps, K_nodes, 3])  # array of the resulting ShadowingMap of the K users respect to the BS and each proximity user in D2D communication, [time stamp, shadowing]
 
             if self.mg_mobility_model[g] == "Random Static": rw = mob.random_walk(K_nodes, dimensions=(MAX_X, MAX_Y), velocity=0, distance=0)
             elif self.mg_mobility_model[g] == "Random Walk": rw = mob.random_walk(K_nodes, dimensions=(MAX_X, MAX_Y), velocity=MAX_V * resolution, distance=MAX_V * resolution)
@@ -349,7 +349,7 @@ class Scenario(object):
         #     df_ypos.to_excel(f"output/scenario/dfYpos_{current_date}.xlsx")
         #     df_zpos.to_excel(f"output/scenario/dfZpos_{current_date}.xlsx")
         #     df_tbs_xyz.to_excel(f"output/scenario/df_tbs_xyz_{current_date}.xlsx")
-        #     df_abs_xyz.to_excel(f"output/scenario/df_abs_xyz_{current_date}.xlsx")  #TODO: Important if we enable the abs muvement capability
+        #     df_abs_xyz.to_excel(f"output/scenario/df_abs_xyz_{current_date}.xlsx")  #TODO: Important if we enable the abs movement capability
         grid_lla = [self.grid_center_latitude, self.grid_center_longitude, 0]
 
         return df_xpos, df_ypos, df_zpos, df_tbs_xyz, df_abs_xyz, df_sat_lla, time_Map, grid_lla, self.grid_xy
