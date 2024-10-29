@@ -11,6 +11,7 @@ Pupo, Ernesto Fontes, Claudia Carballo González, Eneko Iradier, Jon Montalban, 
 - [Installation](#installation)
 - [Usage](#usage)
 - [Features](#features)
+- [Contributors](#contributors)
 - [Contributing](#contributing)
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
@@ -37,6 +38,12 @@ your_project_name.some_function()
 
 # Features
 List of features your project provides.
+
+# Contributors
+
+Ernesto Fontes Pupo, orcid: "0000-0002-1715-6015", affiliation: "University of Cagliari", e-mail: efontesp90@gmail.com
+
+Claudia Carballo Gonzalez, orcid: "0000-0002-6429-1375", affiliation: "University of Cagliari", e-mail: ccgclaudia7892@gmail.com
 
 # Contributing
 
