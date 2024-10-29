@@ -1,4 +1,4 @@
-# Project Name
+# lls_tn/ntn_5g
 
 The 5G link-level simulator (LLS) is an open-source tool developed to simulate the physical layer of 5G communication systems. It includes channel modeling, modulation, coding schemes, and performance analysis features for research and educational applications in wireless communication. In compliance with the 3GPP standards (TR 38.901 and TR 38.811), the LLS allows the modeling of terrestrial and non-terrestrial networks (TNs-NTNs), multiple user types distributed in the defined scenarios, and different mobility behaviors.
 
@@ -6,7 +6,7 @@ This software is provided on an "as is" basis, without warranties of any kind, e
 
 If you include this software or part of it within your own software, README and LICENSE files cannot be removed from it and must be included in the root directory of your software package.  Moreover, if you use this 5G LLS in your research, please cite it as follows:
 
-Pupo, Ernesto Fontes, Claudia Carballo González, Eneko Iradier, Jon Montalban, and Maurizio Murroni. "5G link-level simulator for multicast/broadcast services." In 2023 IEEE International Symposium on Broadband Multimedia Systems and Broadcasting (BMSB), pp. 1-6. IEEE, 2023.
+Pupo, Ernesto Fontes, Claudia Carballo González, Eneko Iradier, Jon Montalban, and Maurizio Murroni. "5G link-level simulator for multicast/broadcast services." In 2023 IEEE International Symposium on Broadband Multimedia Systems and Broadcasting (BMSB), pp. 1-6. IEEE, 2023, doi: 10.1109/BMSB58369.2023.10211507.
 
 ## Table of Contents
 
