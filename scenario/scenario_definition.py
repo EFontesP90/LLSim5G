@@ -8,9 +8,9 @@ import scenario.show as sw
 import scenario.sattelites_lla_info as sat_pos
 
 
-def ColumnName(df):  # para un df sin titulos
+def ColumnName(df):  
     name = np.empty([df.shape[1]],
-                    dtype=int)  # array of the resulting CQI of the K users respect to the BS and each proximity user in D2D comm
+                    dtype=int)  # array of the resulting CQI of the K users regarding the BS and each proximity user in D2D communication.
     for i in range(df.shape[1]):
         # name[i] = f"{i}"
         if i == 0:
@@ -26,9 +26,9 @@ class Scenario(object):
     """
     25/04/2024
     The class Scenario allows to define the whole grid and mobility behaviours. Its outputs are the coordinates
-    of each user in the grid as well as the coordinates of all the enable base stations. If enabled, this class
+    of each user in the grid as well as the coordinates of the base stations. If enabled, this class
     generate (in the output file) the .xlsx files with coordinates of all the elements in the grid, and the video (mp4, gif, or both)
-     for representing the defined grid and mobility patterns.
+    for representing the defined grid and mobility patterns. TODO, to enable the mp4 option for the GitHub version.
 
     Required attributes:
     (grid_xy, save_scenario_xlsx, show_video, save_video, video_format, video_velocity, simulation_time, simulation_resolution,
@@ -72,7 +72,7 @@ class Scenario(object):
             number_tbs = bs_parameters['type'].value_counts()['tbs']
             tbs_coord_xyz = bs_parameters.loc[bs_parameters['type'] == 'tbs', ['x', 'y', 'z']].to_numpy().reshape(
                 number_tbs, 3)
-            self.tbs_coord_xyz = tbs_coord_xyz  # Array (number_tbs x 3) with the x,y,z coordinates of the terrestrial BSs (tbs), e.g, [[50, 50, 10],[25,25,10], ... [x,y,z]]
+            self.tbs_coord_xyz = tbs_coord_xyz  # Array (number_tbs x 3) with the x,y,z coordinates of the terrestrial BSs (tbs), e.g., [[50, 50, 10], [25,25,10], ... [x,y,z]]
 
         else:
             number_tbs = 0
@@ -82,9 +82,9 @@ class Scenario(object):
             number_abs = bs_parameters['type'].value_counts()['abs']
             abs_coord_xyz = bs_parameters.loc[bs_parameters['type'] == 'abs', ['x', 'y', 'z']].to_numpy().reshape(
             number_abs, 3)
-            self.abs_coord_xyz = abs_coord_xyz  # Array (number_abs x 3) with the initial x,y,z coordinates of the aerial BSs (abs), e.g, [[50, 50, 100],[25,25,100], ... [x,y,z]]
+            self.abs_coord_xyz = abs_coord_xyz  # Array (number_abs x 3) with the initial x,y,z coordinates of the aerial BSs (abs), e.g., [[50, 50, 100], [25,25,100], ... [x,y,z]]
             abs_mobility_model = None
-            self.abs_mobility_model = abs_mobility_model  # (Not implemented) Array (number_abs x 1) with the mobility model of the abs, e.g, [static, personalized_mobility, ... , etc]
+            self.abs_mobility_model = abs_mobility_model  # TODO Array (number_abs x 1) with the mobility model of the abs, e.g., [static, personalized_mobility, ... , etc]
         else:
             number_abs = 0
             self.abs_coord_xyz = [None, None, None]
@@ -136,9 +136,9 @@ class Scenario(object):
             # print("elevation_angle_grid_center")
             # print(elevation_angle_grid_center)
 
-            self.sat_coord_lla = sat_coord_lla  # Array (number_sat x 3) with the initial x,y,z coordinates of the sat (sat), e.g, [[0, 0, 50000],[0, 0, 8000], ... [x,y,z]]
+            self.sat_coord_lla = sat_coord_lla  # Array (number_sat x 3) with the initial x,y,z coordinates of the sat (sat), e.g, [[0, 0, 50000], [0, 0, 8000], ... [x,y,z]]
             sat_mobility_model = None
-            self.sat_mobility_model = sat_mobility_model  # (Not implemented) Array (number_sat x 1) with the mobility model of the sat, e.g, [static, personalized_mobility, ... , etc]
+            self.sat_mobility_model = sat_mobility_model  # TODO Array (number_sat x 1) with the mobility model of the sat, e.g, [static, personalized_mobility, ... , etc]
         else:
             number_sat = 0
             self.sat_coord_lla = [None, None, None]
