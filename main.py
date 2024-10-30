@@ -1,8 +1,29 @@
-import numpy as np
-import pandas as pd
-import ast
-import random
+"""
+File: main.py
 
+Purpose:
+Project main file. In this file are set the Link-level-Simulator-Variables (LLS) for configuring the desired
+simulation scenario, conditions and outputs.
+
+Author: Ernesto Fontes Pupo / Claudia Carballo González
+Date: 2024-10-30
+Version: 1.0.0
+SPDX-License-Identifier: Apache-2.0
+
+
+Changelog:
+1.0.0 - ...
+1.1.0 - ...
+
+"""
+
+# Standard library imports
+import logging
+
+# Third-party imports
+import pandas as pd
+
+# Local application/library-specific imports
 import scenario.scenario_definition as sx
 import link_computation.link_computation as lc
 import output.outputs_config as out
@@ -11,10 +32,11 @@ import general.general as ge
 
 
 
-pd.set_option('display.max_rows', None)  # This specific setting ensures that all rows in a DataFrame will be displayed when it's printed.
-pd.set_option('display.max_columns', None)  # This specific setting ensures that all columns in a DataFrame will be displayed when it's printed.
+# pd.set_option('display.max_rows', None)  # This specific setting ensures that all rows in a DataFrame will be displayed when it's printed.
+# pd.set_option('display.max_columns', None)  # This specific setting ensures that all columns in a DataFrame will be displayed when it's printed.
 
-
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 if __name__ == "__main__":
 
@@ -178,6 +200,8 @@ if __name__ == "__main__":
         print(general_parameters)
         print(bs_parameters)
         print(sub_groups_parameters)
+
+    # logger.info("Starting the simulation with %d EDs", sub_groups_parameters["k_sub"])
 
     df_x, df_y, df_z, df_tbs_xyz, df_abs_xyz, df_sat_lla, time_map, grid_lla, grid_xy = sx.scenario_definition(general_simulation_parameters,
                                                                                 bs_parameters, general_channel_modeling,

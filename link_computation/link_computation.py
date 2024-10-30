@@ -159,7 +159,7 @@ class Link_computation(object):
                                                                         antenna_mode_rx, self.bs_parameters["ax_panel_polarization"][bs]
                                                                         )
 
-                        print(ch_outcomes_rx)
+                        # print(ch_outcomes_rx)
 
 
                     elif type == "sat":
@@ -193,7 +193,7 @@ class Link_computation(object):
                                                                         antenna_mode_rx, self.bs_parameters["ax_panel_polarization"][bs]
                                                                         )
 
-                        print(ch_outcomes_rx)
+                        # print(ch_outcomes_rx)
 
 
 
