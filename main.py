@@ -10,11 +10,6 @@ Date: 2024-10-30
 Version: 1.0.0
 SPDX-License-Identifier: Apache-2.0
 
-
-Changelog:
-1.0.0 - ...
-1.1.0 - ...
-
 """
 
 # Standard library imports
@@ -61,12 +56,12 @@ if __name__ == "__main__":
                 True,  # "downlink". To enable the downlink computation from the base stations (BSs) to the end-devices (EDs).
                 False,  # "uplink". To enable the uplink computation from the EDs to the BSs. TODO, it's not enabled between the EDs and the non-terrestrial networks (NTNs).
                 False,  # "d2d_link". To enable the device-to-device (D2D) link computation among EDs.
-                False,  # "ntn_link". To enable the link computation between the available non-terrestrial networks (NTN) (e.g., LEO, MEO, HAPS) and the EDs.
+                True,  # "ntn_link". To enable the link computation between the available non-terrestrial networks (NTN) (e.g., LEO, MEO, HAPS) and the EDs.
                 False,  # "save_scenario_xlsx". To save (./output/scenario/) as .xlsx the simulated scenario. It means the coordinate x, y and z of each EDs or BSs, or the latitude, longitude, altitude (LLA) of the NTNs.
                 False,  # "save_metrics_xlsx". To save (./output/metrics/) as .xlsx the resulting LLS outputs: SINR, CQI, BLER, among each ED and each BS (TN/NTN), or EDs for D2D communications.
                 True,  # "show_video". Boolean to enable or disable the simulation video display regarding the grid and the configured BSs and EDs with their mobility behaviour. (The link computation is executed after we closed the video).
                 False,  # "save_video". Boolean to enable saving the video file.
-                "gif",  # "video_format"
+                "gif",  # "video_format". ("mp4", "gif", "Both"), At the moment the video format (in the general_simulation_parameters input dataframe) can be just saved as .gif format
                 0.1,  # "video_velocity". Float variable for modifying the video velocity. Default value: 0.1.
                 True,  # "print_scenario_outputs". Boolean for enable printing the scenario output. It means the coordinate x, y and z of each EDs or BSs, or the LLA of the NTNs.
                 True  # "print_metrics_outputs". Boolean for enable printing the resulting simulation metrics: SINR, CQI, BLER, among each ED and each BS (TN/NTN), or EDs for D2D communications.
@@ -113,7 +108,7 @@ if __name__ == "__main__":
                                       [50, 50, 25, "tbs", "UMa", "three_sectors", "dual", "E", "B", 28, 2, 1, 20, 20, 2, 7, 15, None],
                                       [75, 75, 10, "tbs", "UMi", "three_sectors", "dual", "D", "A", 28, 2, 1, 10, 10, 2, 7, 15, None],
                                       [25, 25, 10, "tbs", "UMi", "three_sectors", "dual", "D", "A", 28, 2, 1, 10, 10, 2, 7, 15, None],
-                                      # [39.2337738, 9.12153844, 50000, "sat", "HAPS", "Sat_ax", "dual", "C_ntn", "A_ntn", 2, 2, 50, 36, 30, 2, 7, None, 75],
+                                      [39.2337738, 9.12153844, 50000, "sat", "HAPS", "Sat_ax", "dual", "C_ntn", "A_ntn", 2, 2, 50, 36, 30, 2, 7, None, 65],
                                       # [39.2137738, 9.1153844, 50000, "sat", "HAPS", "Sat_ax", "dual", "C_ntn", "A_ntn", 2, 2, 50, 36, 30, 2, 7, None, 90],
                                       ])
         # fast_fading_los_type: TN_los: "D", "E"; NTN: "C_ntn", "D_ntn"

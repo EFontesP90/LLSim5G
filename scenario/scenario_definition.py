@@ -1,8 +1,27 @@
+"""
+File: scenario_definition.py
+
+Purpose:
+This file allows to define the whole grid and mobility behaviours. Its outputs are the coordinates
+of each user in the grid as well as the coordinates of the base stations.
+
+Author: Ernesto Fontes Pupo / Claudia Carballo González
+Date: 2024-10-30
+Version: 1.0.0
+SPDX-License-Identifier: Apache-2.0
+
+"""
+
+# Standard library imports
+import logging
+
+# Third-party imports
 import numpy as np
 import pandas as pd
 from numpy import random
 from datetime import datetime
 
+# Local application/library-specific imports
 from scenario.mobility import models as mob
 import scenario.show as sw
 import scenario.sattelites_lla_info as sat_pos
@@ -21,6 +40,9 @@ def ColumnName(df):
     df.columns = name
     return df
 
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
 class Scenario(object):
 
     """
@@ -31,10 +53,18 @@ class Scenario(object):
     for representing the defined grid and mobility patterns. TODO, to enable the mp4 option for the GitHub version.
 
     Required attributes:
-    (grid_xy, save_scenario_xlsx, show_video, save_video, video_format, video_velocity, simulation_time, simulation_resolution,
-    number_tbs, number_abs, tbs_coord_xyz, abs_coord_xyz, abs_mobility_model,
-    number_ue, fixed_height_ue, number_mg, mg_members, mg_grid_size_ratio, mg_aggregation, mg_reference_location,
-    mg_min_max_velocity, mg_wait_time, mg_mobility_model, number_mg_rpg_model):
+    (general_simulation_parameters, bs_parameters, general_channel_modeling, sub_groups_parameters, general_parameters):
+
+    Returns:
+        df_x: dataframe (simulation_steps x number_ue +1) with the x coordinates of the defined EDs (number_ue)
+        df_y: dataframe (simulation_steps y number_ue +1) with the x coordinates of the defined EDs (number_ue)
+        df_z: dataframe (simulation_steps z number_ue +1) with the x coordinates of the defined EDs (number_ue)
+        df_tbs_xyz: dataframe  with the (x, y, z) coordinates of the defined tbs
+        df_abs_xyz: dataframe  with the (x, y, z) coordinates of the defined abs
+        df_sat_lla: dataframe  with the (l, l, a) coordinates of the defined sat
+        time_map: dataframe  with the time steps of the simulation
+        grid_lla: dataframe  with the lla of the center of the grid, jus used for satellite simulations
+        grid_xy: array with the x and Y onf the simulated grid (in m)
 
     """
 
@@ -52,6 +82,7 @@ class Scenario(object):
         save_video = general_simulation_parameters["save_video"][0]
         save_scenario_xlsx = general_simulation_parameters["save_scenario_xlsx"][0]
         video_format = general_simulation_parameters["video_format"][0]  # mp4, gif, Both
+        assert video_format == "gif", f"At the moment the video format (in the general_simulation_parameters input dataframe) can be just saved as .gif format!"
         video_velocity = general_simulation_parameters["video_velocity"][0]
         simulation_time = general_simulation_parameters["simulation_time"][0]
         simulation_resolution = general_simulation_parameters["simulation_resolution"][0]
@@ -60,7 +91,7 @@ class Scenario(object):
         number_bs = bs_parameters.shape[0]
         tbs_flag = False
         abs_flag = False
-        sat_flag = False  # TODO, add this
+        sat_flag = False
         for bs in range(number_bs):
             type = bs_parameters["type"][bs]
             if type == 'tbs': tbs_flag = True
@@ -93,13 +124,9 @@ class Scenario(object):
             number_sat = bs_parameters['type'].value_counts()['sat']
             sat_coord_lla = bs_parameters.loc[bs_parameters['type'] == 'sat', ['x', 'y', 'z']].to_numpy().reshape(
             number_sat, 3)
-            # print("sat_coord_lla")
-            # print(sat_coord_lla)
             desired_elevation_angle = bs_parameters.loc[bs_parameters['type'] == 'sat', 'desired_elevation_angle'].to_numpy()
             self.desired_elevation_angle = desired_elevation_angle
-            # print("desired_elevation_angle")
-            # print(desired_elevation_angle)
-            elevation_angle_grid_center = desired_elevation_angle
+            elevation_angle_grid_center = np.zeros(np.shape(desired_elevation_angle))
 
             for s in range(number_sat):
                 # Satellite position in LLA (latitude, longitude, altitude)
@@ -115,20 +142,10 @@ class Scenario(object):
 
                 elevation_angle_grid_center[s] = sat_pos.sat_elevation_angle_from_lla(satellite_lat, satellite_lon, satellite_alt,
                                                                                       grid_center_lat, grid_center_lon, grid_center_alt)
-
-
-
-                # sat_x, sat_y, sat_z = sat_pos.satellite_position_for_elevation(grid_center_lat, grid_center_lon, grid_center_alt, desired_elevation_angle[s], satellite_alt)
-                # print("sat_x, sat_y, sat_z", sat_x, sat_y, sat_z)
-                # sat_lat, sat_lon, sat_alt = sat_pos.ecef_to_lla(sat_x, sat_y, sat_z)
-                # print("sat_lat, sat_lon, sat_alt", sat_lat, sat_lon, sat_alt)
-                # elevation_angle_grid_center_test = sat_pos.sat_elevation_angle_from_lla(sat_lat, sat_lon,
-                #                                                                       sat_alt,
-                #                                                                       grid_center_lat, grid_center_lon,
-                #                                                                       grid_center_alt)
-                # print("elevation_angle_grid_center_test", elevation_angle_grid_center_test)
-
-
+                if abs(elevation_angle_grid_center[s] - desired_elevation_angle[s]) > 5:
+                    # print("testest", abs(elevation_angle_grid_center[s] - desired_elevation_angle[s]))
+                    logger.info("The resulting elevation angle %s of the satellite number %s is more than 5 degrees different regarding the desired elevation angle (%s degrees)", elevation_angle_grid_center[s], s, desired_elevation_angle[s])
+                    logger.info("Modify the LLA coordinates of the satellite to obtain the desired elevation angle")
 
 
             self.elevation_angle_grid_center = elevation_angle_grid_center
