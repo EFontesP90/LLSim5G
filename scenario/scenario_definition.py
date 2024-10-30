@@ -55,7 +55,7 @@ class Scenario(object):
     Required attributes:
     (general_simulation_parameters, bs_parameters, general_channel_modeling, sub_groups_parameters, general_parameters):
 
-    Returns:
+    Returns (scenario_definition):
         df_x: dataframe (simulation_steps x number_ue +1) with the x coordinates of the defined EDs (number_ue)
         df_y: dataframe (simulation_steps y number_ue +1) with the x coordinates of the defined EDs (number_ue)
         df_z: dataframe (simulation_steps z number_ue +1) with the x coordinates of the defined EDs (number_ue)

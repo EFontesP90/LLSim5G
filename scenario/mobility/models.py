@@ -13,6 +13,7 @@ Created on Jan 24, 2012
 @contact: panisson@gmail.com
 @organization: ISI Foundation, Torino, Italy
 '''
+
 import numpy as np
 from numpy.random import rand
 

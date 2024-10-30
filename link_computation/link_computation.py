@@ -1,9 +1,25 @@
+"""
+File: scenario_definition.py
+
+Purpose:
+This file defines the inputs of the enabled links to compute between the BSs and EDs. It processes the outputs of the
+Scenario class for executing the nested loops over the number of BSs, the simulation time steps and the number uf EDs.
+Its outputs are the main outputs of the simulator (in a dictionary form): SINR, BLER, and CQI for each enabled link
+computation.
+
+
+Author: Ernesto Fontes Pupo / Claudia Carballo González
+Date: 2024-10-30
+Version: 1.0.0
+SPDX-License-Identifier: Apache-2.0
+
+"""
+
+# Third-party imports
 import numpy as np
 import pandas as pd
-from datetime import datetime
-import pickle
-import joblib
 
+# Local application/library-specific imports
 import scenario.scenario_definition as sx
 from channel_models.geometry import geometry as gm
 from channel_models.geometry import geometry_ntn as gm_ntn
@@ -30,10 +46,20 @@ def ColumnName(df):  # para un df sin titulos
 class Link_computation(object):
     """
     25/04/2024
-
+    The class Link_computation defines the inputs of the enabled links to compute between the BSs and EDs. It processes
+    the outputs of the Scenario class for executing the nested loops over the number of BSs, the simulation time steps
+    and the number uf EDs.
+    Its outputs are the main outputs of the simulator (in a dictionary form): SINR, BLER, and CQI for each enabled link
+    computation.
 
     Required attributes:
-    ():
+    (bs_parameters, general_channel_modeling, sub_groups_parameters, general_parameters, df_x, df_y,
+                 df_z, time_map, grid_lla, grid_xy):
+
+    Returns (link_computation_bs2d_dl, link_computation_bs2d_ul, link_computation_d2d ):
+        metrics_dic_bs_dl: Dictionary with the SINR, BLER, and CQI for the downlink of each BS (TN/NTN) regarding each ED.
+        metrics_dic_d2d: Dictionary with the SINR, BLER, and CQI among the EDs that has enabled the D2D communication.
+        metrics_dic_bs_ul: Dictionary with the SINR, BLER, and CQI for the uplink of each BS (TN/NTN) regarding each ED.
 
     """
 
@@ -522,116 +548,6 @@ class Link_computation(object):
 
         return metrics_dic
 
-
-    # def link_computation_sat2d_dl(self):
-    #
-    #     number_sat = self.sat_parameters.shape[0]
-    #
-    #     k = self.sub_groups_parameters['k_sub'].sum()
-    #     number_sub = self.sub_groups_parameters.shape[0]
-    #     sub_members = self.sub_groups_parameters['k_sub'].values
-    #     cumulative_sub_members = np.cumsum(sub_members)
-    #     sub_types = self.sub_groups_parameters['type'].values
-    #     time_steps = self.df_x.shape[0]
-    #     overall_metrics = []
-    #
-    #     for sat in range(number_sat):
-    #         type = self.sat_parameters["type"][sat]
-    #         sat_coord = [self.sat_parameters["x"][sat], self.sat_parameters["y"][sat], self.sat_parameters["z"][sat]]
-    #         tx_coord_old = sat_coord  # TODO: To be taken into account when we add the abs movement capability
-    #         bw_rb = 12*(15*(2**self.sat_parameters["numerology"][sat]))*1e3
-    #         n_rb = self.sat_parameters["n_rb"][sat]
-    #         cable_loss_tx = self.sat_parameters["cable_loss"][sat]
-    #
-    #         overall_d_correlation_map_rx = []
-    #         overall_hb_map_rx = []
-    #         overall_jakes_map = []
-    #
-    #         cqi_txk = np.zeros([time_steps, k], dtype=float)
-    #         sinr_txk = np.zeros([time_steps, k], dtype=float)
-    #         bler_txk = np.zeros([time_steps, k], dtype=float)
-    #         metrics_dic_sat = {"sinr": None, "cqi": None, "bler": None}
-    #
-    #         for t in range(time_steps):
-    #             t_now = self.df_x[0][t]
-    #             if t == 0:  t_old = t_now
-    #             else: t_old = self.df_x[0][t - 1]
-    #
-    #             for i in range(k):
-    #                 rx_coord = [self.df_x[i + 1][t], self.df_y[i + 1][t], self.df_z[i + 1][t]]
-    #                 if t == 0: rx_coord_old = rx_coord
-    #                 else: rx_coord_old = [self.df_x[i + 1][t - 1], self.df_y[i + 1][t - 1], self.df_z[i + 1][t - 1]]
-    #
-    #                 for s in range(number_sub):
-    #                     if i <= cumulative_sub_members[s]:
-    #                         type_rx = self.sub_groups_parameters["type"][s]
-    #                         noise_figure_rx = self.sub_groups_parameters["noise_figure"][s]
-    #                         antenna_mode_rx = self.sub_groups_parameters["antenna_mode"][s]
-    #                         p_tx_rx = self.sub_groups_parameters["p_tx"][s]
-    #                         ax_gain_rx = self.sub_groups_parameters["ax_gain"][s]
-    #                         cable_loss_rx = self.sub_groups_parameters["cable_loss"][s]
-    #                         d2d_rx = self.sub_groups_parameters["d2d"][s]
-    #                 if type_rx == "car_mounted": inside_what = "car"
-    #                 else: inside_what = self.general_channel_modeling["inside_what_o2i"][0],
-    #
-    #                 if t == 0:
-    #                     d_correlation_map_rx = {"t": None, "x": None, "y": None, "shadowing": None, "o2i_loss": None,
-    #                                             "los": None, "d_correlation_sf": None}
-    #                     hb_map_rx = {"t": None, "x": None, "y": None, "h_blockage": None}
-    #                     jakes_map = np.zeros([n_rb * 6, 3], dtype=float)
-    #
-    #                 else:
-    #                     d_correlation_map_rx = overall_d_correlation_map_rx[i]
-    #                     hb_map_rx = overall_hb_map_rx[i]
-    #                     jakes_map = overall_jakes_map[i]
-    #
-    #                 d_2d, d_3d, speed_rx, speed_tx, h_angle, v_angle, ds_angle = gm.geometry(self.bs_parameters["antenna_mode"][bs],
-    #                                                                                rx_coord, tx_coord, rx_coord_old,
-    #                                                                                tx_coord_old, t_now, t_old)
-    #
-    #                 ch_outcomes_rx, d_correlation_map_rx, hb_map_rx, jakes_map = ch_38_901.get_ch_tr_38_901(
-    #                                                                 self.bs_parameters["scenario"][bs],
-    #                                                                 self.bs_parameters["antenna_mode"][bs],
-    #                                                                 self.general_channel_modeling["shadowing"][0],
-    #                                                                 self.general_channel_modeling["dynamic_los"][0],
-    #                                                                 self.general_channel_modeling["dynamic_hb"][0],
-    #                                                                 self.general_channel_modeling["o2i"][0],
-    #                                                                 inside_what,
-    #                                                                 self.general_channel_modeling["penetration_loss_model"][0],
-    #                                                                 d_2d, d_3d, rx_coord[2], tx_coord[2],
-    #                                                                 self.general_parameters["h_ceiling"][0],
-    #                                                                 self.general_parameters["block_density"][0],
-    #                                                                 self.bs_parameters["fc"][bs],
-    #                                                                 d_correlation_map_rx, t_now, t_old, speed_rx, rx_coord,
-    #                                                                 h_angle, v_angle, ds_angle, self.bs_parameters["v_tilt"][bs],
-    #                                                                 n_rb, jakes_map,
-    #                                                                 self.general_channel_modeling["fast_fading_model"][0],
-    #                                                                 hb_map_rx, cable_loss_tx,
-    #                                                                 self.general_parameters["thermal_noise"][0],
-    #                                                                 bw_rb, noise_figure_rx, self.general_channel_modeling["fast_fading"][0],
-    #                                                                 self.bs_parameters["p_tx"][bs], self.bs_parameters["ax_gain"][bs], ax_gain_rx)
-    #                 if t == 0:
-    #                     overall_d_correlation_map_rx.append(d_correlation_map_rx)
-    #                     overall_hb_map_rx.append(hb_map_rx)
-    #                     overall_jakes_map.append(jakes_map)
-    #                 else:
-    #                     overall_d_correlation_map_rx[i] = d_correlation_map_rx
-    #                     overall_hb_map_rx[i] = hb_map_rx
-    #                     overall_jakes_map[i] = jakes_map
-    #
-    #
-    #                 bler_array, sinr_array = bl.get_channel_curves(self.general_parameters["channel_type"][0])
-    #                 cqi, bler = l2s.get_cqi_bler(sinr_array, bler_array, self.general_parameters["target_bler"][0], ch_outcomes_rx["sinr"])
-    #
-    #                 sinr_txk[t][i] = ch_outcomes_rx["sinr"]
-    #                 cqi_txk[t][i] = cqi
-    #                 bler_txk[t][i] = bler
-    #             metrics_dic_bs["sinr"] = sinr_txk
-    #             metrics_dic_bs["cqi"] = cqi_txk
-    #             metrics_dic_bs["bler"] = bler_txk
-    #         overall_metrics.append(metrics_dic_bs)
-    #
-    #     return overall_metrics
 
 
 

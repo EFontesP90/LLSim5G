@@ -1,3 +1,21 @@
+"""
+File: scenario_definition.py
+
+Purpose:
+This file defines the inputs of the enabled links to compute between the BSs and EDs. It processes the outputs of the
+Scenario class for executing the nested loops over the number of BSs, the simulation time steps and the number uf EDs.
+Its outputs are the main outputs of the simulator (in a dictionary form): SINR, BLER, and CQI for each enabled link
+computation.
+
+
+Author: Ernesto Fontes Pupo / Claudia Carballo González
+Date: 2024-10-30
+Version: 1.0.0
+SPDX-License-Identifier: Apache-2.0
+
+"""
+
+# Third-party imports
 import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
@@ -5,66 +23,6 @@ from matplotlib.animation import FuncAnimation
 from matplotlib.animation import PillowWriter
 
 
-def show_scenario2(grid_xy, number_tbs, number_abs, sim_step, overall_mob_map, tbs_coord_xyz, abs_coord_xyz, video_velocity, save_video, video_format):
-
-    """
-    25/04/2024
-    Method for showing and saving in mp4 and gif the video for representing the defined grid and mobility patterns.
-
-    Required arguments:
-
-      *grid_xy*:
-        Tuple with X and Y size of the recreated grid e.g., (100, 100).
-
-      *number_tbs*:
-        Int with the number of terrestrial-base-stations (tbs).
-
-      *number_abs*:
-        Int with the number of aerial-base-stations (abs).
-
-      *sim_step*:
-        Int with the simulation steps equal to_: int(self.simulation_time / self.simulation_resolution) .
-
-      *overall_mob_map*:
-        A matrix with the x and y coordinates of each user in the grid
-
-      *tbs_coord_xyz*
-        A matrix with the x and y coordinates of each tbs in the grid
-
-      *abs_coord_xyz*
-        A matrix with the x and y coordinates of each abs in the grid
-
-      *video_velocity*
-        A float used to adjust the velocity of the video, by default = 0.1
-    """
-    matplotlib.rcParams['animation.ffmpeg_path'] = "D:\\PostDocTrabajo\\LLS 5G-MBS-BF\\5G-MBS_LLS_NewProject\\scenario\\ffmpeg\\ffmpeg-master-latest-win64-gpl-shared\\bin\\ffmpeg.exe"
-    plt.figure(figsize=(8, 6))
-    plt.xlim(0, grid_xy[0])
-    plt.ylim(0, grid_xy[1])
-    max_xy = max(grid_xy[0], grid_xy[1])
-    ax = plt.subplot(111)
-    line, = ax.plot(range(max_xy), range(max_xy), label="UE", linestyle='', marker='.', markersize=8)
-    if number_tbs > 0: lineTBSs, = ax.plot(range(max_xy), range(max_xy), label="TBS", linestyle='', marker="^", markerfacecolor='black', markersize=12)
-    if number_abs > 0: lineABSs, = ax.plot(range(max_xy), range(max_xy), label="ABS", linestyle='', marker="^", markerfacecolor='black', markersize=7)
-    plt.xlabel(f"{grid_xy[0]} meters", fontsize=20)
-    plt.ylabel(f"{grid_xy[0]} meters", fontsize=20)
-    plt.legend(fontsize=16, title='Simulation Grid', title_fontsize=16, frameon=False, fancybox=True, labelspacing=0,
-               ncol=3, bbox_to_anchor=(0.85, 1.15))
-
-    def update(frame):
-        line.set_data(overall_mob_map[frame][:, 0], overall_mob_map[frame][:, 1])
-        if number_tbs > 0: lineTBSs.set_data(np.array(tbs_coord_xyz)[:, 0], np.array(tbs_coord_xyz)[:, 1])
-        if number_abs > 0: lineABSs.set_data(np.array(abs_coord_xyz)[:, 0], np.array(abs_coord_xyz)[:, 1])
-
-    # Change sim_step to the number of frames in your animation
-    ani = FuncAnimation(plt.gcf(), update, frames=sim_step, interval=video_velocity * 1000, repeat=True)
-
-    if save_video is True and video_format == "gif": ani.save("recreated_scenario.gif")
-    elif save_video is True and video_format == "mp4": ani.save('recreated_scenario.mp4')
-    elif save_video is True and video_format == "Both":
-        ani.save("output/recreated_scenario.gif")
-        ani.save("output/recreated_scenario.mp4")
-    plt.show()
 
 def show_scenario(grid_xy, grid_center_latitude, grid_center_longitude, number_tbs, number_abs, number_sat, number_mg, sub_members, sub_types, sim_step, overall_mob_map, tbs_coord_xyz, abs_coord_xyz, sat_coord_lla, elevation_angle_grid_center, desired_elevation_angle, video_velocity, save_video, video_format):
 
@@ -100,7 +58,7 @@ def show_scenario(grid_xy, grid_center_latitude, grid_center_longitude, number_t
     """
     matplotlib.rcParams['animation.ffmpeg_path'] = "D:\\PostDocTrabajo\\LLS 5G-MBS-BF\\lls_mbs\\scenario\\ffmpeg\\ffmpeg-master-latest-win64-gpl-shared\\bin\\ffmpeg.exe"
     # matplotlib.rcParams['animation.ffmpeg_path'] = "D:\\PostDocTrabajo\\LLS 5G-MBS-BF\\lls_mbs\\scenario\\ffmpeg.exe"
-    plt.figure(figsize=(8, 6))
+    plt.figure(figsize=(10, 7))
     plt.xlim(0, grid_xy[0])
     plt.ylim(0, grid_xy[1])
     max_xy = max(grid_xy[0], grid_xy[1])
@@ -126,25 +84,25 @@ def show_scenario(grid_xy, grid_center_latitude, grid_center_longitude, number_t
 
     if number_sat > 0:
         if number_sat == 1:
-            textstr = f"Sat: Height = {round(sat_coord_lla[0][2], 2)} m, grid elevation angle = {elevation_angle_grid_center[0]}º "
+            textstr = f"Sat: Height = {round(sat_coord_lla[0][2], 2)} m, elevation angle = {round(elevation_angle_grid_center[0], 2)}º "
         if number_sat == 2:
             textstr = '\n'.join((
                 # f"Sat1: {round(sat_coord_lla[0][0], 2)}º, {round(sat_coord_lla[0][1], 2)}º, {round(sat_coord_lla[0][2], 2)} m, elevation angle =  ",
                 # f"Sat2: {round(sat_coord_lla[1][0], 2)}º, {round(sat_coord_lla[1][1], 2)}º, {round(sat_coord_lla[1][2], 2)} m "))
-                f"Sat1: Height = {round(sat_coord_lla[0][2], 2)} m, grid elevation angle = {elevation_angle_grid_center[0]}º ",
-                f"Sat2: Height = {round(sat_coord_lla[1][2], 2)} m, grid elevation angle = {elevation_angle_grid_center[1]}º "))
+                f"Sat1: Height = {round(sat_coord_lla[0][2], 2)} m, elevation angle = {elevation_angle_grid_center[0]}º ",
+                f"Sat2: Height = {round(sat_coord_lla[1][2], 2)} m, elevation angle = {elevation_angle_grid_center[1]}º "))
         if number_sat == 3:
             textstr = '\n'.join((
 
-                f"Sat1: Height = {round(sat_coord_lla[0][2], 2)} m, grid elevation angle = {elevation_angle_grid_center[0]}º ",
-                f"Sat2: Height = {round(sat_coord_lla[1][2], 2)} m, grid elevation angle = {elevation_angle_grid_center[1]}º ",
-                f"Sat3: Height = {round(sat_coord_lla[2][2], 2)} m, grid elevation angle = {elevation_angle_grid_center[2]}º "))
+                f"Sat1: Height = {round(sat_coord_lla[0][2], 2)} m, elevation angle = {elevation_angle_grid_center[0]}º ",
+                f"Sat2: Height = {round(sat_coord_lla[1][2], 2)} m, elevation angle = {elevation_angle_grid_center[1]}º ",
+                f"Sat3: Height = {round(sat_coord_lla[2][2], 2)} m, elevation angle = {elevation_angle_grid_center[2]}º "))
         if number_sat > 3:
             textstr = '\n'.join((
 
-                f"Sat1: Height = {round(sat_coord_lla[0][2], 2)} m, grid elevation angle = {elevation_angle_grid_center[0]}º ",
-                f"Sat2: Height = {round(sat_coord_lla[1][2], 2)} m, grid elevation angle = {elevation_angle_grid_center[1]}º ",
-                f"Sat3: Height = {round(sat_coord_lla[2][2], 2)} m, grid elevation angle = {elevation_angle_grid_center[2]}º ",
+                f"Sat1: Height = {round(sat_coord_lla[0][2], 2)} m, elevation angle = {elevation_angle_grid_center[0]}º ",
+                f"Sat2: Height = {round(sat_coord_lla[1][2], 2)} m, elevation angle = {elevation_angle_grid_center[1]}º ",
+                f"Sat3: Height = {round(sat_coord_lla[2][2], 2)} m, elevation angle = {elevation_angle_grid_center[2]}º ",
                 f"..."))
 
 
@@ -156,8 +114,10 @@ def show_scenario(grid_xy, grid_center_latitude, grid_center_longitude, number_t
 
     plt.xlabel(f"{grid_xy[0]} meters \n Grid center: lat = {round(grid_center_latitude, 2)}º, log = {round(grid_center_longitude, 2)}º", fontsize=20)
     plt.ylabel(f"{grid_xy[0]} meters", fontsize=20)
-    plt.legend(fontsize=16, title='Simulation Grid', title_fontsize=16, frameon=False, fancybox=True, labelspacing=0,
-               ncol=3, bbox_to_anchor=(0.85, 1.15))
+    plt.title("Simulation Grid", fontsize=16)
+    plt.legend(fontsize=14, title='Legend', title_fontsize=14, loc="center left", bbox_to_anchor=(1, 0.5), ncol=1, frameon=False, fancybox=True)
+
+    plt.tight_layout(rect=[0, 0, 0.99, 1])  # Reserve space on the right for the legend
 
     def update(frame):
 
@@ -186,65 +146,4 @@ def show_scenario(grid_xy, grid_center_latitude, grid_center_longitude, number_t
     plt.show()
 
 # Old version
-def show_scenario_two(grid_xy, number_tbs, number_abs, sim_step, overall_mob_map, tbs_coord_xyz, abs_coord_xyz, video_velocity):
-
-    """
-    25/04/2024
-    Method for showing the scenario video. This implementation do not allow to save the video.
-    The solution is based on plt.ion(), and plt.pause().
-
-    Required arguments:
-
-      *grid_xy*:
-        Tuple with X and Y size of the recreated grid e.g., (100, 100).
-
-      *number_tbs*:
-        Int with the number of terrestrial-base-stations (tbs).
-
-      *number_abs*:
-        Int with the number of aerial-base-stations (abs).
-
-      *sim_step*:
-        Int with the simulation steps equal to_: int(self.simulation_time / self.simulation_resolution) .
-
-      *overall_mob_map*:
-        A matrix with the x and y coordinates of each user in the grid
-
-      *tbs_coord_xyz*
-        A matrix with the x and y coordinates of each tbs in the grid
-
-      *abs_coord_xyz*
-        A matrix with the x and y coordinates of each abs in the grid
-
-      *video_velocity*
-        A float used to adjust the velocity of the video, by default = 0.1
-    """
-
-    ############## For showing the mobility pattern####################
-    plt.figure(figsize=(8, 6))
-    plt.ion()
-    ax = plt.subplot(111)
-    line, = ax.plot(range(grid_xy[0]), range(grid_xy[0]), label="UE", linestyle='', marker='.', markersize=8)
-    if number_tbs > 0:
-        lineTBSs, = ax.plot(range(grid_xy[0]), range(grid_xy[0]), label="TBS", linestyle='', marker="^",
-                            markerfacecolor='black', markersize=12)
-    if number_abs > 0:
-        lineABSs, = ax.plot(range(grid_xy[0]), range(grid_xy[0]), label="ABS", linestyle='', marker="^",
-                            markerfacecolor='black', markersize=7)
-    plt.xlabel(r'$\ X(m)$', fontsize=20)
-    plt.ylabel(r'$\ Y(m)$', fontsize=20)
-    # plt.title(" Simulation Grid ", fontsize=20)
-    plt.legend(fontsize=16, title='Simulation Grid', title_fontsize=16, frameon=False, fancybox=True, labelspacing=0,
-               ncol=3, bbox_to_anchor=(0.85, 1.14))
-    plt.plot()
-
-    for t in range(sim_step):
-            line.set_data(overall_mob_map[t][:, 0], overall_mob_map[t][:, 1])
-            if number_tbs > 0:
-                lineTBSs.set_data(np.array(tbs_coord_xyz)[:, 0], np.array(tbs_coord_xyz)[:, 1])
-            if number_abs > 0:
-                lineABSs.set_data(np.array(abs_coord_xyz)[:, 0], np.array(abs_coord_xyz)[:, 1])
-            plt.pause(video_velocity)
-
-    return number_tbs
 
