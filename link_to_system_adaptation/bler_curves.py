@@ -1,10 +1,29 @@
-import numpy as np
 
+"""
+File: bler_curves.py
+
+Purpose:
+Definition of the Bler vs SINR curves used for the lonk to system adaptation. The used data is originally from Simu5G.
+Simu5G - 5G NR and LTE/LTE-A user-plane simulation model for OMNeT++ & INET
+https://simu5g.org/
+
+GNU LESSER GENERAL PUBLIC LICENSE
+   Version 3, 29 June 2007
+
+"""
+
+
+
+# Third-party imports
+import numpy as np
 
 class Bler_vs_Sinr_curves(object):
     """
     07/05/2024
     Bler vs SINR curves for the AWGN chanel and the real channel implemented in simu5G omnet++.
+
+   GNU LESSER GENERAL PUBLIC LICENSE
+       Version 3, 29 June 2007
 
     Required attributes: (channel_type)
 

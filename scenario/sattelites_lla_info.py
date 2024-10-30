@@ -1,3 +1,36 @@
+"""
+File: show.py
+
+Purpose:
+This file defines the methods for converting from and to: LLA (Latitude, Longitude, Altitude) and ECEF (Earth-Centered,
+Earth-Fixed) and the satellite elevation angle.
+----------------------------------
+LLA
+Latitude: Angle between the equator and the point (North-South position).
+Longitude: Angle between the Prime Meridian (Greenwich) and the point (East-West position).
+Altitude: Height above a reference ellipsoid or sea level.
+This system is intuitive and user-friendly, as it directly represents points on the Earth’s surface in geographic terms.
+
+ECEF
+In ECEF, coordinates are represented as X, Y, and Z values in a 3D Cartesian coordinate system.
+Origin: The center of the Earth.
+Axes:
+The X-axis points towards the intersection of the equator and Prime Meridian (0° longitude).
+The Y-axis points towards the intersection of the equator and 90°E longitude.
+The Z-axis points towards the North Pole.
+
+ECEF coordinates are fixed relative to the Earth, so as it rotates, the coordinates rotate with it.
+This makes ECEF useful for calculations that involve Earth’s rotational dynamics or high-precision navigation systems.
+----------------------------------
+
+Author: Ernesto Fontes Pupo / Claudia Carballo González
+Date: 2024-10-30
+Version: 1.0.0
+SPDX-License-Identifier: Apache-2.0
+
+"""
+
+# Third-party imports
 import numpy as np
 
 # Constants

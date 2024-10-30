@@ -1,12 +1,34 @@
+"""
+File: link_to_system.py
+
+Purpose:
+This file defines the functions for executing the link to system adaptation and getting the CQI from the SINR and
+the target BLER.
+
+
+Author: Ernesto Fontes Pupo / Claudia Carballo González
+Date: 2024-10-30
+Version: 1.0.0
+SPDX-License-Identifier: Apache-2.0
+
+"""
+
 import numpy as np
 
 
 class L2S(object):
     """
     07/05/2024
-    Bler vs SINR curves for the AWGN chanel and the real channel implemented in simu5G omnet++.
+    This Class defines the methods for executing the link to system adaptation and getting the CQI from the SINR and
+    the target BLER.
 
-    Required attributes: (channel_type)
+    Required attributes: (sinr_array, bler_array, target_bler, sinr)
+
+    Returns (over the functions: get_cqi_bler, get_bler, get_sinr_min_target_bler, get_sinr_max_target_bler ):
+        cqi: Chanel Quality Information corresponding to a specific SINR and BLER
+        bler: bock error rate for and specific CQI and SINR
+        sinr_min: Minimum SINR value for a specific CQI according to a defined BLER target.
+        sinr_max: Maximum SINR value for a specific CQI according to a defined BLER target.
 
     """
 

@@ -1,11 +1,9 @@
 """
-File: scenario_definition.py
+File: show.py
 
 Purpose:
-This file defines the inputs of the enabled links to compute between the BSs and EDs. It processes the outputs of the
-Scenario class for executing the nested loops over the number of BSs, the simulation time steps and the number uf EDs.
-Its outputs are the main outputs of the simulator (in a dictionary form): SINR, BLER, and CQI for each enabled link
-computation.
+This file defines the methods for showing and saving in mp4 and gif the video of the defined grid components
+and mobility patterns.
 
 
 Author: Ernesto Fontes Pupo / Claudia Carballo González

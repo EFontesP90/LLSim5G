@@ -17,6 +17,8 @@ Pupo, Ernesto Fontes, Claudia Carballo González, Eneko Iradier, Jon Montalban, 
 - [Contributing](#contributing)
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
+- [References](#acknowledgements)
+
 
 ## Installation
 
@@ -75,3 +77,7 @@ For any questions or issues, please contact [Your Email](mailto:your-email@examp
 # Acknowledgements
 
 Credits and acknowledgements for resources, libraries, inspiration, etc.
+
+## References
+
+G. Nardini, D. Sabella, G. Stea, P. Thakkar, A. Virdis, "Simu5G – An OMNeT++ Library for End-to-End Performance Evaluation of 5G Networks," in IEEE Access, vol. 8, pp. 181176-181191, 2020, doi: 10.1109/ACCESS.2020.3028550.
