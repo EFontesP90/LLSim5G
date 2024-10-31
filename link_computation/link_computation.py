@@ -56,7 +56,7 @@ class Link_computation(object):
     (bs_parameters, general_channel_modeling, sub_groups_parameters, general_parameters, df_x, df_y,
                  df_z, time_map, grid_lla, grid_xy):
 
-    Returns (link_computation_bs2d_dl, link_computation_bs2d_ul, link_computation_d2d ):
+    Outputs (link_computation_bs2d_dl, link_computation_bs2d_ul, link_computation_d2d ):
         metrics_dic_bs_dl: Dictionary with the SINR, BLER, and CQI for the downlink of each BS (TN/NTN) regarding each ED.
         metrics_dic_d2d: Dictionary with the SINR, BLER, and CQI among the EDs that has enabled the D2D communication.
         metrics_dic_bs_ul: Dictionary with the SINR, BLER, and CQI for the uplink of each BS (TN/NTN) regarding each ED.

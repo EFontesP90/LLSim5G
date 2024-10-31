@@ -108,7 +108,7 @@ if __name__ == "__main__":
                                       [50, 50, 25, "tbs", "UMa", "three_sectors", "dual", "E", "B", 28, 2, 1, 20, 20, 2, 7, 15, None],
                                       [75, 75, 10, "tbs", "UMi", "three_sectors", "dual", "D", "A", 28, 2, 1, 10, 10, 2, 7, 15, None],
                                       [25, 25, 10, "tbs", "UMi", "three_sectors", "dual", "D", "A", 28, 2, 1, 10, 10, 2, 7, 15, None],
-                                      [39.2337738, 9.12153844, 50000, "sat", "HAPS", "Sat_ax", "dual", "C_ntn", "A_ntn", 2, 2, 50, 36, 30, 2, 7, None, 65],
+                                      [39.2337738, 9.12153844, 50000, "sat", "HAPS", "Sat_ax", "dual", "C_ntn", "A_ntn", 2, 2, 50, 36, 30, 2, 7, None, 85],
                                       # [39.2137738, 9.1153844, 50000, "sat", "HAPS", "Sat_ax", "dual", "C_ntn", "A_ntn", 2, 2, 50, 36, 30, 2, 7, None, 90],
                                       ])
         # fast_fading_los_type: TN_los: "D", "E"; NTN: "C_ntn", "D_ntn"

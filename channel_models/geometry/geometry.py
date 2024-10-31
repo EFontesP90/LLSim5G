@@ -1,3 +1,21 @@
+"""
+File: geometry.py
+
+Purpose:
+This file allows computing for a pair rx (receiver, e.g., user equipment) and tx (transmitter, e.g.,
+tbs, abs, or d2d possible forwarding user) their two/three-dimensional distance, their horizontal and vertical angle,
+and their relative speeds. In the case of the horizontal angle, the angle computation is implemented for a transmitter
+with three symmetric sectors of 120 degrees or four sectors of four symmetric sectors of 90 degrees. In the case of
+d2d communication, the antenna pattern is assumed to be omnidirectional.
+
+Author: Ernesto Fontes Pupo / Claudia Carballo González
+Date: 2024-10-30
+Version: 1.0.0
+SPDX-License-Identifier: Apache-2.0
+
+"""
+
+# Third-party imports
 import math as ma
 import numpy as np
 
@@ -8,12 +26,23 @@ class Geometry(object):
     06/05/2024
     The class Geometry allows us to compute for a pair rx (receiver, e.g., user equipment) and tx (transmitter, e.g.,
     tbs, abs, or d2d possible forwarding user) their two/three-dimensional distance, their horizontal and vertical angle,
-    and their relative speeds. In the case of the horizontal angle,  the angle computation is implemented for a transmitter
+    and their relative speeds. In the case of the horizontal angle, the angle computation is implemented for a transmitter
     with three symmetric sectors of 120 degrees or four sectors of four symmetric sectors of 90 degrees. In the case of
     d2d communication, the antenna pattern is assumed to be omnidirectional.
 
     Required attributes:
-    (rx_coord, tx_coord,  rx_coord_old, tx_coord_old, t_now, t_old):
+    (tx_antenna_mode, rx_coord, tx_coord, rx_coord_old, tx_coord_old, t_now, t_old):
+
+    Outputs (geometry):
+    d_2d: Two dimensional distance between the tx and rx.
+    d_3d: Three dimensional distance between the tx and rx.
+    speed_rx: Speed of the rx regarding the time interval from t-1 (t_old) to t (t_now).
+    speed_tx: Speed of the tx regarding the time interval from t-1 (t_old) to t (t_now).
+    h_angle: Horizontal angle between the tx and the rx.
+    v_angle: Vertical angle between the tx and the rx.
+    ds_angle: Doppler shift angle between the tx and rx. The Doppler shift depends on the angle between the direction of
+     movement of the source/receiver and the line of sight.
+
     """
 
     def __init__(self, tx_antenna_mode, rx_coord, tx_coord,  rx_coord_old, tx_coord_old, t_now, t_old):
