@@ -1,10 +1,27 @@
-import math as ma
+"""
+File: channel_model_tr_38_901.py
 
+Purpose:
+This file comprises a terrestrial network (TN) Channel model fully implementation according to 3gpp tr-38-901. For a pair tx (e.g., tbs, abs, or
+d2d possible forwarding user) and rx (e.g., user equipment), our implementation computes the o2i probability,
+o2i losses, los probability, hb probability and losses, shadowing fading, the angular attenuation, the path loss,
+the fast fading attenuation and finally the resulting SINR.
+
+Author: Ernesto Fontes Pupo / Claudia Carballo González
+Date: 2024-10-30
+Version: 1.0.0
+SPDX-License-Identifier: Apache-2.0
+
+"""
+
+# Third-party imports
+import math as ma
 import numpy as np
 from numpy import random
 from numpy.random import normal
 from scipy.stats import lognorm
 
+# Local application/library-specific imports
 import channel_models.ff_model_jakes as jakes
 from channel_models import path_loss_models_a2g as pl_a2g
 from channel_models import path_loss_models_tr_38_901 as pl_tn
@@ -18,13 +35,30 @@ from link_to_system_adaptation import link_to_system as l2s
 class Ch_tr_138_901(object):
     """
     14/05/2024
-    Channel implementation according to 3gpp tr-38-901.
+    Channel model fully implementation according to 3gpp tr-38-901. For a pair tx (e.g., tbs, abs, or d2d possible
+    forwarding user) and rx (e.g., user equipment), our implementation computes the o2i probability,
+    o2i losses, los probability, hb probability and losses, shadowing fading, the angular attenuation, the path loss,
+    the fast fading attenuation and finally the resulting SINR.
 
     Required attributes:
     (channel_model, tx_antenna_mode, shadowing, dynamic_los, dynamic_hb, outdoor_to_indoor, inside_what_o2i, penetration_loss_model,
                  d_2d, d_3d, h_rx, h_tx, h_ceiling, block_density, fc, d_correlation_map_rx, t_now, t_old,
-                 speed_rx, rx_coord, h_angle, v_angle, v_tilt, n_rb, jakes_map, fast_fading_model, hb_map_rx,
-                 cable_loss_tx, thermal_noise, bw_rb, rx_noise_figure, fast_fading, tx_power, antenna_gain_tx, antenna_gain_rx):
+                 speed_rx, speed_tx, rx_coord, tx_coord, h_angle, v_angle, ds_angle, v_tilt, n_rb, jakes_map, fast_fading_model, hb_map_rx,
+                 cable_loss_tx, thermal_noise, bw_rb, rx_noise_figure, fast_fading, tx_power, antenna_gain_tx, antenna_gain_rx,
+                 atmospheric_absorption, desired_delay_spread, fast_fading_los_type, fast_fading_nlos_type, num_rx_ax, num_tx_ax,
+                 rng, rx_antenna_mode, ax_panel_polarization):
+
+    Outputs (get_ch_tr_38_901):
+    ch_outcomes_rx: Dictionary with the main channel outputs: {"t": d_correlation_map_rx["t"], "x": d_correlation_map_rx["x"],
+    "y": d_correlation_map_rx["y"], "o2i": d_correlation_map_rx["o2i"], "los": d_correlation_map_rx["los"],
+    "o2i_loss": d_correlation_map_rx["o2i_loss"], "shadowing": d_correlation_map_rx["shadowing"], "path_loss": path_loss,
+    "angle_att": angle_att, "hb_attenuation": hb_attenuation, "fast_fading_att": round(np.mean(fast_fading_att), 2),
+    "sinr": sinr}
+    d_correlation_map_rx: Matrix for tracking the muvement of each rx and cheking the correlation distance over time.
+    hb_map_rx: Mapping for tracking if a user is in hb conditions from t-1 (t_old) to t (t_now).
+    jakes_map: Matrix for storing the multipath components from t-1 (t_old) to t (t_now) avoiding abrupt changes in the
+    resulting fast-fading attenuation.
+
 
     """
 

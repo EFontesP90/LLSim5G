@@ -91,7 +91,7 @@ if __name__ == "__main__":
         general_parameters = pd.DataFrame(
             [[
                 -174,  # "thermal_noise". The value -174 dBm/Hz is commonly used to represent the thermal noise power spectral density at room temperature (approximately 290K).
-                10,  # "h_ceiling". Considered height of the buildings (in m) for O2I penetration losses computation. Default value: 10 m. TODO make an internal variable
+                10,  # "h_ceiling". Considered height of the buildings (in m). This is only used for InF link modes, and must be equal or lower than 10 meters.
                 0.2,  # "block_density". Human block density, valid when "dynamic_hb" is True. block_density = 1, means that if "dynamic_hb" is True always will be considered hb prenetration attenuation. block_density = 0, means =mpropbability of HB.
                 "real",  # "channel_type": ("real", "awgn"). Used for the link to sstem adaptation proccess and computing the users CQI feedback or using the real BLER (Block Error Rate) curves or the AWGN curves. When FF and Shadowing is considered the chanel type must be always real.
                 0.1  # "target_bler": typical values (0.1, 0.01). Is the target bler for selecting the CQI of the user.

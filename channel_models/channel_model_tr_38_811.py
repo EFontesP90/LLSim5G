@@ -1,3 +1,20 @@
+"""
+File: channel_model_tr_38_811.py
+
+Purpose:
+This file comprises the non-terrestrial network (NTN) Channel model fully implementation according to 3gpp tr-38-811.
+For a pair tx (a Satellite) and rx (e.g., user equipment), our implementation computes the o2i probability,
+o2i losses, los probability, shadowing fading, the angular attenuation, the atmospheric absorption, the path loss,
+the fast-fading attenuation and finally the resulting SINR.
+
+Author: Ernesto Fontes Pupo / Claudia Carballo González
+Date: 2024-10-30
+Version: 1.0.0
+SPDX-License-Identifier: Apache-2.0
+
+"""
+
+
 import math as ma
 
 import numpy as np
@@ -15,10 +32,38 @@ from channel_models.ff_models_tr_38_901and811 import cdl_models as cdl
 class Ch_tr_38_811(object):
     """
     14/05/2024
-    Channel implementation according to 3gpp tr-38-811.
+    Non-terrestrial network (NTN) Channel model fully implementation according to 3gpp tr-38-811.
+    For a pair tx (a Satellite) and rx (e.g., user equipment), our implementation computes the o2i probability,
+    o2i losses, los probability, shadowing fading, the angular attenuation, the atmospheric absorption, the path loss,
+    the fast-fading attenuation and finally the resulting SINR.
 
     Required attributes:
-    ():
+    (t_now, t_old, speed_rx, speed_tx, ds_angle,  rx_coord, tx_coord, channel_model, rx_scenario, tx_antenna_mode, dynamic_los,
+     elevation_angle, d_sat, h_sat, fc, f_band_rx, outdoor_to_indoor, inside_what, penetration_loss_model,
+     d_correlation_map_rx, shadowing, n_rb, jakes_map, fast_fading_model,
+     cable_loss_tx, thermal_noise, bw_rb, rx_noise_figure, fast_fading, tx_power, antenna_gain_tx,
+     antenna_gain_rx, atmospheric_absorption, desired_delay_spread, fast_fading_los_type, fast_fading_nlos_type, num_rx_ax, num_tx_ax,
+     rng, rx_antenna_mode, ax_panel_polarization):
+
+    Outputs (get_ch_tr_38_811):
+    ch_outcomes_rx: Dictionary with the main channel outputs: {"t": d_correlation_map_rx["t"],
+                      "x": d_correlation_map_rx["x"],
+                      "y": d_correlation_map_rx["y"],
+                      "elevation_angle": elevation_angle,
+                      "d_3d": d_sat,
+                      "o2i": d_correlation_map_rx["o2i"],
+                      "los": d_correlation_map_rx["los"],
+                      "o2i_loss": d_correlation_map_rx["o2i_loss"],
+                      "shadowing": d_correlation_map_rx["shadowing"],
+                      "path_loss": path_loss,
+                      "angle_att": angle_att,
+                      "atmos_att": atmos_att,
+                      "fast_fading_att": round(np.mean(fast_fading_att), 2),
+                      "sinr": sinr
+                      }
+    d_correlation_map_rx: Matrix for tracking the movement of each rx and checking the correlation distance over time.
+    jakes_map: Matrix for storing the multipath components from t-1 (t_old) to t (t_now) avoiding abrupt changes in the
+    resulting fast-fading attenuation.
 
     """
 
