@@ -1,7 +1,21 @@
+"""
+File: channel_model_tr_38_901.py
+
+Purpose:
+This file comprises the Spectroscopic data for oxygen attenuation and for water vapor attenuation.
+
+Author: Ernesto Fontes Pupo / Claudia Carballo González
+Date: 2024-10-30
+Version: 1.0.0
+SPDX-License-Identifier: Apache-2.0
+
+"""
+
+# Third-party imports
 import numpy as np
 
 
-# Rec.  ITU-R  P.676-13, TABLE 1
+# Rec.  ITU-R P.676-13, TABLE 1
 # Spectroscopic data for oxygen attenuation
 # f0, a1, a2, a3, a4, a5, a6, a7
 # ....

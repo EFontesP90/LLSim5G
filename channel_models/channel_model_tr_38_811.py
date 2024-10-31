@@ -14,15 +14,15 @@ SPDX-License-Identifier: Apache-2.0
 
 """
 
-
+# Third-party imports
 import math as ma
-
 import numpy as np
 from numpy import random
 from numpy.random import normal
 from scipy.stats import norm
 from scipy.special import jn
 
+# Local application/library-specific imports
 from channel_models import path_loss_models_tr_38_811 as pl_ntn
 import channel_models.spectroscopic_data as sd
 import channel_models.ff_model_jakes as jakes

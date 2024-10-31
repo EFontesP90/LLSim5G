@@ -1,13 +1,33 @@
+"""
+File: path_loss_models_a2g.py
+
+Purpose:
+This file comprises the Path loss computation for A2G link model used between abs (UAV acting as a BSs) and EDs, s.t.
+Khawaja, W., Guvenc, I., Matolak, D. W., Fiebig, U. C., & Schneckenburger, N. (2019). A survey of air-to-ground
+propagation channel modeling for unmanned aerial vehicles. IEEE Communications Surveys & Tutorials, 21(3), 2361-2391.
+
+Author: Ernesto Fontes Pupo / Claudia Carballo González
+Date: 2024-10-30
+Version: 1.0.0
+SPDX-License-Identifier: Apache-2.0
+
+"""
+
+# Third-party imports
 import math as ma
 
 class A2G_path_loss(object):
     """
     07/05/2024
-    Path loss computation for A2G link model s.t. TODO: Add reference.
-    3
+    Path loss computation for A2G link model s.t.
+    Khawaja, W., Guvenc, I., Matolak, D. W., Fiebig, U. C., & Schneckenburger, N. (2019). A survey of air-to-ground
+    propagation channel modeling for unmanned aerial vehicles. IEEE Communications Surveys & Tutorials, 21(3), 2361-2391.
 
     Required attributes:
-    (d_2d, d_3d, h_rx, h_tx, fc, los):
+    (d_2d, d_3d, h_rx, h_tx, fc, los)
+
+    Output(a2g_path_loss)
+    path_loss
     """
 
     def __init__(self, d_2d, d_3d, h_rx, h_tx, fc, los):

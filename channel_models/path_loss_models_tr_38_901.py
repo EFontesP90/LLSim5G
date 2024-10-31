@@ -1,6 +1,20 @@
+"""
+File: channel_model_tr_38_901.py
+
+Purpose:
+This file comprises the Path loss computation s.t. Table 7.4.1-1: Pathloss models,
+3GPP TR 38.901 version 16.1.0 Release 16.
+
+Author: Ernesto Fontes Pupo / Claudia Carballo González
+Date: 2024-10-30
+Version: 1.0.0
+SPDX-License-Identifier: Apache-2.0
+
+"""
+
+# Third-party imports
 import math as ma
 import warnings
-
 import numpy as np
 from numpy import random
 
@@ -13,6 +27,10 @@ class UMa_path_loss(object):
 
     Required attributes:
     (d_2d, d_3d, h_rx, h_tx, fc, los):
+
+    Output(uma_path_loss)
+    path_loss
+
     """
 
     def __init__(self, d_2d, d_3d, h_rx, h_tx, fc, los):
@@ -81,6 +99,8 @@ class UMi_path_loss(object):
 
     Required attributes:
     (d_2d, d_3d, h_rx, h_tx, fc, los):
+
+
     """
 
     def __init__(self, d_2d, d_3d, h_rx, h_tx, fc, los):

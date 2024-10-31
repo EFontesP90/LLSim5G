@@ -1,9 +1,26 @@
-import math as ma
+"""
+File: ff_model_jakes.py
 
+Purpose:
+This file comprises the Jakes fast fading model (as implemented in Simu5G OmNet++) s.t.
+P. Dent, G. E. Bottomley, and T. Croft, “Jakes fading model revisited,”
+Electronics letters, vol. 13, no. 29, pp. 1162–1163, 1993.
+
+Author: Ernesto Fontes Pupo / Claudia Carballo González
+Date: 2024-10-30
+Version: 1.0.0
+SPDX-License-Identifier: Apache-2.0
+
+"""
+
+
+# Third-party imports
+import math as ma
 import numpy as np
 from numpy import random
 from numpy.random import exponential
 
+# Local application/library-specific imports
 import channel_models.ff_models_tr_38_901and811.cdl_matrixs as cdl_ma
 
 
@@ -27,7 +44,14 @@ class Jakes_channel():
     Electronics letters, vol. 13, no. 29, pp. 1162–1163, 1993.
 
     Required attributes:
-    (rx_speed, t_now, rb, n_rb, fc, jakes_map):
+    (ds_angle, rx_speed, tx_speed, t_now, n_rb, fc, jakes_map, desired_delay_spread, atmospheric_absorption,
+     channel_model, los, o2i, d_3d, h_sat, v_angle):
+
+    Outputs (jakes_channel):
+    fast_fading_att: Fast fading attenuation in dB and for each resource block.
+    jakes_map: Matrix for storing the multipath components from t-1 (t_old) to t (t_now) avoiding abrupt changes in the
+    resulting fast-fading attenuation.
+
     """
 
     def __init__(self, ds_angle, rx_speed, tx_speed, t_now, n_rb, fc, jakes_map, desired_delay_spread, atmospheric_absorption,
