@@ -3,7 +3,7 @@ File: main.py
 
 Purpose:
 Project main file. In this file are set the Link-level-Simulator-Variables (LLS) for configuring the desired
-simulation scenario, conditions and outputs.
+simulation scenario, conditions, and outputs.
 
 Author: Ernesto Fontes Pupo / Claudia Carballo González
 Date: 2024-10-30
