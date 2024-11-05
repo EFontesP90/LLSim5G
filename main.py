@@ -57,10 +57,10 @@ if __name__ == "__main__":
                 False,  # "uplink". To enable the uplink computation from the EDs to the BSs. TODO, it's not enabled between the EDs and the non-terrestrial networks (NTNs).
                 False,  # "d2d_link". To enable the device-to-device (D2D) link computation among EDs.
                 True,  # "ntn_link". To enable the link computation between the available non-terrestrial networks (NTN) (e.g., LEO, MEO, HAPS) and the EDs.
-                False,  # "save_scenario_xlsx". To save (./output/scenario/) as .xlsx the simulated scenario. It means the coordinate x, y and z of each EDs or BSs, or the latitude, longitude, altitude (LLA) of the NTNs.
-                False,  # "save_metrics_xlsx". To save (./output/metrics/) as .xlsx the resulting LLS outputs: SINR, CQI, BLER, among each ED and each BS (TN/NTN), or EDs for D2D communications.
+                True,  # "save_scenario_xlsx". To save (./output/scenario/) as .xlsx the simulated scenario. It means the coordinate x, y and z of each EDs or BSs, or the latitude, longitude, altitude (LLA) of the NTNs.
+                True,  # "save_metrics_xlsx". To save (./output/metrics/) as .xlsx the resulting LLS outputs: SINR, CQI, BLER, among each ED and each BS (TN/NTN), or EDs for D2D communications.
                 True,  # "show_video". Boolean to enable or disable the simulation video display regarding the grid and the configured BSs and EDs with their mobility behaviour. (The link computation is executed after we closed the video).
-                False,  # "save_video". Boolean to enable saving the video file.
+                True,  # "save_video". Boolean to enable saving the video file.
                 "gif",  # "video_format". ("mp4", "gif", "Both"), At the moment the video format (in the general_simulation_parameters input dataframe) can be just saved as .gif format
                 0.1,  # "video_velocity". Float variable for modifying the video velocity. Default value: 0.1.
                 True,  # "print_scenario_outputs". Boolean for enable printing the scenario output. It means the coordinate x, y and z of each EDs or BSs, or the LLA of the NTNs.
