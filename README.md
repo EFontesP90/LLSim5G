@@ -1,37 +1,37 @@
 # LLSim5G
 
-If you are looking for implementing personalized link level simulations of a heterogeneous 5G network and assess the
+If you are looking to implement personalized link-level simulations of a heterogeneous 5G network and assess the
 performance of your proposed algorithms, this could be a solution, facilitating your upcoming research activities. 
 The LLSim5G is an open-source link-level simulator (LLS) developed in Python to recreate heterogeneous 5G use cases.
 The rationale behind this proposal is being able to tailor a controlled simulated environment where it could coexist
-terrestrial (TN) and non-terrestrial networks (NTN) with multiple concurrent users under diverse mobility behaviors,
+terrestrial networks (TNs) and non-terrestrial networks (NTN) with multiple concurrent users under diverse mobility behaviors,
 reception conditions, and requesting differentiated broadband traffic from the available infrastructure.
 
-The implemented link channel models for TN and NTN are compliant with the 3GPP standards TR 38.901 [REF] and TR 38.811 [REF]
-respectively, for frequencies from 0.5 to 100 GHz. For the NTN use cases, it could be simulated the satellite service link
-from spaceborne or airborne platforms to multiple handheld or IoT end-devices. Regarding TN, the LLSim5G allows recreating 
+The implemented link channel models for TN and NTN comply with the 3GPP standards TR 38.901 [REF] and TR 38.811 [REF],
+respectively, for frequencies from 0.5 to 100 GHz. For the NTN use cases, it could be simulated the satellite service links
+from spaceborne or airborne platforms to multiple handheld or IoT end devices. Regarding TN, the LLSim5G allows recreating 
 all the scenarios defined in TR 38.901, such as Urban Macro (UMa), Urban Micro (UMi), Rural Macro (RMa), Indoor-Office
 (InO) and Indoor-Factory (InF). Moreover, we add the capability of simulating unmanned aerial vehicle (UAV) acting as
 5G base stations (BSs) following the Urban Aerial-to-Ground (UAG) channel model as described in [REF]. In any case, the 
-simulated use case could be a complex three-dimensional (3D) heterogeneous network (HetNet) with multiple TN, NTN and 
-UAV covering the desired service area.
+simulated use case could be a complex three-dimensional (3D) heterogeneous network (HetNet) with multiple TNs, NTNs, and 
+UAVs covering the desired service area.
 
 Regarding the end devices (EDs), their configuration for the link computation is compliant with the 3GPP standards 
-TR 38.901 [REF] and TR 38.811 [REF] and subject to the considered network. The resulting link computation could be 
-subject to (s.t.), if enabled, fast-fading (FF), shadowing fading (SF), atmospheric absorption (AA), lin-of-sight (LOS)
-or non-line-of-sight (NLOS), outdoor-to-indoor (O2I) penetration and human blockage (HB). In the simulation, we can
+TR 38.901 [REF] and TR 38.811 [REF], and subject to the considered network. The resulting link computation could be 
+subject to (s.t.), if enabled, fast-fading (FF), shadowing fading (SF), atmospheric absorption (AA), line-of-sight (LOS)
+or non-line-of-sight (NLOS), outdoor-to-indoor (O2I) penetration, and human blockage (HB). In the simulation, we can
 define multiple (only constrained for the resulting simulation time) EDs freely distributed in the service area, with
-either static or complex mobility behaviours (as described below) and velocities. Among the EDs, we add the capability
+either static or complex mobility behaviors (as described below) and different velocities. Among the EDs, we add the capability
 of bidirectional link computation through device-to-device (D2D) communication (if enabled) with multiple applications
-such as D2D multicasting (D2DM), forwarding devise (FD) selection, or vehicle-to-vehicle (V2V) communication.
+such as D2D multicasting (D2DM), forwarding device (FD) selection, or vehicle-to-vehicle (V2V) communication.
 
-The physical (PHY) link layer of a wireless communication systems is typically simulated through LLSs, mathematically 
-modeling the point-to-point communication of a pair transmitter (Tx) and receiver (Rx) with a detailed link characterization
+The physical (PHY) link layer of a wireless communication system is typically simulated through LLSs, mathematically 
+modeling the point-to-point communication of a paired transmitter (Tx) and receiver (Rx) with a detailed link characterization
 and evaluating metrics such as bit/block error rate (BER/BLER) and signal-to-interference-plus-noise ratio (SINR) (typically
 used as reference inputs to system-level simulators (SLS)) [6]. Multiple research fields take advantage of LLSs for
-advancing filed such as radio resource management, interference management, channel estimation, Multiple-Input
-Multiple-Output (MIMO), and Adaptive Modulation and Coding (AMC) scheme. In such context, the initial version of the
-LLSsim5G could be a useful tool for addressing a variety of open research challenges. 
+advancing fields such as radio resource management, interference management, channel estimation, Multiple-Input
+Multiple-Output (MIMO) and Adaptive Modulation and Coding (AMC) scheme. In such context, the initial version of the
+LLSsim5G could be a useful tool for addressing various open research challenges. 
 
 ## Table of Contents
 
