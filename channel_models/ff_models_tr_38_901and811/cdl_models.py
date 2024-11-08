@@ -1,3 +1,16 @@
+"""
+File: cdl_models.py
+
+Purpose:
+Implementation of the CDL channel as defined in ETSI TR_38.901 v17.0.0.
+
+Authors: Ernesto Fontes Pupo / Claudia Carballo González
+Date: 2024-10-30
+Version: 1.0.0
+SPDX-License-Identifier: Apache-2.0
+
+"""
+
 import numpy as np
 import scipy.signal
 import random

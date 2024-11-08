@@ -1,3 +1,16 @@
+"""
+File: polarized_field_component_copy.py
+
+Purpose:
+TODO
+
+Authors: Ernesto Fontes Pupo / Claudia Carballo González
+Date: 2024-10-30
+Version: 1.0.0
+SPDX-License-Identifier: Apache-2.0
+
+"""
+
 import numpy as np
 
 

@@ -1,3 +1,16 @@
+"""
+File: tdl_matrixs.py
+
+Purpose:
+TODO
+
+Authors: Ernesto Fontes Pupo / Claudia Carballo González
+Date: 2024-10-30
+Version: 1.0.0
+SPDX-License-Identifier: Apache-2.0
+
+"""
+
 import numpy as np
 
 # ETSI TR_38.901 v17.0.0 Table 7.7.2-1to5
