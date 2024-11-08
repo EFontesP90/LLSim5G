@@ -27,7 +27,6 @@ import channel_models.ff_models_tr_38_901and811.cdl_matrixs as cdl_ma
 def linear_to_db(linear):
     return 10*ma.log(linear,10)
 
-
 def db_to_linear(dB):
     return pow(10, dB/10)
 

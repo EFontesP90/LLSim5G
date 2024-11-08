@@ -5,7 +5,6 @@ Purpose:
 This file defines the functions for executing the link to system adaptation and getting the CQI from the SINR and
 the target BLER.
 
-
 Author: Ernesto Fontes Pupo / Claudia Carballo González
 Date: 2024-10-30
 Version: 1.0.0
@@ -18,15 +17,12 @@ import numpy as np
 
 class L2S(object):
     """
-    07/05/2024
-    This Class defines the methods for executing the link to system adaptation and getting the CQI from the SINR and
-    the target BLER.
 
     Required attributes: (sinr_array, bler_array, target_bler, sinr)
 
     Returns (over the functions: get_cqi_bler, get_bler, get_sinr_min_target_bler, get_sinr_max_target_bler ):
-        cqi: Chanel Quality Information corresponding to a specific SINR and BLER
-        bler: bock error rate for and specific CQI and SINR
+        cqi: Channel Quality Indicator corresponding to a specific SINR and BLER
+        bler: block error rate for a specific CQI and SINR
         sinr_min: Minimum SINR value for a specific CQI according to a defined BLER target.
         sinr_max: Maximum SINR value for a specific CQI according to a defined BLER target.
 
@@ -34,8 +30,8 @@ class L2S(object):
 
     def __init__(self, sinr_array, bler_array, target_bler, sinr):
 
-        self.sinr_array = sinr_array  # Numpy array (15x...) with the SINR values corresponding to the respective BLER value for the posible 15 CQI values.
-        self.bler_array = bler_array  # Numpy array (15x...) with the BLER values corresponding to the respective SINR value for the posible 15 CQI values.
+        self.sinr_array = sinr_array  # Numpy array (15x...) with the SINR values corresponding to the respective BLER value for the possible 15 CQI values.
+        self.bler_array = bler_array  # Numpy array (15x...) with the BLER values corresponding to the respective SINR value for the possible 15 CQI values.
         self.target_bler = target_bler  # Defined target bler for an adequate signal demodulation
         self.sinr = sinr  # Actual sinr values experienced by the rx
 

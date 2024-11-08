@@ -3,7 +3,7 @@
 File: bler_curves.py
 
 Purpose:
-Definition of the Bler vs SINR curves used for the lonk to system adaptation. The used data is originally from Simu5G.
+Definition of the Bler vs SINR curves used for the link to system adaptation. The used data is originally from Simu5G.
 Simu5G - 5G NR and LTE/LTE-A user-plane simulation model for OMNeT++ & INET
 https://simu5g.org/
 
@@ -12,19 +12,11 @@ GNU LESSER GENERAL PUBLIC LICENSE
 
 """
 
-
-
 # Third-party imports
 import numpy as np
 
 class Bler_vs_Sinr_curves(object):
     """
-    07/05/2024
-    Bler vs SINR curves for the AWGN chanel and the real channel implemented in simu5G omnet++.
-
-   GNU LESSER GENERAL PUBLIC LICENSE
-       Version 3, 29 June 2007
-
     Required attributes: (channel_type)
 
     """
@@ -169,15 +161,13 @@ class Bler_vs_Sinr_curves(object):
     def real_curves_simu5g(self):
 
         bler = np.array([[
-            1, 1, 0.996, 0.992, 0.968, 0.88, 0.76, 0.564, 0.364, 0.22, 0.084, 0.044, 0.008, 0, 0.00, 0,
-            # penultimo era 0.004 yo lo cambie a cero
+            1, 1, 0.996, 0.992, 0.968, 0.88, 0.76, 0.564, 0.364, 0.22, 0.084, 0.044, 0.008, 0, 0, 0,
         ], [
             1, 1, 1, 0.996, 0.968, 0.928, 0.84, 0.68, 0.42, 0.284, 0.12, 0.076, 0.02, 0.008, 0, 0,
         ], [
             1, 1, 1, 0.992, 0.956, 0.924, 0.752, 0.588, 0.436, 0.3, 0.156, 0.048, 0.032, 0, 0, 0,
         ], [
             1, 1, 1, 0.988, 0.984, 0.9, 0.784, 0.596, 0.432, 0.248, 0.112, 0.072, 0.008, 0.002, 0, 0,
-            # antepenultimo era 0.02 yo lo cambie a 0.002
         ], [
             1, 1, 0.988, 0.996, 0.924, 0.844, 0.724, 0.46, 0.356, 0.208, 0.076, 0.02, 0.008, 0, 0, 0,
         ], [

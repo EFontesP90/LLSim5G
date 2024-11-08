@@ -1,3 +1,16 @@
+"""
+File: outputs_config.py
+
+Purpose:
+This file provides the different configuration outputs according to the defined scenario. TODO: Check and update if necessary!
+
+Author: Ernesto Fontes Pupo / Claudia Carballo González
+Date: 2024-10-30
+Version: 1.0.0
+SPDX-License-Identifier: Apache-2.0
+
+"""
+
 import numpy as np
 import pandas as pd
 # Set display options to show all rows and columns

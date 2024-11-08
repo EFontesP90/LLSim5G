@@ -1,3 +1,16 @@
+"""
+File: general.py
+
+Purpose:
+For general purposes.
+
+Author: Ernesto Fontes Pupo / Claudia Carballo González
+Date: 2024-10-30
+Version: 1.0.0
+SPDX-License-Identifier: Apache-2.0
+
+"""
+
 import numpy as np
 import pandas as pd
 import ast

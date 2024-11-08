@@ -1,12 +1,11 @@
 """
-File: scenario_definition.py
+File: link_computation.py
 
 Purpose:
 This file defines the inputs of the enabled links to compute between the BSs and EDs. It processes the outputs of the
-Scenario class for executing the nested loops over the number of BSs, the simulation time steps and the number uf EDs.
+Scenario class for executing the nested loops over the number of BSs, the simulation time steps and the number of EDs.
 Its outputs are the main outputs of the simulator (in a dictionary form): SINR, BLER, and CQI for each enabled link
 computation.
-
 
 Author: Ernesto Fontes Pupo / Claudia Carballo González
 Date: 2024-10-30
@@ -30,7 +29,7 @@ from link_to_system_adaptation import link_to_system as l2s
 
 
 
-def ColumnName(df):  # para un df sin titulos
+def ColumnName(df):
     name = np.empty([df.shape[1]], dtype=int)  # array of the resulting CQI of the K users respect to the BS and each proximity user in D2D comm
     for i in range(df.shape[1]):
         # name[i] = f"{i}"
@@ -45,12 +44,6 @@ def ColumnName(df):  # para un df sin titulos
 
 class Link_computation(object):
     """
-    25/04/2024
-    The class Link_computation defines the inputs of the enabled links to compute between the BSs and EDs. It processes
-    the outputs of the Scenario class for executing the nested loops over the number of BSs, the simulation time steps
-    and the number uf EDs.
-    Its outputs are the main outputs of the simulator (in a dictionary form): SINR, BLER, and CQI for each enabled link
-    computation.
 
     Required attributes:
     (bs_parameters, general_channel_modeling, sub_groups_parameters, general_parameters, df_x, df_y,
@@ -399,7 +392,7 @@ class Link_computation(object):
         bler_txkxk = np.full(shape, None, dtype=object)
         metrics_dic = {"sinr": None, "cqi": None, "bler": None}
 
-        for ii in range(k):  # loop for the end devises as forwarding devises (fd) regarding the remainder k-1 devices
+        for ii in range(k):  # loop for the end devices as forwarding devices (fd) regarding the remainder k-1 devices
             for s in range(number_sub):
                 if ii <= cumulative_sub_members[s]:
                     type_fd = self.sub_groups_parameters["type"][s]
