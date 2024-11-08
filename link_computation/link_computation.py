@@ -67,7 +67,7 @@ class Link_computation(object):
                  df_z, time_map, grid_lla, grid_xy):
 
         self.bs_parameters = bs_parameters  # [number of bs]x["x", "y", "z", "type", "scenario", "antenna_mode", "fc", "numerology", "n_rb", "p_tx", "ax_gain", "cable_loss", "noise_figure"]
-        self.general_channel_modeling = general_channel_modeling  # 1x["dynamic_los", "dynamic_hb", "o2i", "inside_what_o2i", "penetration_loss_model", "shadowing", "fast_fading", "fast_fading_model"]
+        self.general_channel_modeling = general_channel_modeling  # 1x["dynamic_loss", "dynamic_hb", "o2i", "inside_what_o2i", "penetration_loss_model", "shadowing", "fast_fading", "fast_fading_model"]
         self.sub_groups_parameters = sub_groups_parameters  # [number of defined user subgroups]x["type", "k_sub", "antenna_mode", "p_tx", "ax_gain", "cable_loss", "noise_figure", "d2d", "fixed_height", "grid_size_ratio", "reference_location", "min_max_velocity", "wait_time", "mobility_model", "aggregation", "number_mg_rpg_model", "min_max_height"]
         self.general_parameters = general_parameters  # 1x["thermal_noise", "h_ceiling", "block_density"]
 
@@ -159,7 +159,7 @@ class Link_computation(object):
                                                                         self.bs_parameters["scenario"][bs],
                                                                         self.bs_parameters["antenna_mode"][bs],
                                                                         self.general_channel_modeling["shadowing"][0],
-                                                                        self.general_channel_modeling["dynamic_los"][0],
+                                                                        self.general_channel_modeling["dynamic_loss"][0],
                                                                         self.general_channel_modeling["dynamic_hb"][0],
                                                                         self.general_channel_modeling["o2i"][0],
                                                                         inside_what,
@@ -197,7 +197,7 @@ class Link_computation(object):
                                                                         self.bs_parameters["scenario"][bs],
                                                                         rx_scenario,
                                                                         self.bs_parameters["antenna_mode"][bs],
-                                                                        self.general_channel_modeling["dynamic_los"][0],
+                                                                        self.general_channel_modeling["dynamic_loss"][0],
                                                                         elevation_angle, d_3d, tx_coord[2],
                                                                         self.bs_parameters["fc"][bs], f_band_rx,
                                                                         self.general_channel_modeling["o2i"][0],
@@ -323,7 +323,7 @@ class Link_computation(object):
                                                                     self.bs_parameters["scenario"][bs],
                                                                     self.bs_parameters["antenna_mode"][bs],
                                                                     self.general_channel_modeling["shadowing"][0],
-                                                                    self.general_channel_modeling["dynamic_los"][0],
+                                                                    self.general_channel_modeling["dynamic_loss"][0],
                                                                     self.general_channel_modeling["dynamic_hb"][0],
                                                                     self.general_channel_modeling["o2i"][0],
                                                                     inside_what,
@@ -500,7 +500,7 @@ class Link_computation(object):
                                                                                 scenario,
                                                                                 antenna_mode_fd,
                                                                                 self.general_channel_modeling["shadowing"][0],
-                                                                                self.general_channel_modeling["dynamic_los"][0],
+                                                                                self.general_channel_modeling["dynamic_loss"][0],
                                                                                 self.general_channel_modeling["dynamic_hb"][0],
                                                                                 o2i,
                                                                                 inside_what,

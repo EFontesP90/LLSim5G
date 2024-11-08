@@ -1,9 +1,9 @@
 """
-File: geometry.py
+File: geometry_ntn.py
 
 Purpose:
-This file allows computing for a pair rx (receiver, e.g., user equipment) and tx (transmitter, a Satellite) their
-three-dimensional distance, their elevation angle, their relative speeds and Doppler shift angle.
+The class Geometry_ntn allows computing for a pair rx (receiver, e.g., user equipment) and tx (transmitter, a Satellite) the
+three-dimensional distance, the elevation angle, the relative speeds and Doppler shift angle.
 
 Author: Ernesto Fontes Pupo / Claudia Carballo González
 Date: 2024-10-30
@@ -24,8 +24,6 @@ class Geometry_ntn(object):
 
     """
     06/05/2024
-    The class Geometry_ntn allows computing for a pair rx (receiver, e.g., user equipment) and tx (transmitter, a Satellite) their
-    three-dimensional distance, their elevation angle, their relative speeds and Doppler shift angle.
 
     Required attributes:
     (grid_lla, grid_xy, rx_coord, tx_lla,  rx_coord_old, tx_lla_old, desired_elevation_angle, t_now, t_old):
@@ -36,7 +34,7 @@ class Geometry_ntn(object):
     speed_tx: Speed of the tx regarding the time interval from t-1 (t_old) to t (t_now).
     elevation_angle: Vertical angle between the tx and the rx.
     ds_angle: Doppler shift angle between the tx and rx. The Doppler shift depends on the angle between the direction of
-     movement of the source/receiver and the line of sight.
+    movement of the source/receiver and the line of sight.
 
     """
 
@@ -47,8 +45,8 @@ class Geometry_ntn(object):
         self.rx_coord = rx_coord  # array of 3x1 ([x,y,z]) with coordinates of the rx e.g., [10, 10, 1.5] in meters
         self.tx_lla = tx_lla  # array of 3x1 ([x,y,z]) with coordinates of the tx e.g., [50, 50, 20] in meters
 
-        self.rx_coord_old = rx_coord_old  # array of 3x1 ([x,y,z]) with coordinates of the rx in the time steap (t-1 = t_old) e.g., [15,15,1.5] in meters
-        self.tx_lla_old = tx_lla_old  # array of 3x1 ([x,y,z]) with coordinates of the tx in the time steap (t-1 = t_old) e.g., [50, 50, 20] in meters. It will be used for aerial base stations (abs)
+        self.rx_coord_old = rx_coord_old  # array of 3x1 ([x,y,z]) with coordinates of the rx in the time step (t-1 = t_old) e.g., [15,15,1.5] in meters
+        self.tx_lla_old = tx_lla_old  # array of 3x1 ([x,y,z]) with coordinates of the tx in the time step (t-1 = t_old) e.g., [50, 50, 20] in meters. It will be used for aerial base stations (abs)
 
         self.desired_elevation_angle = desired_elevation_angle  # string with the selected tx antenna mode: omni, three_sectors, four_sectors.
 

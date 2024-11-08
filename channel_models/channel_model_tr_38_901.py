@@ -35,13 +35,9 @@ from link_to_system_adaptation import link_to_system as l2s
 class Ch_tr_138_901(object):
     """
     14/05/2024
-    Channel model fully implementation according to 3gpp tr-38-901. For a pair tx (e.g., tbs, abs, or d2d possible
-    forwarding user) and rx (e.g., user equipment), our implementation computes the o2i probability,
-    o2i losses, los probability, hb probability and losses, shadowing fading, the angular attenuation, the path loss,
-    the fast fading attenuation and finally the resulting SINR.
 
     Required attributes:
-    (channel_model, tx_antenna_mode, shadowing, dynamic_los, dynamic_hb, outdoor_to_indoor, inside_what_o2i, penetration_loss_model,
+    (channel_model, tx_antenna_mode, shadowing, dynamic_loss, dynamic_hb, outdoor_to_indoor, inside_what_o2i, penetration_loss_model,
                  d_2d, d_3d, h_rx, h_tx, h_ceiling, block_density, fc, d_correlation_map_rx, t_now, t_old,
                  speed_rx, speed_tx, rx_coord, tx_coord, h_angle, v_angle, ds_angle, v_tilt, n_rb, jakes_map, fast_fading_model, hb_map_rx,
                  cable_loss_tx, thermal_noise, bw_rb, rx_noise_figure, fast_fading, tx_power, antenna_gain_tx, antenna_gain_rx,
@@ -54,7 +50,7 @@ class Ch_tr_138_901(object):
     "o2i_loss": d_correlation_map_rx["o2i_loss"], "shadowing": d_correlation_map_rx["shadowing"], "path_loss": path_loss,
     "angle_att": angle_att, "hb_attenuation": hb_attenuation, "fast_fading_att": round(np.mean(fast_fading_att), 2),
     "sinr": sinr}
-    d_correlation_map_rx: Matrix for tracking the muvement of each rx and cheking the correlation distance over time.
+    d_correlation_map_rx: Matrix for tracking the movement of each rx and checking the correlation distance over time.
     hb_map_rx: Mapping for tracking if a user is in hb conditions from t-1 (t_old) to t (t_now).
     jakes_map: Matrix for storing the multipath components from t-1 (t_old) to t (t_now) avoiding abrupt changes in the
     resulting fast-fading attenuation.
@@ -62,7 +58,7 @@ class Ch_tr_138_901(object):
 
     """
 
-    def __init__(self, channel_model, tx_antenna_mode, shadowing, dynamic_los, dynamic_hb, outdoor_to_indoor, inside_what_o2i, penetration_loss_model,
+    def __init__(self, channel_model, tx_antenna_mode, shadowing, dynamic_loss, dynamic_hb, outdoor_to_indoor, inside_what_o2i, penetration_loss_model,
                  d_2d, d_3d, h_rx, h_tx, h_ceiling, block_density, fc, d_correlation_map_rx, t_now, t_old,
                  speed_rx, speed_tx, rx_coord, tx_coord, h_angle, v_angle, ds_angle, v_tilt, n_rb, jakes_map, fast_fading_model, hb_map_rx,
                  cable_loss_tx, thermal_noise, bw_rb, rx_noise_figure, fast_fading, tx_power, antenna_gain_tx, antenna_gain_rx,
@@ -75,7 +71,7 @@ class Ch_tr_138_901(object):
         self.tx_antenna_mode = tx_antenna_mode  # string with the selected tx antenna mode: omni, three_sectors, four_sectors.
 
         self.shadowing = shadowing
-        self.dynamic_los = dynamic_los  # True or False variable for enabling or not the dynamic line-of-sight (los) mode of the end devices.
+        self.dynamic_loss = dynamic_loss  # True or False variable for enabling or not the dynamic line-of-sight (los) mode of the end devices.
         self.dynamic_hb = dynamic_hb  # True or False variable for enabling or not the dynamic human blockage (hb) mode of the end devices.
         self.outdoor_to_indoor = outdoor_to_indoor  # True or False values for enabling if the ue is modeled as inside a building/car or not.
         self.inside_what_o2i = inside_what_o2i  # String (building, car, dynamic) for defining if a user is inside a car a building or can change dynamically.
@@ -157,7 +153,7 @@ class Ch_tr_138_901(object):
         # Note: The LOS probability is derived with assuming antenna heights of 3m for indoor, 10m for UMi, and 25m for UMa: (Table 7.4.2-1 LOS probability)
 
         p = 0.0
-        if not self.dynamic_los:
+        if not self.dynamic_loss:
             los = True
             return los
 

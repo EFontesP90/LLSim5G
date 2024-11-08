@@ -20,7 +20,7 @@ class PFC(object):
     Channel implementation according to 3gpp tr-38-901.
 
     Required attributes:
-    (channel_model, antenna_mode, shadowing, dynamic_los, dynamic_hb, outdoor_to_indoor, inside_what_o2i, penetration_loss_model,
+    (channel_model, antenna_mode, shadowing, dynamic_loss, dynamic_hb, outdoor_to_indoor, inside_what_o2i, penetration_loss_model,
                  d_2d, d_3d, h_rx, h_tx, h_ceiling, block_density, fc, d_correlation_map_rx, t_now, t_old,
                  speed_rx, rx_coord, h_angle, v_angle, v_tilt, n_rb, jakes_map, fast_fading_model, hb_map_rx,
                  cable_loss_tx, thermal_noise, bw_rb, rx_noise_figure, fast_fading, tx_power, antenna_gain_tx, antenna_gain_rx):

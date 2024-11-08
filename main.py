@@ -73,7 +73,7 @@ if __name__ == "__main__":
 
         general_channel_modeling = pd.DataFrame(
             [[
-                False,           # "dynamic_los": Boolean, where True means a dynamic Line of Sight (LOS). Regarding each BS, a user could be in LOS or non-LOS (NLOS). False means only LOS.
+                False,           # "dynamic_loss": Boolean, where True means a dynamic Line of Sight (LOS). Regarding each BS, a user could be in LOS or non-LOS (NLOS). False means only LOS.
                 False,          # "dynamic_hb": Boolean, where True means a dynamic human blockage (HB) in the link between the BS and the ED (mainly used for mmWave simulations). False means no HB considerations.
                 False,          # "o2i": Boolean where True means a dynamic outdoor-to-indoor (o2i), a user could be simulated in o2i or not conditions regarding the BS (It means NLOS). False means only LOS.
                 "dynamic",     # "inside_what_o2i": ("dynamic", "building", "car"). "dynamic" means that it will be chosen randomly if the user is inside a building or a car; it will modify the penetration losses considered. The other options are to fix or inside a building or a car.
@@ -85,7 +85,7 @@ if __name__ == "__main__":
                 "Very short"    # "desired_delay_spread": ("Nominal", "Very long", "Long delay", "Short", "Very short", None). 3GPP TR 38.901, Table 7.7.3-1. Example scaling parameters for CDL and TDL models.
 
             ]])
-        general_channel_modeling.columns = ["dynamic_los", "dynamic_hb", "o2i", "inside_what_o2i", "penetration_loss_model",
+        general_channel_modeling.columns = ["dynamic_loss", "dynamic_hb", "o2i", "inside_what_o2i", "penetration_loss_model",
                                             "shadowing", "fast_fading", "fast_fading_model", "atmospheric_absorption", "desired_delay_spread"]
 
         general_parameters = pd.DataFrame(

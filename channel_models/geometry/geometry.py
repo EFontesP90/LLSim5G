@@ -24,11 +24,6 @@ class Geometry(object):
 
     """
     06/05/2024
-    The class Geometry allows us to compute for a pair rx (receiver, e.g., user equipment) and tx (transmitter, e.g.,
-    tbs, abs, or d2d possible forwarding user) their two/three-dimensional distance, their horizontal and vertical angle,
-    and their relative speeds. In the case of the horizontal angle, the angle computation is implemented for a transmitter
-    with three symmetric sectors of 120 degrees or four sectors of four symmetric sectors of 90 degrees. In the case of
-    d2d communication, the antenna pattern is assumed to be omnidirectional.
 
     Required attributes:
     (tx_antenna_mode, rx_coord, tx_coord, rx_coord_old, tx_coord_old, t_now, t_old):
@@ -56,8 +51,8 @@ class Geometry(object):
         self.rx_coord = rx_coord  # array of 3x1 ([x,y,z]) with coordinates of the rx e.g., [10, 10, 1.5] in meters
         self.tx_coord = rx_coord  # array of 3x1 ([x,y,z]) with coordinates of the tx e.g., [50, 50, 20] in meters
 
-        self.rx_coord_old = rx_coord  # array of 3x1 ([x,y,z]) with coordinates of the rx in the time steap (t-1 = t_old) e.g., [15,15,1.5] in meters
-        self.tx_coord_old = rx_coord  # array of 3x1 ([x,y,z]) with coordinates of the tx in the time steap (t-1 = t_old) e.g., [50, 50, 20] in meters. It will be used for aerial base stations (abs)
+        self.rx_coord_old = rx_coord  # array of 3x1 ([x,y,z]) with coordinates of the rx in the time step (t-1 = t_old) e.g., [15,15,1.5] in meters
+        self.tx_coord_old = rx_coord  # array of 3x1 ([x,y,z]) with coordinates of the tx in the time step (t-1 = t_old) e.g., [50, 50, 20] in meters. It will be used for aerial base stations (abs)
 
         self.x_rx = rx_coord[0]  # x coordinate of the receiver (rx)
         self.y_rx = rx_coord[1]  # y coordinate of the receiver (rx)

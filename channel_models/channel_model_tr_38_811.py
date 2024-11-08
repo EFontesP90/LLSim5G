@@ -4,7 +4,7 @@ File: channel_model_tr_38_811.py
 Purpose:
 This file comprises the non-terrestrial network (NTN) Channel model fully implementation according to 3gpp tr-38-811.
 For a pair tx (a Satellite) and rx (e.g., user equipment), our implementation computes the o2i probability,
-o2i losses, los probability, shadowing fading, the angular attenuation, the atmospheric absorption, the path loss,
+o2i losses, loss probability, shadowing fading, the angular attenuation, the atmospheric absorption, the path loss,
 the fast-fading attenuation and finally the resulting SINR.
 
 Author: Ernesto Fontes Pupo / Claudia Carballo González
@@ -32,13 +32,9 @@ from channel_models.ff_models_tr_38_901and811 import cdl_models as cdl
 class Ch_tr_38_811(object):
     """
     14/05/2024
-    Non-terrestrial network (NTN) Channel model fully implementation according to 3gpp tr-38-811.
-    For a pair tx (a Satellite) and rx (e.g., user equipment), our implementation computes the o2i probability,
-    o2i losses, los probability, shadowing fading, the angular attenuation, the atmospheric absorption, the path loss,
-    the fast-fading attenuation and finally the resulting SINR.
 
     Required attributes:
-    (t_now, t_old, speed_rx, speed_tx, ds_angle,  rx_coord, tx_coord, channel_model, rx_scenario, tx_antenna_mode, dynamic_los,
+    (t_now, t_old, speed_rx, speed_tx, ds_angle,  rx_coord, tx_coord, channel_model, rx_scenario, tx_antenna_mode, dynamic_loss,
      elevation_angle, d_sat, h_sat, fc, f_band_rx, outdoor_to_indoor, inside_what, penetration_loss_model,
      d_correlation_map_rx, shadowing, n_rb, jakes_map, fast_fading_model,
      cable_loss_tx, thermal_noise, bw_rb, rx_noise_figure, fast_fading, tx_power, antenna_gain_tx,
@@ -91,8 +87,8 @@ class Ch_tr_38_811(object):
 
         self.shadowing = shadowing
         self.dynamic_los = dynamic_los  # True or False variable for enabling or not the dynamic line-of-sight (los) mode of the end devices.
-        self.outdoor_to_indoor = outdoor_to_indoor  # True or False values for enabling if the ue is modeled as inside a building/car or not.
-        self.inside_what = inside_what  # String (building, car, dynamic) for defining if a user is inside a car a building or can change dynamically.
+        self.outdoor_to_indoor = outdoor_to_indoor  # True or False values for enabling if the user is modeled as inside a building/car or not.
+        self.inside_what = inside_what  # String (building, car, dynamic) for defining if a user is inside a car, a building or can change dynamically.
         self.penetration_loss_model = penetration_loss_model  # ("high-loss",  "low-loss") equivalent to "Traditional", "Thermally-efficient"
 
         self.d_sat = d_sat  # For a ground terminal, the distance d (a.k.a. slant range)
@@ -141,7 +137,7 @@ class Ch_tr_38_811(object):
             return o2i
         elif self.channel_model == "HAPS":
             o2i_p = random.uniform(0.0, 1.0)
-            if 0.2 < o2i_p:  # TODO, I am following the same approach as for UMa, UMi in Table 7.2-1: tr.38.901
+            if 0.2 < o2i_p:  # TODO, Following the same approach for UMa, UMi in Table 7.2-1: tr.38.901
                 o2i = True
             else:
                 o2i = False
@@ -504,7 +500,7 @@ class Ch_tr_38_811(object):
             d_correlation_sf = 50
         return d_correlation_sf
 
-    def compute_o2i_loss(self, o2i):  # TODO, how to handle if the user are inside the car, is not standardized. P = probability that loss is not exceeded (0.0 < P < 1.0) ) in 6.6.3 O2I penetration loss
+    def compute_o2i_loss(self, o2i):  # TODO, how to handle if the user are inside the car, it is not standardized. P = probability that loss is not exceeded (0.0 < P < 1.0) ) in 6.6.3 O2I penetration loss
         l_bel_p = 0
         o2i_loss = 0
         if not o2i:
@@ -514,7 +510,7 @@ class Ch_tr_38_811(object):
         else:
             if self.inside_what == "building":
 
-                p = random.uniform(0.0, 1.0)  # TODO, I am not clear if this is the propper why to handle this variable.
+                p = random.uniform(0.0, 1.0)  # TODO, I am not clear if this is the proper why to handle this variable.
 
                 if self.penetration_loss_model == "high-loss":
                     r = 12.64
@@ -765,7 +761,7 @@ class Ch_tr_38_811(object):
     def get_sinr(self, d_correlation_map_rx, path_loss, angle_att, atmos_att, fast_fading_att):
 
         polarization_mismatch = 3  #we assume that the User Equipment has an omni-directional antenna of linear polarization,
-                                   # while the antenna on board space-borne or airborne platforms features typically employs circular
+                                   # while the antenna on board spaceborne or airborne platforms typically employs circular
                                    #polarization.
 
         o2i_loss = d_correlation_map_rx["o2i_loss"]
@@ -838,7 +834,7 @@ def get_ch_tr_38_811(t_now, t_old, speed_rx, speed_tx, ds_angle, rx_coord, tx_co
 
 # channel_model = "HAPS"
 # rx_scenario = "urban"
-# dynamic_los = False
+# dynamic_loss = False
 # elevation_angle = 90
 # h_sat = 8000  # Deployment-D5, HAPS between 8 km and 50 km
 # r_earth = 6371*1e3 # in meters
@@ -874,7 +870,7 @@ def get_ch_tr_38_811(t_now, t_old, speed_rx, speed_tx, ds_angle, rx_coord, tx_co
 # antenna_gain_rx = 10
 # ds_angle = 0
 #
-# ch_outcomes_rx, d_correlation_map_rx, jakes_map = get_ch_tr_38_811(t_now, t_old, speed_rx, speed_tx, ds_angle, rx_coord, channel_model, rx_scenario, tx_antenna_mode, dynamic_los,
+# ch_outcomes_rx, d_correlation_map_rx, jakes_map = get_ch_tr_38_811(t_now, t_old, speed_rx, speed_tx, ds_angle, rx_coord, channel_model, rx_scenario, tx_antenna_mode, dynamic_loss,
 #              elevation_angle, d_sat, h_sat, fc, f_band_rx, outdoor_to_indoor, inside_what, penetration_loss_model,
 #              d_correlation_map_rx, shadowing, n_rb, jakes_map, fast_fading_model,
 #              cable_loss_tx, thermal_noise, bw_rb, rx_noise_figure, fast_fading, tx_power, antenna_gain_tx,
