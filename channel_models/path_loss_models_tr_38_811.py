@@ -1,5 +1,5 @@
 """
-File: channel_model_tr_38_901.py
+File: path_loss_models_tr_38_811.py
 
 Purpose:
 This file comprises the Path loss computation between a satellite or HAPS transmitter and an NTN terminal
@@ -21,9 +21,6 @@ import math as ma
 class NTN_Sat_path_loss(object):
     """
     07/05/2024
-    Path loss computation between a satellite or HAPS transmitter and an NTN terminal
-    with a link model s.t. 6.6.2 Path loss and Shadow fading, 3GPP TR 38.811 version
-    15.4.0 Release 15.
 
     Required attributes:
     (d_2d, d_3d, h_rx, h_tx, fc, los, outdoor_to_indoor):
@@ -40,10 +37,9 @@ class NTN_Sat_path_loss(object):
         self.fc = fc  # Simulation Frequency in GHz
 
     def compute_path_loss(self):
-        # Cumpute Path loss
+        # Compute Path loss
         path_loss = 32.45 + 20 * ma.log(self.fc, 10) + 20 * ma.log(self.d_sat, 10)
         return path_loss
-
 
 
 def ntn_sat_path_loss(d_sat, h_sat, fc):

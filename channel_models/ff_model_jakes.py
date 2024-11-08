@@ -39,9 +39,6 @@ def clip_outliers(data, lower_percentile=5, upper_percentile=95):
 class Jakes_channel():
     """
     07/05/2024
-    Jakes fast fading model (as implemented in Simu5G OmNet++) s.t.
-    P. Dent, G. E. Bottomley, and T. Croft, “Jakes fading model revisited,”
-    Electronics letters, vol. 13, no. 29, pp. 1162–1163, 1993.
 
     Required attributes:
     (ds_angle, rx_speed, tx_speed, t_now, n_rb, fc, jakes_map, desired_delay_spread, atmospheric_absorption,
@@ -197,7 +194,7 @@ class Jakes_channel():
         # t = random.uniform(0, 1)
         t = self.t_now
         # t = 1
-        c = 300000000  # 3.0×108 m/s is the propagation velocity in free space
+        c = 300000000  # 3.0×10^8 m/s is the propagation velocity in free space
         # //if this is the first time that we compute fading for current user
         if self.t_now == 0 and np.all((self.jakes_map == 0)):
             for i in range(self.n_rb):

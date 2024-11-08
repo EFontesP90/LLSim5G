@@ -1,5 +1,5 @@
 """
-File: channel_model_tr_38_901.py
+File: spectroscopic_data.py
 
 Purpose:
 This file comprises the Spectroscopic data for oxygen attenuation and for water vapor attenuation.

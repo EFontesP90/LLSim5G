@@ -19,9 +19,6 @@ import math as ma
 class A2G_path_loss(object):
     """
     07/05/2024
-    Path loss computation for A2G link model s.t.
-    Khawaja, W., Guvenc, I., Matolak, D. W., Fiebig, U. C., & Schneckenburger, N. (2019). A survey of air-to-ground
-    propagation channel modeling for unmanned aerial vehicles. IEEE Communications Surveys & Tutorials, 21(3), 2361-2391.
 
     Required attributes:
     (d_2d, d_3d, h_rx, h_tx, fc, los)

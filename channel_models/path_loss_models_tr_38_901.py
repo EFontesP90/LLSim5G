@@ -1,5 +1,5 @@
 """
-File: channel_model_tr_38_901.py
+File: path_loss_models_tr_38_901.py
 
 Purpose:
 This file comprises the Path loss computation s.t. Table 7.4.1-1: Pathloss models,
@@ -22,8 +22,6 @@ from numpy import random
 class UMa_path_loss(object):
     """
     07/05/2024
-    Path loss computation for UMa link model s.t. Table 7.4.1-1: Pathloss models,
-    3GPP TR 38.901 version 16.1.0 Release 16.
 
     Required attributes:
     (d_2d, d_3d, h_rx, h_tx, fc, los):
@@ -36,7 +34,7 @@ class UMa_path_loss(object):
     def __init__(self, d_2d, d_3d, h_rx, h_tx, fc, los):
 
         self.d_2d = d_2d  # two-dimensional distance between rx and tx
-        self.d_3d = d_3d  # Three-dimensional distance between rx and tx
+        self.d_3d = d_3d  # three-dimensional distance between rx and tx
         self.h_rx = h_rx  # rx height
         self.h_tx = h_tx  # tx height
 
@@ -54,10 +52,10 @@ class UMa_path_loss(object):
             #raise "UE height outside the path loss formula's applicability range"
             warnings.warn("Receiver height is out of the path loss formula's applicability range (1.5m <= h_rx <= 22.5) s.t. tr.38.901 for UMa", UserWarning)
         if not (self.h_tx == 25):
-            #raise "BS is not the default value"  # Todo: need to check for correction formulas
+            #raise "BS is not the default value"  # Todo: Check for correction formulas
             warnings.warn("Transmitter height is out of the path loss formula's default value (25m) s.t. tr.38.901 for UMa", UserWarning)
 
-        # compute break-point distance, Note 1: Table 7.4.1-1: Pathloss models
+        # compute break-point distance, Note 1: Table 7.4.1-1: Path-loss models
         cc = 0
         if self.h_rx < 13:
             cc = 0
@@ -71,7 +69,7 @@ class UMa_path_loss(object):
             h_e = 1
         else:
             h_e = random.uniform(0.0,
-                                 12)  # TODO: REVIEW, I am not totaly clear about this, check in Table 7.4.1-1: Pathloss models
+                                 12)  # TODO: REVIEW. Check in Table 7.4.1-1: Path_loss models
 
         h_rx_ = self.h_rx - h_e
         h_tx_ = self.h_tx - h_e
@@ -94,7 +92,7 @@ class UMa_path_loss(object):
 class UMi_path_loss(object):
     """
     07/05/2024
-    Path loss computation for UMi link model s.t. Table 7.4.1-1: Pathloss models,
+    Path loss computation for UMi link model s.t. Table 7.4.1-1: Path_loss models,
     3GPP TR 38.901 version 16.1.0 Release 16.
 
     Required attributes:
@@ -141,7 +139,7 @@ class UMi_path_loss(object):
             h_e = 1
         else:
             h_e = random.uniform(0.0,
-                                 12)  # TODO: REVIEW, I am not totaly clear about this, check in Table 7.4.1-1: Pathloss models
+                                 12)  # TODO: REVIEW. Check in Table 7.4.1-1: Path_loss models
 
         h_rx_ = self.h_rx - h_e
         h_tx_ = self.h_tx - h_e
@@ -164,7 +162,7 @@ class UMi_path_loss(object):
 class RMa_path_loss(object):
     """
     07/05/2024
-    Path loss computation for Rma link model s.t. Table 7.4.1-1: Pathloss models,
+    Path loss computation for Rma link model s.t. Table 7.4.1-1: Path_loss models,
     3GPP TR 38.901 version 16.1.0 Release 16.
 
     Required attributes:
@@ -174,7 +172,7 @@ class RMa_path_loss(object):
     def __init__(self, d_2d, d_3d, h_rx, h_tx, fc, los):
 
         self.d_2d = d_2d  # two-dimensional distance between rx and tx
-        self.d_3d = d_3d  # Three-dimensional distance between rx and tx
+        self.d_3d = d_3d  # three-dimensional distance between rx and tx
         self.h_rx = h_rx  # rx height
         self.h_tx = h_tx  # tx height
 
@@ -192,14 +190,14 @@ class RMa_path_loss(object):
             #raise "UE height outside the path loss formula's applicability range"
             warnings.warn("Receiver height is out of the path loss formula's applicability range (1m <= h_rx <= 10) s.t. tr.38.901 for RMa", UserWarning)
         if not ((10 <= self.h_tx) and (self.h_tx <= 150)):
-            #raise "BS is not the default value"  # Todo: need to check for correction formulas
+            #raise "BS is not the default value"  # Todo: Check for correction formulas
             warnings.warn("Transmitter height is out of the path loss formula's default value (10m <= h_rx <= 150) s.t. tr.38.901 for RMa", UserWarning)
 
-        # compute break-point distance, Note 1: Table 7.4.1-1: Pathloss models
+        # compute break-point distance, Note 1: Table 7.4.1-1: Path_loss models
         d_bp = 2 * ma.pi * self.h_tx * self.h_tx * (self.fc * 1000000000) / c  # Break point distance (Table 7.4.1.1, Note 5)
-        # Cumpute Path loss
+        # Compute Path loss
 
-        # TODO: REVIEW, Evaluar if it is valuable to make h and w inputs.
+        # TODO: REVIEW, Check if it is valuable to make h and w inputs.
         h = 5  # h = avg. building height, The applicability ranges: 5m ≤ h ≤50m
         w = 20  # W = avg. street width, The applicability ranges: 5m ≤ h ≤50m
 
@@ -232,7 +230,7 @@ class RMa_path_loss(object):
 class InH_path_loss(object):
     """
     07/05/2024
-    Path loss computation for InH link model s.t. Table 7.4.1-1: Pathloss models,
+    Path loss computation for InH link model s.t. Table 7.4.1-1: Path_loss models,
     3GPP TR 38.901 version 16.1.0 Release 16.
 
     Required attributes:
@@ -257,7 +255,7 @@ class InH_path_loss(object):
             self.d_3d = 3.16
 
 
-        # Cumpute Path loss
+        # Compute Path loss
 
         if 1 <= self.d_3d <= 150:
             path_loss_los = 32.4 + 17.3 * ma.log(self.d_3d, 10) + 20 * ma.log(self.fc, 10)
@@ -277,7 +275,7 @@ class InH_path_loss(object):
 class InF_SL_path_loss(object):
     """
     07/05/2024
-    Path loss computation for InF-SL link model s.t. Table 7.4.1-1: Pathloss models,
+    Path loss computation for InF-SL link model s.t. Table 7.4.1-1: Path_loss models,
     3GPP TR 38.901 version 16.1.0 Release 16.
 
     Required attributes:
@@ -302,7 +300,7 @@ class InF_SL_path_loss(object):
             self.d_3d = 3.16
 
 
-        # Cumpute Path loss
+        # Compute Path loss
 
         if 1 <= self.d_3d <= 600:
             path_loss_los = 31.84 + 21.5 * ma.log(self.d_3d, 10) + 20 * ma.log(self.fc, 10)
@@ -322,7 +320,7 @@ class InF_SL_path_loss(object):
 class InF_DL_path_loss(object):
     """
     07/05/2024
-    Path loss computation for InF-DL link model s.t. Table 7.4.1-1: Pathloss models,
+    Path loss computation for InF-DL link model s.t. Table 7.4.1-1: Path_loss models,
     3GPP TR 38.901 version 16.1.0 Release 16.
 
     Required attributes:
@@ -332,7 +330,7 @@ class InF_DL_path_loss(object):
     def __init__(self, d_2d, d_3d, h_rx, h_tx, fc, los):
 
         self.d_2d = d_2d  # two-dimensional distance between rx and tx
-        self.d_3d = d_3d  # Three-dimensional distance between rx and tx
+        self.d_3d = d_3d  # three-dimensional distance between rx and tx
         self.h_rx = h_rx  # rx height
         self.h_tx = h_tx  # tx height
 
@@ -347,7 +345,7 @@ class InF_DL_path_loss(object):
             self.d_3d = 3.16
 
 
-        # Cumpute Path loss
+        # Compute Path loss
 
         if 1 <= self.d_3d <= 600:
             path_loss_los = 31.84 + 21.5 * ma.log(self.d_3d, 10) + 20 * ma.log(self.fc, 10)
@@ -367,7 +365,7 @@ class InF_DL_path_loss(object):
 class InF_SH_path_loss(object):
     """
     07/05/2024
-    Path loss computation for InF-SH link model s.t. Table 7.4.1-1: Pathloss models,
+    Path loss computation for InF-SH link model s.t. Table 7.4.1-1: Path_loss models,
     3GPP TR 38.901 version 16.1.0 Release 16.
 
     Required attributes:
@@ -377,7 +375,7 @@ class InF_SH_path_loss(object):
     def __init__(self, d_2d, d_3d, h_rx, h_tx, fc, los):
 
         self.d_2d = d_2d  # two-dimensional distance between rx and tx
-        self.d_3d = d_3d  # Three-dimensional distance between rx and tx
+        self.d_3d = d_3d  # three-dimensional distance between rx and tx
         self.h_rx = h_rx  # rx height
         self.h_tx = h_tx  # tx height
 
@@ -392,7 +390,7 @@ class InF_SH_path_loss(object):
             self.d_3d = 3.16
 
 
-        # Cumpute Path loss
+        # Compute Path loss
 
         if 1 <= self.d_3d <= 600:
             path_loss_los = 31.84 + 21.5 * ma.log(self.d_3d, 10) + 20 * ma.log(self.fc, 10)
@@ -412,7 +410,7 @@ class InF_SH_path_loss(object):
 class InF_DH_path_loss(object):
     """
     07/05/2024
-    Path loss computation for InF-DH link model s.t. Table 7.4.1-1: Pathloss models,
+    Path loss computation for InF-DH link model s.t. Table 7.4.1-1: Path_loss models,
     3GPP TR 38.901 version 16.1.0 Release 16.
 
     Required attributes:
@@ -422,7 +420,7 @@ class InF_DH_path_loss(object):
     def __init__(self, d_2d, d_3d, h_rx, h_tx, fc, los):
 
         self.d_2d = d_2d  # two-dimensional distance between rx and tx
-        self.d_3d = d_3d  # Three-dimensional distance between rx and tx
+        self.d_3d = d_3d  # three-dimensional distance between rx and tx
         self.h_rx = h_rx  # rx height
         self.h_tx = h_tx  # tx height
 
@@ -437,7 +435,7 @@ class InF_DH_path_loss(object):
             self.d_3d = 3.16
 
 
-        # Cumpute Path loss
+        # Compute Path loss
 
         if 1 <= self.d_3d <= 600:
             path_loss_los = 31.84 + 21.5 * ma.log(self.d_3d, 10) + 20 * ma.log(self.fc, 10)
@@ -457,7 +455,7 @@ class InF_DH_path_loss(object):
 class D2D_path_loss(object):
     """
     07/05/2024
-    Path loss computation for D2D link model s.t. Table 7.4.1-1: Pathloss models,
+    Path loss computation for D2D link model s.t. Table 7.4.1-1: Path_loss models,
     3GPP TR 38.901 version 16.1.0 Release 16, for Umi without the restriction of bs height = 10.
 
     Required attributes:
@@ -467,7 +465,7 @@ class D2D_path_loss(object):
     def __init__(self, d_2d, d_3d, h_rx, h_tx, fc, los):
 
         self.d_2d = d_2d  # two-dimensional distance between rx and tx
-        self.d_3d = d_3d  # Three-dimensional distance between rx and tx
+        self.d_3d = d_3d  # three-dimensional distance between rx and tx
         self.h_rx = h_rx  # rx height
         self.h_tx = h_tx  # tx height
 
@@ -490,7 +488,7 @@ class D2D_path_loss(object):
             warnings.warn("Forwarding devise (fd) height is out of the path loss formula's applicability range (1.5m <= h_rx <= 22.5) s.t. tr.38.901 for UMi",
             UserWarning)
 
-        # compute break-point distance, Note 1: Table 7.4.1-1: Pathloss models
+        # compute the break-point distance, Note 1: Table 7.4.1-1: Path_loss models
         cc = 0
         if self.h_rx < 13:
             cc = 0
@@ -504,12 +502,13 @@ class D2D_path_loss(object):
             h_e = 1
         else:
             h_e = random.uniform(0.0,
-                                 12)  # TODO: REVIEW, I am not totaly clear about this, check in Table 7.4.1-1: Pathloss models
+                                 12)  # TODO: REVIEW. Check in Table 7.4.1-1: Path_loss models
 
         h_rx_ = self.h_rx - h_e
         h_tx_ = self.h_tx - h_e
         d_bp = 4 * h_tx_ * h_rx_ * (self.fc * 1000000000) / c  # Break point distance (Table 7.4.1.1, Note 1)
-        # Cumpute Path loss
+
+        # Compute Path loss
 
         if 10 <= self.d_2d <= d_bp:
             path_loss_los = 32.4 + 21 * ma.log(self.d_3d, 10) + 20 * ma.log(self.fc, 10)

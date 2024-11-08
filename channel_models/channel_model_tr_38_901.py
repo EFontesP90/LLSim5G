@@ -74,8 +74,8 @@ class Ch_tr_138_901(object):
         self.dynamic_loss = dynamic_loss  # True or False variable for enabling or not the dynamic line-of-sight (los) mode of the end devices.
         self.dynamic_hb = dynamic_hb  # True or False variable for enabling or not the dynamic human blockage (hb) mode of the end devices.
         self.outdoor_to_indoor = outdoor_to_indoor  # True or False values for enabling if the ue is modeled as inside a building/car or not.
-        self.inside_what_o2i = inside_what_o2i  # String (building, car, dynamic) for defining if a user is inside a car a building or can change dynamically.
-        self.penetration_loss_model = penetration_loss_model  # string (low-loss, high-loss) for defining the penetration_loss_model: Low-loss, High-loss, for indoor penetratio, or can change dynamically.
+        self.inside_what_o2i = inside_what_o2i  # String (building, car, dynamic) for defining if a user is inside a car, a building or can change dynamically.
+        self.penetration_loss_model = penetration_loss_model  # string (low-loss, high-loss) for defining the penetration_loss_model: Low-loss, High-loss, for indoor penetration, or can change dynamically.
 
         self.d_2d = d_2d  # two-dimensional distance between rx and tx
         self.d_3d = d_3d  # Three-dimensional distance between rx and tx
@@ -99,7 +99,7 @@ class Ch_tr_138_901(object):
         self.ds_angle = ds_angle
         self.v_tilt = v_tilt
 
-        self.n_rb = n_rb  # Nuber of rb assigned to the ue
+        self.n_rb = n_rb  # Number of rb assigned to the ue
         self.fast_fading_model = fast_fading_model  # "jakes"
         self.d_correlation_map_rx = d_correlation_map_rx  # Array of 1*2: [t, x, y, std], For tracking the shadowing of the user over time
         self.jakes_map = jakes_map  # array of the resulting jackFadingMap of the K users respect to the BS and each proximity user in D2D comm, fadingTaps X [delay amp, AoA]
@@ -193,7 +193,7 @@ class Ch_tr_138_901(object):
                 else:
                     p = ma.exp(-(self.d_2d - 10) / 1000)
 
-            elif self.channel_model == "A2G":  # TODO: I must be clear of the literature behind this and must add the reference.
+            elif self.channel_model == "A2G":  # TODO: Add the corresponding reference.
                 if o2i:
                     los = False
                     return los
@@ -247,7 +247,7 @@ class Ch_tr_138_901(object):
                 k_subsce = (-1 * d_clutter / (ma.log(1 - r))) * ((self.h_tx - self.h_rx) / (h_clutter - self.h_rx))
                 p = ma.exp(-1 * (self.d_2d) / k_subsce)
 
-            elif self.channel_model == "D2D":  # TODO> Check this
+            elif self.channel_model == "D2D":  # TODO: Check this
                 if o2i:
                     los = False
                     return los
@@ -279,7 +279,7 @@ class Ch_tr_138_901(object):
                         ma.sqrt(pow(self.d_3d, 2) - pow(self.h_tx - self.h_rx, 2)) * (
                         (h_bl - self.h_rx) / (self.h_tx - self.h_rx)) + r_bl)))
             else:
-                # TODO: For D2D I do not know how change the HB probability in D2D, search in literature to update.
+                # TODO: For D2D, I do not know how change the HB probability in D2D. Search in literature to update.
                 h_tx_ = self.h_tx + 0.1
 
                 p = (1 - ma.exp(-2 * self.block_density * r_bl * (
@@ -376,7 +376,7 @@ class Ch_tr_138_901(object):
 
         elif inside_what == "car":
             # NOTE: 7.4.3.2 O2I car penetration loss
-            # The O2I car penetration loss models are applicable for at least 0.6-60 GHz.
+            # The O2I car penetration loss models are applicable for at least 0.6-60 GHz
             mu = 9.0  # 20 for metalized car windows
             sigma_p = 5.0
             o2i_loss = normal(loc=mu, scale=sigma_p, size=1)[0]
@@ -404,7 +404,7 @@ class Ch_tr_138_901(object):
     def get_std(self, los, o2i):
 
         # los = self.compute_los_probability()
-        if self.channel_model == "UMi" or self.channel_model == "D2D":  # TODO> Check this assumption for D2D
+        if self.channel_model == "UMi" or self.channel_model == "D2D":  # TODO: Check this assumption for D2D
             if los:
                 std = 4
                 d_correlation_sf = 10
@@ -616,7 +616,6 @@ class Ch_tr_138_901(object):
         # hb_attenuation_, hb_map_rx = self.get_hb_attenuation()
 
         # angle_att_ = self.compute_angular_attenuation()
-
 
         # print("d_correlation_map_rx", d_correlation_map_rx)
         # print("path_loss_", path_loss_)
