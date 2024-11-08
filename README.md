@@ -7,8 +7,9 @@ The rationale behind this proposal is being able to tailor a controlled simulate
 terrestrial (TN) and non-terrestrial networks (NTN) with multiple concurrent users under diverse mobility behaviors,
 reception conditions, and requesting differentiated broadband traffic from the available infrastructure.
 
-The link channel models implemented for TN and NTN are compliant with the 3GPP standards TR 38.901 and TR 38.811
-respectively.
+The implemented link channel models for TN and NTN are compliant with the 3GPP standards TR 38.901 [REF] and TR 38.811 [REF]
+respectively, for frequencies from 0.5 to 100 GHz. For NTN use cases, it could be simulated the satellite service link
+from spaceborne or airborne platforms to multiple handheld or IoT end-devices. For
 
 The physical (PHY) link layer of a wireless communication systems is typically simulated through LLSs, mathematically 
 modeling the point-to-point communication of a pair transmitter (Tx) and receiver (Rx) with a detailed link characterization
@@ -16,6 +17,10 @@ and evaluating metrics such as bit/block error rate (BER/BLER) and signal-to-int
 used as reference inputs to system-level simulators (SLS)) [6]. Multiple research fields take advantage of LLSs for
 advancing filed such as radio resource management, interference management, channel estimation, Multiple-Input
 Multiple-Output (MIMO), and Adaptive Modulation and Coding (AMC) scheme. 
+
+(geostationary satellites: 35 786 km, Low Earth Orbiting satellites: from 600 km up to 1500 km, Medium
+Earth Orbiting satellites: From 7000 up to 20000 km  )
+(typically from 8 to 50 km)
 
 It includes channel modeling, modulation, coding schemes, and performance 
 analysis features for research and
@@ -107,6 +112,9 @@ For any questions or issues, please contact [Your Email](mailto:your-email@examp
 Credits and acknowledgements for resources, libraries, inspiration, etc.
 
 ## References
+
+
+G. T. 38.901, “5g; study on channel model for frequencies from 0.5 to 100 ghz (3gpp tr 38.901 version 16.1.0 release 16),” 2020.
 
 G. Nardini, D. Sabella, G. Stea, P. Thakkar, A. Virdis, "Simu5G – An OMNeT++ Library for End-to-End Performance
 Evaluation of 5G Networks," in IEEE Access, vol. 8, pp. 181176-181191, 2020, doi: 10.1109/ACCESS.2020.3028550.
