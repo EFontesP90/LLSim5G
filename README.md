@@ -8,8 +8,8 @@ terrestrial (TN) and non-terrestrial networks (NTN) with multiple concurrent use
 reception conditions, and requesting differentiated broadband traffic from the available infrastructure.
 
 The implemented link channel models for TN and NTN are compliant with the 3GPP standards TR 38.901 [REF] and TR 38.811 [REF]
-respectively, for frequencies from 0.5 to 100 GHz. For NTN use cases, it could be simulated the satellite service link
-from spaceborne or airborne platforms to multiple handheld or IoT end-devices. For
+respectively, for frequencies from 0.5 to 100 GHz. For the NTN use cases, it could be simulated the satellite service link
+from spaceborne or airborne platforms to multiple handheld or IoT end-devices. Regarding TN the LLSim5G allows to recrate  
 
 The physical (PHY) link layer of a wireless communication systems is typically simulated through LLSs, mathematically 
 modeling the point-to-point communication of a pair transmitter (Tx) and receiver (Rx) with a detailed link characterization
