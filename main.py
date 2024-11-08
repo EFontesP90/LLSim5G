@@ -48,23 +48,23 @@ if __name__ == "__main__":
 
         general_simulation_parameters = pd.DataFrame(
             [[
-                "[100, 100]",  # "grid_xy". Definition of the x and y in meters (m) of the simulation grid. It must be definded as a string for ensuring saving and uploading in and for the configuration excels.
-                39.2137738,  # "grid_center_latitude". Latitude in degrees of the grid center, default value: grid_center_lat = 39.2137738 degrees, used for NTN simulations.
-                9.1153844,  # "grid_center_longitude". Longitude in degrees of the grid centerin degrees, default value: grid_center_lat = 9.1153844 degrees, used for NTN simulations.
+                "[100, 100]",  # "grid_xy". Definition of the simulation grid's x and y in meters (m). It must be defined as a string to ensure saving and uploading in and from the configuration Excel.
+                39.2137738,  # "grid_center_latitude". Latitude in degrees of the grid center, default value: grid_center_lat = 39.2137738 degrees, used for non-terrestrial network (NTN) simulations.
+                9.1153844,  # "grid_center_longitude". Longitude in degrees of the grid center in degrees, default value: grid_center_lat = 9.1153844 degrees, used for NTN simulations.
                 1,  # "simulation_time". Simulation time in seconds (s).
-                0.1,  # "simulation_resolution". Simulation resolution, e.g., 1 means a one second resolution (one sample per second), 0.1 means a 0.1 seconds resolution (100 ms) or 10 samples for every second.
+                0.1,  # "simulation_resolution". Simulation resolution, e.g., 1 means a one-second resolution (one sample per second), 0.1 means a 0.1-second resolution (100 ms), or ten samples for every second.
                 True,  # "downlink". To enable the downlink computation from the base stations (BSs) to the end-devices (EDs).
-                False,  # "uplink". To enable the uplink computation from the EDs to the BSs. TODO, it's not enabled between the EDs and the non-terrestrial networks (NTNs).
+                False,  # "uplink". To enable the uplink computation from the EDs to the BSs. TODO is not enabled between the EDs and the NTNs.
                 False,  # "d2d_link". To enable the device-to-device (D2D) link computation among EDs.
-                True,  # "ntn_link". To enable the link computation between the available non-terrestrial networks (NTN) (e.g., LEO, MEO, HAPS) and the EDs.
-                False,  # "save_scenario_xlsx". To save (./output/scenario/) as .xlsx the simulated scenario. It means the coordinate x, y and z of each EDs or BSs, or the latitude, longitude, altitude (LLA) of the NTNs.
-                False,  # "save_metrics_xlsx". To save (./output/metrics/) as .xlsx the resulting LLS outputs: SINR, CQI, BLER, among each ED and each BS (TN/NTN), or EDs for D2D communications.
+                True,  # "ntn_link". To enable the link computation between the available NTNs (e.g., LEO, MEO, HAPS) and the EDs.
+                False,  # "save_scenario_xlsx". To save (./output/scenario/) as .xlsx the simulated scenario. It means the coordinate x, y, and z of each EDs or BSs or the latitude, longitude, and altitude (LLA) of the NTNs.
+                False,  # "save_metrics_xlsx". To save (./output/metrics/) the resulting LLS outputs: SINR, CQI, BLER, among each ED and each BS (TN/NTN) or EDs for D2D communications, as .xlsx.
                 True,  # "show_video". Boolean to enable or disable the simulation video display regarding the grid and the configured BSs and EDs with their mobility behaviour. (The link computation is executed after we closed the video).
                 False,  # "save_video". Boolean to enable saving the video file.
-                "gif",  # "video_format". ("mp4", "gif", "Both"), At the moment the video format (in the general_simulation_parameters input dataframe) can be just saved as .gif format
+                "gif",  # "video_format". ("mp4", "gif", "Both"). For now, the video format (in the general_simulation_parameters input data frame) can be saved as a .gif file.
                 0.1,  # "video_velocity". Float variable for modifying the video velocity. Default value: 0.1.
-                True,  # "print_scenario_outputs". Boolean for enable printing the scenario output. It means the coordinate x, y and z of each EDs or BSs, or the LLA of the NTNs.
-                True  # "print_metrics_outputs". Boolean for enable printing the resulting simulation metrics: SINR, CQI, BLER, among each ED and each BS (TN/NTN), or EDs for D2D communications.
+                True,  # "print_scenario_outputs". A Boolean to enable printing the scenario output. It means the coordinates x, y, and z of each EDs or BSs or the LLA of the NTNs.
+                True  # "print_metrics_outputs". Boolean to enable printing the resulting simulation metrics: SINR, CQI, BLER, among each ED and each BS (TN/NTN) or EDs for D2D communications.
             ]])
         general_simulation_parameters.columns = ["grid_xy", "grid_center_latitude", "grid_center_longitude", "simulation_time", "simulation_resolution", "downlink",
                                                  "uplink", "d2d_link", "ntn_link", "save_scenario_xlsx",
@@ -73,14 +73,14 @@ if __name__ == "__main__":
 
         general_channel_modeling = pd.DataFrame(
             [[
-                False,           # "dynamic_los": Boolean where True means a dynamic Line of Sight (LOS), a user could be in LOS or non LOS (NLOS) rearding each BS. False means only LOS.
-                False,          # "dynamic_hb": Boolean where True means a dynamic human blockage (hb) in the link beteen the BS an the ED (mainly unsd for mmWave simulations). False means not hb considerations.
+                False,           # "dynamic_los": Boolean, where True means a dynamic Line of Sight (LOS). Regarding each BS, a user could be in LOS or non-LOS (NLOS). False means only LOS.
+                False,          # "dynamic_hb": Boolean, where True means a dynamic human blockage (HB) in the link between the BS and the ED (mainly used for mmWave simulations). False means no HB considerations.
                 False,          # "o2i": Boolean where True means a dynamic outdoor-to-indoor (o2i), a user could be simulated in o2i or not conditions regarding the BS (It means NLOS). False means only LOS.
-                "dynamic",     # "inside_what_o2i": ("dynamic", "building", "car"). "dynamic" means that will be choused randomly if the user is inside a building or a car, it will modify the penetration losses considered. The other options are to fix, or inside a building or inside a car.
-                "low-loss",     # "penetration_loss_model": ("low-loss", "high-loss"). Accirding to 3GPP TR 38.811: 6.6.3 O2I penetration loss for NTN simulations only. Low-loss means a traditional building type, and high-loss means a thermally efficient building type.
+                "dynamic",     # "inside_what_o2i": ("dynamic", "building", "car"). "dynamic" means that it will be chosen randomly if the user is inside a building or a car; it will modify the penetration losses considered. The other options are to fix or inside a building or a car.
+                "low-loss",     # "penetration_loss_model": ("low-loss", "high-loss"). According to 3GPP TR 38.811: 6.6.3 O2I penetration loss for NTN simulations only. Low-loss means a traditional building type, while high-loss means a thermally efficient one.
                 True,          # "shadowing": Boolean for enabling the shadowing fading (slow-fading) attenuation in the link.
-                True,           # "fast_fading": Boolean for enabling the fast fading attenuation in the link according to jakes, tdl or cdl (TODO CDL is not enabled for NTN links).
-                "jakes",          # "fast_fading_model": ("jakes", "tdl", "cdl") TDL and CDL are implemented according 3GPP TR 38.901  (TODO CDL is not enabled for NTN links).
+                True,           # "fast_fading": Boolean for enabling the fast-fading attenuation in the link according to jakes, tdl or cdl (TODO CDL is not enabled for NTN links).
+                "jakes",          # "fast_fading_model": ("jakes", "tdl", "cdl") TDL and CDL are implemented according 3GPP TR 38.901 (TODO CDL is not enabled for NTN links).
                 False,            # "atmospheric_absorption". Boolean for enabling the atmospheric absorption attenuation in the link.
                 "Very short"    # "desired_delay_spread": ("Nominal", "Very long", "Long delay", "Short", "Very short", None). 3GPP TR 38.901, Table 7.7.3-1. Example scaling parameters for CDL and TDL models.
 
@@ -91,10 +91,10 @@ if __name__ == "__main__":
         general_parameters = pd.DataFrame(
             [[
                 -174,  # "thermal_noise". The value -174 dBm/Hz is commonly used to represent the thermal noise power spectral density at room temperature (approximately 290K).
-                10,  # "h_ceiling". Considered height of the buildings (in m). This is only used for InF link modes, and must be equal or lower than 10 meters.
-                0.2,  # "block_density". Human block density, valid when "dynamic_hb" is True. block_density = 1, means that if "dynamic_hb" is True always will be considered hb prenetration attenuation. block_density = 0, means =mpropbability of HB.
-                "real",  # "channel_type": ("real", "awgn"). Used for the link to sstem adaptation proccess and computing the users CQI feedback or using the real BLER (Block Error Rate) curves or the AWGN curves. When FF and Shadowing is considered the chanel type must be always real.
-                0.1  # "target_bler": typical values (0.1, 0.01). Is the target bler for selecting the CQI of the user.
+                10,  # "h_ceiling". Considered height of the buildings (in m). This is only used for InF link modes and must be equal to or lower than 10 meters.
+                0.2,  # "block_density". Human block density, valid when "dynamic_hb" is True. block_density = 1, which means that if "dynamic_hb" is True, it will always be considered HB penetration attenuation. block_density = 0, means zero probability of HB.
+                "real",  # "channel_type": ("real", "awgn"). Used for the link to system adaptation process and computing the users CQI feedback or using the real BLER (Block Error Rate) or AWGN curves. When FF and Shadowing are considered, the channel type must always be real.
+                0.1  # "target_bler": typical values (0.1, 0.01). It is the target BLER for selecting the user's CQI.
             ]])
         general_parameters.columns = ["thermal_noise", "h_ceiling", "block_density", "channel_type", "target_bler"]
 
@@ -114,9 +114,9 @@ if __name__ == "__main__":
         # fast_fading_los_type: TN_los: "D", "E"; NTN: "C_ntn", "D_ntn"
         # fast_fading_nlos_type: TN_nlos: "A", "B", "C"; NTN: "A_ntn", "B_ntn"
         # NTN: "A100_ntn", "C5_ntn"
-        bs_parameters.columns = ["x",  # For "tbs"/"abs": Int value.  x coordinate (in m) of the BS. For "sat": latitude of the satellite. It defines the elevation angle of the satellite regarding the center of the grid (in degrees).
-                                 "y",  # For "tbs"/"abs": Int value. y coordinate (in m) of the BS. For "sat": longitude of the satellite. It defines the elevation angle of the satellite regarding the center of the grid (in degrees).
-                                 "z",  # For "tbs"/"abs"/"sat": Int value. z coordinate (in m) of the BS (height of BS). It defines the elevation angle of the satellite regarding the center of the grid (in degrees).
+        bs_parameters.columns = ["x",  # For "tbs"/"abs": Int value.  x coordinate (in m) of the BS. For "sat": latitude of the satellite. It defines the satellite's elevation angle regarding the grid's center (in degrees).
+                                 "y",  # For "tbs"/"abs": Int value. y coordinate (in m) of the BS. For "sat": the satellite's longitude. It defines the satellite's elevation angle regarding the grid's center (in degrees).
+                                 "z",  # For "tbs"/"abs"/"sat": Int value. z coordinate (in m) of the BS (height of BS). It defines the satellite's elevation angle regarding the grid's center (in degrees).
                                  "type",  # ("tbs", "abs", "sat"). For defining if the BS is a terrestrial (TN) BS, or an Aerial BS (a BS on top of a UAV), or a satellite NTN.
                                  "scenario",  # for tbs:("UMi", "UMa", "RMa", "InH-Mixed", "InH-Open", "InF-HH", "InF-SL", "InF-DL", "InF-SH", "InF-DH", "D2D"), for abs ("A2G"), for sat ("HAPS", "LEO", "MEO"). TODO for the NTN (type = sat) this is not considered.
                                  "antenna_mode", # for tbs and abs: ("omni", "three_sectors", "four_sectors", "one_sectors_90_degrees"), for sat: ("omni", "Sat_ax").
@@ -126,12 +126,12 @@ if __name__ == "__main__":
                                  "fc",  # float from 0.5 to 100 Gigahertz (frequency of the BS).
                                  "numerology",  # (0, 1, 2, 3, 4) numerology of the BS according to 5G NR, 3GPP TS 38.214.
                                  "n_rb",  # Int with the number of physical resource blocks (RBs).
-                                 "p_tx",  # Transmission (tx) power of the BS in dB.
+                                 "p_tx",  # Transmission (tx) power of the BS in dBm.
                                  "ax_gain",  # Antenna (ax) gain of the BS in dBi.
                                  "cable_loss",  # Cable loss, default value 2 dB.
                                  "noise_figure",  # Noise Figure, default value 7 dB.
-                                 "v_tilt",  # vertical tilt of the BS antenna, default value 15 degrees.
-                                 "desired_elevation_angle"  # desired elevation angle of the satellite regarding the center of the grid (in degrees). Just used for comparison with real elevation angle configure to the Sat from theri LLA coordinates and the grid coordinates.
+                                 "v_tilt",  # Vertical tilt of the BS antenna, default value 15 degrees.
+                                 "desired_elevation_angle"  # The desired elevation angle (in degrees, from 1 to 90) of the satellite regarding the center of the grid (in degrees) is just used for comparison with the real elevation angle configured to the Sat from their LLA coordinates and the grid coordinates. In the case of type ="tbs" or "abs" it must be set as None.
                                  ]
 
 
