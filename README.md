@@ -110,7 +110,11 @@ Fig. 2: LLSim5G internal structure.
 
 ## Installation
 
+
+
 ## Dependencies
+
+[requirnments](./requirements.txt)
 
 ## How to use
 
