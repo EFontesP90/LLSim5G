@@ -157,7 +157,7 @@ Services," 2023 IEEE International Symposium on Broadband Multimedia Systems and
 
 ## References
 
-G. T. 38.901, “5g; study on channel model for frequencies from 0.5 to 100 ghz (3gpp tr 38.901 version 16.1.0 release 16),” 2020.
+[1] G. T. 38.901, “5G; Study on channel model for frequencies from 0.5 to 100 GHz (3GPP TR 38.901 version 16.1.0 Release 16),” 2020.
 
 G. Nardini, D. Sabella, G. Stea, P. Thakkar, A. Virdis, "Simu5G – An OMNeT++ Library for End-to-End Performance
 Evaluation of 5G Networks," in IEEE Access, vol. 8, pp. 181176-181191, 2020, doi: 10.1109/ACCESS.2020.3028550.
