@@ -2,10 +2,11 @@
 File: scenario_definition.py
 
 Purpose:
-This file allows to define the whole grid and mobility behaviours. Its outputs are the coordinates
+This file allows to define the whole grid and mobility behaviors. Its outputs are the coordinates
 of each user in the grid as well as the coordinates of the base stations.
 
 Author: Ernesto Fontes Pupo / Claudia Carballo González
+        University of Cagliari
 Date: 2024-10-30
 Version: 1.0.0
 SPDX-License-Identifier: Apache-2.0
@@ -47,7 +48,7 @@ class Scenario(object):
 
     """
     25/04/2024
-    The class Scenario allows to define the whole grid and mobility behaviours. Its outputs are the coordinates
+    The class Scenario allows to define the whole grid and mobility behaviors. Its outputs are the coordinates
     of each user in the grid as well as the coordinates of the base stations. If enabled, this class
     generate (in the output file) the .xlsx files with coordinates of all the elements in the grid, and the video (mp4, gif, or both)
     for representing the defined grid and mobility patterns. TODO, to enable the mp4 option for the GitHub version.
@@ -63,8 +64,8 @@ class Scenario(object):
         df_abs_xyz: dataframe  with the (x, y, z) coordinates of the defined abs
         df_sat_lla: dataframe  with the (l, l, a) coordinates of the defined sat
         time_map: dataframe  with the time steps of the simulation
-        grid_lla: dataframe  with the lla of the center of the grid, jus used for satellite simulations
-        grid_xy: array with the x and Y onf the simulated grid (in m)
+        grid_lla: dataframe  with the lla of the center of the grid, just used for satellite simulations
+        grid_xy: array with the x and y of the simulated grid (in m)
 
     """
 
@@ -227,7 +228,7 @@ class Scenario(object):
         self.save_scenario_xlsx = save_scenario_xlsx
         self.show_video = show_video  # Boolean variable to enable or not the scenario video display.
         self.save_video = save_video  # Boolean variable to enable or not saving the scenario video.
-        self.video_format = video_format # String variable to define the video format for saving the scenario video. The options are: mp4, gif, both (TODO to enable mp4 for GitHub version).
+        self.video_format = video_format # String variable to define the video format for saving the scenario video. The options are: mp4, gif, both (TODO: to enable mp4 for GitHub version).
         self.video_velocity = video_velocity  # To adjust the velocity of the video.
         self.simulation_time = simulation_time  # To adjust the simulation time, e.g., 60 seconds.
         self.simulation_resolution = simulation_resolution  # To adjust the simulation resolution along the time, e.g., 0.1 seconds.
@@ -300,12 +301,12 @@ class Scenario(object):
                 # groups = [4 for _ in range(10)]
                 # nr_nodes = sum(groups)
                 # rw = mob.tvc(groups, dimensions=(MAX_X, MAX_Y), aggregation=[0.5,0.], epoch=[100,100])
-            heigth = random.uniform(self.min_max_height[g][0], self.min_max_height[g][1]) #TODO: for constant heigth over time
+            height = random.uniform(self.min_max_height[g][0], self.min_max_height[g][1]) #TODO: for constant height over time
             for t in range(sim_step):
                 positions = next(rw)
                 mobility_map[t][:, 0] = positions[:, 0] + (self.mg_reference_location[g][0] - MAX_X / 2)
                 mobility_map[t][:, 1] = positions[:, 1] + (self.mg_reference_location[g][1] - MAX_Y / 2)
-                mobility_map[t][:, 2] = heigth   #TODO: If I want to enable that the heigth change over time
+                mobility_map[t][:, 2] = height   #TODO: If I want to enable that the height change over time
 
                 time_Map[t] = t * SimTime / sim_step
 

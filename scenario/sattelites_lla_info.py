@@ -1,5 +1,5 @@
 """
-File: show.py
+File: sattelite_lla_info.py
 
 Purpose:
 This file defines the methods for converting from and to: LLA (Latitude, Longitude, Altitude) and ECEF (Earth-Centered,
@@ -24,6 +24,7 @@ This makes ECEF useful for calculations that involve Earth’s rotational dynami
 ----------------------------------
 
 Author: Ernesto Fontes Pupo / Claudia Carballo González
+        University of Cagliari
 Date: 2024-10-30
 Version: 1.0.0
 SPDX-License-Identifier: Apache-2.0

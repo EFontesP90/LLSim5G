@@ -2,12 +2,12 @@
 #
 #  Copyright (C) 2008-2010 Istituto per l'Interscambio Scientifico I.S.I.
 #  You can contact us by email (isi@isi.it) or write to:
-#  ISI Foundation, Viale S. Severo 65, 10133 Torino, Italy. 
+#  ISI Foundation, Viale S. Severo 65, 10133 Torino, Italy.
 #
 #  This program was written by André Panisson <panisson@gmail.com>
 #
 '''
-Created on Jan 24, 2012
+Created on Jan 24, 2012, and modify by these authors for the current project.
 
 @author: André Panisson
 @contact: panisson@gmail.com
