@@ -43,7 +43,7 @@ LLSsim5G could be a useful tool for addressing various open research challenges.
 - [How to use](#contributing)
 - [Contributing](#contributing)
 - [License and Citation](#acknowledgements)
-- [Additional Support]
+- [Additional Support](#support)
 - [Acknowledgements](#acknowledgements)
 - [References](#acknowledgements)
 
@@ -133,7 +133,7 @@ The LLS was developed during their Ph.D. studies with the Department of Electric
 
 LLSim5G is Apache-2.0 licensed, as found in the [LICENSE](/LICENSE) file.
 
-If you use this software, please cite it as:
+If you use this software or part of it for your research, please cite the work:
 ```bibtex
 @INPROCEEDINGS{10211507,
   author={Pupo, Ernesto Fontes and González, Claudia Carballo and Iradier, Eneko and Montalban, Jon and Murroni, Maurizio},
