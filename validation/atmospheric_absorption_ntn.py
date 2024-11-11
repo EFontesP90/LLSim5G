@@ -1,3 +1,18 @@
+"""
+File: atmospheric_absorption_ntn.py
+
+Purpose:
+This file defines...
+
+
+Author: Ernesto Fontes Pupo / Claudia Carballo González
+        University of Cagliari
+Date: 2024-10-30
+Version: 1.0.0
+SPDX-License-Identifier: Apache-2.0
+
+"""
+
 import numpy as np
 import math as ma
 import matplotlib.pyplot as plt

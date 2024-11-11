@@ -1,3 +1,14 @@
+"""
+File: test.py
+
+Author: Ernesto Fontes Pupo / Claudia Carballo González
+        University of Cagliari
+Date: 2024-10-30
+Version: 1.0.0
+SPDX-License-Identifier: Apache-2.0
+
+"""
+
 # import numpy as np
 #
 # # Constants
