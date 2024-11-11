@@ -117,7 +117,7 @@ Then you need to check that all the requirements, main dependencies and external
 
 ## How to use
 
-First you need to carfully chek the [SimulationConfiguration](./SimulationConfiguration.pdf) and 
+First, you need to carefully check the [SimulationConfiguration](./SimulationConfiguration.pdf) and 
 [SimulationOutputs](./SimulationOutputs.pdf) files as well as the additional complementary documents.
 
 ## Contributing
