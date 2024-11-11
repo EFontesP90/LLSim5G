@@ -5,15 +5,15 @@
 If you are looking to implement personalized link-level simulations of a heterogeneous 5G network and assess the
 performance of your proposed algorithms, this could be a solution, facilitating your upcoming research activities. 
 The LLSim5G is an open-source link-level simulator (LLS) developed in Python to recreate heterogeneous 5G use cases.
-The rationale behind this proposal is being able to tailor a controlled simulated environment where it could coexist
-terrestrial networks (TNs) and non-terrestrial networks (NTN) with multiple concurrent users under diverse mobility behaviors,
-reception conditions, and requesting differentiated broadband traffic from the available infrastructure.
+The rationale behind this proposal is to tailor a controlled simulated environment where it could coexist
+terrestrial networks (TNs) and non-terrestrial networks (NTNs) with multiple concurrent users under diverse mobility behaviors
+and reception conditions, requesting differentiated broadband traffic from the available infrastructure.
 
 The implemented link channel models for TN and NTN comply with the 3GPP standards TR 38.901 [REF] and TR 38.811 [REF],
 respectively, for frequencies from 0.5 to 100 GHz. For the NTN use cases, it could be simulated the satellite service links
 from spaceborne or airborne platforms to multiple handheld or IoT end devices. Regarding TN, the LLSim5G allows recreating 
 all the scenarios defined in TR 38.901, such as Urban Macro (UMa), Urban Micro (UMi), Rural Macro (RMa), Indoor-Hotspot
-(InH) and Indoor-Factory (InF). Moreover, we add the capability of simulating unmanned aerial vehicle (UAV) acting as
+(InH) and Indoor-Factory (InF). Moreover, we add the capability of simulating unmanned aerial vehicles (UAVs) acting as
 5G base stations (BSs) following the Urban Aerial-to-Ground (UAG) channel model as described in [REF]. In any case, the 
 simulated use case could be a complex three-dimensional (3D) heterogeneous network (HetNet) with multiple TNs, NTNs, and 
 UAVs covering the desired service area.
