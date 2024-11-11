@@ -129,6 +129,19 @@ any type that may arise in using this software.
 
 ## Limitations
 
+The current version of LLSim5G v.1.0.0 is subject to the following limitation (some of them are underdevelopment
+capabilities):
+
+- No support for MIMO
+- No support for mobility simulations on the BSs (i.e., the defined UAV, or NTNs) side.
+- The fast-fading CDL model is not enabled for NTN simulations.
+- No interference considerations.
+- Lack of Parallelization and GPU Support. 
+
+Of course, the identified limitations and missing capabilities could be infinity regarding personal research interest or
+other available simulators. Nevertheless, we are highlighting the ones that are current underdevelopment works, or we
+identify as important for the rationale behind the project. In any case, we encourage any interested researcher to help
+us advancing this simulator toward a more comprehensive and usable solution. 
 
 ## Contributing
 
@@ -144,6 +157,16 @@ The LLS was developed during their Ph.D. studies with the Department of Electric
 ## License and Citation
 
 LLSim5G is Apache-2.0 licensed, as found in the [LICENSE](/LICENSE) file.
+
+The LLSim5G is Licensed under the Apache License, Version 2.0 ([LICENSE](/LICENSE));
+you may not use this software except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the 
+specific language governing permissions and limitations under the License.
 
 If you use this software or part of it for your research, please cite the work:
 ```bibtex
