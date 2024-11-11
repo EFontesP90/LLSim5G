@@ -18,7 +18,7 @@ import math as ma
 import numpy as np
 
 # Local application/library-specific imports
-import scenario.sattelites_lla_info as sat_pos
+import scenario.satellites_lla_info as sat_pos
 
 
 class Geometry_ntn(object):

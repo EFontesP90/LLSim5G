@@ -2,7 +2,7 @@
 File: atmospheric_absorption_tn.py
 
 Purpose:
-TODO: This file defines...
+This file is used to validate the implementation of the TN atmospheric_absorption solution.
 
 
 Author: Ernesto Fontes Pupo / Claudia Carballo González

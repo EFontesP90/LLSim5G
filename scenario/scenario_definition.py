@@ -25,7 +25,7 @@ from datetime import datetime
 # Local application/library-specific imports
 from scenario.mobility import models as mob
 import scenario.show as sw
-import scenario.sattelites_lla_info as sat_pos
+import scenario.satellites_lla_info as sat_pos
 
 
 def ColumnName(df):  

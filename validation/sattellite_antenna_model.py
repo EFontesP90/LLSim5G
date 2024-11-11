@@ -2,7 +2,7 @@
 File: sattellite_antenna_model.py
 
 Purpose:
-TODO: This file defines...
+This file is used to validate the implementation of the NTN antenna model.
 
 
 Author: Ernesto Fontes Pupo / Claudia Carballo González

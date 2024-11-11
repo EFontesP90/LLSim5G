@@ -6,14 +6,8 @@
 #
 #  This program was written by André Panisson <panisson@gmail.com>
 #
-'''
-Created on Jan 24, 2012, and modify by these authors for the current project.
 
-@author: André Panisson
-@contact: panisson@gmail.com
-@organization: ISI Foundation, Torino, Italy
-'''
-
+# Third-party imports
 import numpy as np
 from numpy.random import rand
 
