@@ -43,6 +43,7 @@ LLSsim5G could be a useful tool for addressing various open research challenges.
 - [How to use](#contributing)
 - [Contributing](#contributing)
 - [License and Citation](#acknowledgements)
+- [Additional Support]
 - [Acknowledgements](#acknowledgements)
 - [References](#acknowledgements)
 
@@ -81,7 +82,7 @@ Our open-source LLS is wholly programmed in Python language with a modular struc
 Fig. 1. The first step is the initialization of the parameters and simulation settings, such as simulation time,
 resolution, grid size, type and the number of users, mobility models, the number of TNs, NTNs, and UAVs covering the desired service
 area, among multiple others, as defined in [SimulationConfiguration](./SimulationConfiguration.pdf). Once the 
-simulator’s initialization and resource pool selection are finalized, it starts the iterative link computation
+simulator’s initialization and resource pool selection is finalized, it starts the iterative link computation
 along the defined simulation time. The links are computed among all the available BSs and EDs and subject to the selected
 link modes, s.t. Table I. In the case of D2D, the simulator calculates the D2D link among all the EDs (with the D2D mode
 enabled) independently of their distance. The link computation ends with the resulting SINR for each enabled link. Then,
@@ -106,8 +107,6 @@ Fig. 2: LLSim5G internal structure.
 [//]: # (![LLSim5G internal structure]&#40;general/img/LLSim5g_IStructure.png&#41;)
 [//]: # (Fig. 1: LLSim5G internal structure)
 
-
-
 ## Installation and Requirements
 
 You need to clone the project from GitHub using the link: https://github.com/EFontesP90/lls_tn-ntn_5g.git;
@@ -121,8 +120,6 @@ First, you need to carefully check the [SimulationConfiguration](./SimulationCon
 [SimulationOutputs](./SimulationOutputs.pdf) files and the additional complementary documents. 
 Further, we include the file [Scenario_Description_example1](./Scenario_Description_example1.pdf), describing
 a possible use case with the corresponding initialization setup and application.
-
-
 
 ## Contributing
 
@@ -154,6 +151,13 @@ Plain text:
 E. F. Pupo, C. C. González, E. Iradier, J. Montalban and M. Murroni, "5G Link-Level Simulator for Multicast/Broadcast
 Services," 2023 IEEE International Symposium on Broadband Multimedia Systems and Broadcasting (BMSB), Beijing, China,
 2023, pp. 1-6, doi: 10.1109/BMSB58369.2023.10211507.
+
+## Additional Support
+
+Please contact with the contributing authors.
+e-mail: efontesp90@gmail.com, ccgclaudia7892@gmail.com 
+
+
 
 ## Acknowledge
 
