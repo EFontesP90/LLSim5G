@@ -14,7 +14,7 @@ respectively, for frequencies from 0.5 to 100 GHz. For the NTN use cases, it cou
 from spaceborne or airborne platforms to multiple handheld or IoT end devices. Regarding TN, the LLSim5G allows recreating 
 all the scenarios defined in TR 38.901, such as Urban Macro (UMa), Urban Micro (UMi), Rural Macro (RMa), Indoor-Hotspot
 (InH) and Indoor-Factory (InF). Moreover, we add the capability of simulating unmanned aerial vehicles (UAVs) acting as
-5G base stations (BSs) following the Urban Aerial-to-Ground (UAG) channel model as described in [REF]. In any case, the 
+5G base stations (BSs) following the Urban Aerial-to-Ground (UAG) channel model as described in [3]. In any case, the 
 simulated use case could be a complex three-dimensional (3D) heterogeneous network (HetNet) with multiple TNs, NTNs, and 
 UAVs covering the desired service area.
 
@@ -30,7 +30,7 @@ such as D2D multicasting (D2DM), forwarding device (FD) selection, or vehicle-to
 The physical (PHY) link layer of a wireless communication system is typically simulated through LLSs, mathematically 
 modeling the point-to-point communication of a paired transmitter (Tx) and receiver (Rx) with a detailed link characterization
 and evaluating metrics such as bit/block error rate (BER/BLER) and signal-to-interference-plus-noise ratio (SINR) (typically
-used as reference inputs to system-level simulators (SLS)) [6]. Multiple research fields take advantage of LLSs for
+used as reference inputs to system-level simulators (SLS)) [4]. Multiple research fields take advantage of LLSs for
 advancing fields such as radio resource management, interference management, channel estimation, Multiple-Input
 Multiple-Output (MIMO) and Adaptive Modulation and Coding (AMC) scheme. In such context, the initial version of the
 LLSsim5G could be a useful tool for addressing various open research challenges. 
@@ -55,27 +55,27 @@ Table I summarizes the main LLSim5G characteristics for this initial version (v.
 
 Table I. LLSim5G main parameters.
 
-| Parameters                  | Value (v.1.0.0)                                                                                                          |
-|-----------------------------|--------------------------------------------------------------------------------------------------------------------------|
-| Scenarios                   | TN: UMa, UMi, RMa, InH, InF, <br/> NTN: HAPS, LEO, MEO, GEO,<br/>UAV: A2G                                                |
-| Link Modes                  | TN/UAV: downlink (DL), uplink (UL), <br/> NTN: DL<br/>  D2D                                                              |
-| Network Topology            | Single Cell or Multicell                                                                                                 |
-| EDs type                    | pedestrian, vehicle, IoT                                                                                                 |
-| Frequency range (GHz)       | 0.5-100                                                                                                                  |
-| NR numerology               | 0-4, s.t. 3GPP TS 38.214                                                                                                 |
-| Path Loss models            | TN/D2D: TR 38.901,<br/> NTN: TR 38.811,<br/>A2G: [REF]                                                                   |
-| Large scale fading models   | TN/D2D/UAV: TR 38.901,<br/> NTN: TR 38.811                                                                               |
-| Fast fading models          | TN/D2D/UAV: TDL, CDL (s.t. TR 38.901), Jakes (s.t. [REF]),<br/> NTN: TDL (s.t. TR 38.811), Jakes (s.t. [REF])            |
-| Propagation conditions      | O2O (LOS/NLOS), O2I (NLOS), I2I (LOS/NLOS)                                                                               |
-| Link to system Adaptation   | BLER and CQI estimation                                                                                                  |
-| Atmospheric Absorption      | yes, TN/A2G: TR 38.901,<br/> NTN: TR 38.811                                                                              |
-| Antenna Model               | TN/UAV/D2D: s.t. TR 38.901 (Omnidirectional, Three sectors (120°), Four sectors (90°))  <br/> NTN: s.t. TR 38.811        |
-| Antenna Polarization        | single, dual                                                                                                             |
-| EDs mobility models         | Stationary,  Linear, Random Walk, Random Waypoint,<br/>Random Direction, Truncated Levy Walk, Gauss-Markov, Gauss-Markov |            
-| NTN and UAV mobility        | Not available in this current version                                                                                    |
-| MIMO                        | Not available in this current version                                                                                    |
-| Interference considerations | Not available in this current version                                                                                    |
-| Outputs                     | BLER, SINR, CQI, nodes coordinates, speed, Grid, and nodes movement video                                                |
+| Parameters                  | Value (v.1.0.0)                                                                                                                     |
+|-----------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| Scenarios                   | TN: UMa, UMi, RMa, InH, InF, <br/> NTN: HAPS, LEO, MEO, GEO,<br/>UAV: A2G                                                           |
+| Link Modes                  | TN/UAV: downlink (DL), uplink (UL), <br/> NTN: DL<br/>  D2D                                                                         |
+| Network Topology            | Single Cell or Multicell                                                                                                            |
+| EDs type                    | pedestrian, vehicle, IoT                                                                                                            |
+| Frequency range (GHz)       | 0.5-100                                                                                                                             |
+| NR numerology               | 0-4, s.t. 3GPP TS 38.214 [5]                                                                                                        |
+| Path Loss models            | TN/D2D: TR 38.901,<br/> NTN: TR 38.811,<br/>A2G: [3]                                                                                |
+| Large scale fading models   | TN/D2D/UAV: TR 38.901,<br/> NTN: TR 38.811                                                                                          |
+| Fast fading models          | TN/D2D/UAV: TDL, CDL (s.t. TR 38.901), Jakes (s.t. [6]),<br/> NTN: TDL (s.t. TR 38.811), Jakes (s.t. [6])                           |
+| Propagation conditions      | O2O (LOS/NLOS), O2I (NLOS), I2I (LOS/NLOS)                                                                                          |
+| Link to system Adaptation   | BLER and CQI estimation                                                                                                             |
+| Atmospheric Absorption      | yes, TN/A2G: TR 38.901,<br/> NTN: TR 38.811                                                                                         |
+| Antenna Model               | TN/UAV/D2D: s.t. TR 38.901 (Omnidirectional, Three sectors (120°), Four sectors (90°))  <br/> NTN: s.t. TR 38.811                   |
+| Antenna Polarization        | single, dual                                                                                                                        |
+| EDs mobility models         | Stationary,  Linear, Random Walk, Random Waypoint,<br/>Random Direction, Truncated Levy Walk, Gauss-Markov, Gauss-Markov (s.t. [7]) |            
+| NTN and UAV mobility        | Not available in this current version                                                                                               |
+| MIMO                        | Not available in this current version                                                                                               |
+| Interference considerations | Not available in this current version                                                                                               |
+| Outputs                     | BLER, SINR, CQI, nodes coordinates, speed, Grid, and nodes movement video                                                           |
 
 ## Structure
 
@@ -122,6 +122,33 @@ First, you need to carefully check the [SimulationConfiguration](./SimulationCon
 Further, we include the file [Scenario_Description_example1](./Scenario_Description_example1.pdf), describing
 a possible use case with the corresponding initialization setup and application.
 
+The LLSim5G has been the baseline platform for the assessments of the contributions proposed in:
+
+- E. F. Pupo, C. C. González and M. Murroni, "Multi-rate Multicasting Over Fixed Pre-Computed MIMO Beams," 2024 IEEE 
+International Symposium on Broadband Multimedia Systems and Broadcasting (BMSB), Toronto, ON, Canada, 2024, pp. 1-6, 
+doi: 10.1109/BMSB62888.2024.10608199.
+- A. Collu, E. F. Pupo, C. C. González and M. Murroni, "Exploiting the benefits of in-band D2D communications for 
+5G-MBS use cases," 2024 IEEE International Symposium on Broadband Multimedia Systems and Broadcasting (BMSB), 
+Toronto, ON, Canada, 2024, pp. 1-6, doi: 10.1109/BMSB62888.2024.10608283.
+- C. C. González, E. F. Pupo, J. Montalban, E. Iradier, P. Angueira and M. Murroni, "Federated Learning-based 
+Unicast/Multicast Service Delivery over 6G O-RAN Framework," 2024 IEEE International Symposium on Broadband Multimedia
+Systems and Broadcasting (BMSB), Toronto, ON, Canada, 2024, pp. 1-6, doi: 10.1109/BMSB62888.2024.10608261.
+- C. C. González et al., "A QoE-based Energy-aware Resource Allocation Solution for 5G Heterogeneous Networks," 
+2024 16th International Conference on Quality of Multimedia Experience (QoMEX), Karlshamn, Sweden, 2024, pp. 29-35, 
+doi: 10.1109/QoMEX61742.2024.10598282.
+- C. C. González, E. F. Pupo, E. Iradier, P. Angueira, M. Murroni and J. Montalban, "Network Selection Over 5G-Advanced
+Heterogeneous Networks Based on Federated Learning and Cooperative Game Theory," in IEEE Transactions on Vehicular 
+Technology, vol. 73, no. 8, pp. 11862-11877, Aug. 2024, doi: 10.1109/TVT.2024.3373638.
+- E. Fontes Pupo, C. Carballo González, J. Montalban, P. Angueira, M. Murroni and E. Iradier, "Artificial Intelligence 
+Aided Low Complexity RRM Algorithms for 5G-MBS," in IEEE Transactions on Broadcasting, vol. 70, no. 1, pp. 110-122, 
+March 2024, doi: 10.1109/TBC.2023.3311337.
+- E. F. Pupo, C. C. Gonzalez, V. Popescu, D. Giusto and M. Murroni, "Beyond 5G Multicast for XR Communications aided
+by Pre-computed Multi-beams and NOMA," 2023 IEEE Globecom Workshops (GC Wkshps), Kuala Lumpur, Malaysia, 2023, 
+pp. 738-743, doi: 10.1109/GCWkshps58843.2023.10465216.
+- C. C. González, E. F. Pupo, J. Montalban, S. Pizzi, E. Iradier and M. Murroni, "Hybrid Terrestrial-Airborne
+Connectivity for Unicast/Broadcast Services Beyond 5G," 2023 IEEE International Symposium on Broadband Multimedia 
+Systems and Broadcasting (BMSB), Beijing, China, 2023, pp. 1-6, doi: 10.1109/BMSB58369.2023.10211608.
+
 This software is provided on an "as is" basis, without warranties of any kind, either express or implied, including,
 but not limited to, warranties of accuracy, adequacy, validity, reliability or compliance for any specific purpose.
 Neither the University of Cagliari nor the authors of this software are liable for any loss, expense or damage of
@@ -141,7 +168,7 @@ capabilities):
 Of course, the identified limitations and missing capabilities could be infinity regarding personal research interest or
 other available simulators. Nevertheless, we are highlighting the ones that are current underdevelopment works, or we
 identify as important for the rationale behind the project. In any case, we encourage any interested researcher to help
-us advancing this simulator toward a more comprehensive and usable solution. 
+us advance this simulator toward a more comprehensive and usable solution. 
 
 ## Contributing
 
@@ -169,6 +196,7 @@ an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express o
 specific language governing permissions and limitations under the License.
 
 If you use this software or part of it for your research, please cite the work:
+
 ```bibtex
 @INPROCEEDINGS{10211507,
   author={Pupo, Ernesto Fontes and González, Claudia Carballo and Iradier, Eneko and Montalban, Jon and Murroni, Maurizio},
@@ -204,16 +232,22 @@ stayed during their Ph.D. period abroad.
 
 [2] TR 38.811, “Technical Specification Group Radio Access Network; Study on New Radio (NR) to support non-terrestrial networks (Release 15),” 2020.
 
-G. Nardini, D. Sabella, G. Stea, P. Thakkar, A. Virdis, "Simu5G – An OMNeT++ Library for End-to-End Performance
-Evaluation of 5G Networks," in IEEE Access, vol. 8, pp. 181176-181191, 2020, doi: 10.1109/ACCESS.2020.3028550.
-
-[6] M. Rupp, S. Schwarz, and M. Taranetz, “The vienna lte-advanced simulators,” https://link. springer. com/book/10.1007% 2F978-981-10
-0617-3, 2016.
-
-[14] W. Khawaja, I. Guvenc, D. W. Matolak, U.-C. Fiebig, and N. Schneck enburger, “A survey of air-to-ground propagation channel modeling for
+[3] W. Khawaja, I. Guvenc, D. W. Matolak, U.-C. Fiebig, and N. Schneck enburger, “A survey of air-to-ground propagation channel modeling for
 unmanned aerial vehicles,” IEEE Communications Surveys & Tutorials, vol. 21, no. 3, pp. 2361–2391, 2019.
 
-“5g; NR; physical layer procedures for data,” 3GPP, Sophia Antipolis,
- France, 3GPP Rep. TS 38.214 version 16.2.0 release 16, 2020.
+[4] M. Rupp, S. Schwarz, and M. Taranetz, “The vienna lte-advanced simulators,”
+https://link. springer. com/book/10.1007% 2F978-981-10 0617-3, 2016.
+
+[5] “5g; NR; physical layer procedures for data,” 3GPP, Sophia Antipolis, France, 3GPP Rep. TS 38.214 version 16.2.0
+release 16, 2020.
+
+[6] P. Dent, G. E. Bottomley, and T. Croft, “Jakes fading model revisited,” Electronics letters, vol. 13, no. 29,
+pp. 1162–1163, 1993.
+
+[7] https://github.com/panisson/pymobility
+
+[8] E. F. Pupo, C. C. González, E. Iradier, J. Montalban and M. Murroni, "5G Link-Level Simulator for Multicast/Broadcast
+Services," 2023 IEEE International Symposium on Broadband Multimedia Systems and Broadcasting (BMSB), Beijing, China,
+2023, pp. 1-6, doi: 10.1109/BMSB58369.2023.10211507.
 
 </div>
