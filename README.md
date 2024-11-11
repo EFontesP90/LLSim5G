@@ -49,7 +49,7 @@ LLSsim5G could be a useful tool for addressing various open research challenges.
 
 ## Main Characteristics
 
-Table I summarize the main LLSim5G characteristics for this initial version (v.1.0.0).
+Table I summarizes the main LLSim5G characteristics for this initial version (v.1.0.0).
 
 Table I. LLSim5G main parameters.
 
@@ -81,11 +81,11 @@ Our open-source LLS is wholly programmed in Python language with a modular struc
 Fig. 1. The first step is the initialization of the parameters and simulation settings, such as simulation time,
 resolution, grid size, type and the number of users, mobility models, the number of TNs, NTNs, and UAVs covering the desired service
 area, among multiple others, as defined in [SimulationConfiguration](./SimulationConfiguration.pdf). Once the 
-simulator’s initialization and resource pool selection is finalized, it starts the iterative link computation
-along the defined simulation time. The links are computed among al the available BSs and EDs and subject to the selected
+simulator’s initialization and resource pool selection are finalized, it starts the iterative link computation
+along the defined simulation time. The links are computed among all the available BSs and EDs and subject to the selected
 link modes, s.t. Table I. In the case of D2D, the simulator calculates the D2D link among all the EDs (with the D2D mode
-enabled) independently of their distance. The link computation ends with the resulting SINR for each enabled link. Then
-is executed the link to system abstraction where for each SINR value is estimated the BLER and the Corresponding CQI.
+enabled) independently of their distance. The link computation ends with the resulting SINR for each enabled link. Then,
+the link to system abstraction is executed, where each SINR value is estimated for the BLER and the corresponding CQI.
 
 
 
