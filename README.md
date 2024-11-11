@@ -1,5 +1,7 @@
 # LLSim5G
 
+<div style="text-align: justify;">
+
 If you are looking to implement personalized link-level simulations of a heterogeneous 5G network and assess the
 performance of your proposed algorithms, this could be a solution, facilitating your upcoming research activities. 
 The LLSim5G is an open-source link-level simulator (LLS) developed in Python to recreate heterogeneous 5G use cases.
@@ -10,8 +12,8 @@ reception conditions, and requesting differentiated broadband traffic from the a
 The implemented link channel models for TN and NTN comply with the 3GPP standards TR 38.901 [REF] and TR 38.811 [REF],
 respectively, for frequencies from 0.5 to 100 GHz. For the NTN use cases, it could be simulated the satellite service links
 from spaceborne or airborne platforms to multiple handheld or IoT end devices. Regarding TN, the LLSim5G allows recreating 
-all the scenarios defined in TR 38.901, such as Urban Macro (UMa), Urban Micro (UMi), Rural Macro (RMa), Indoor-Office
-(InO) and Indoor-Factory (InF). Moreover, we add the capability of simulating unmanned aerial vehicle (UAV) acting as
+all the scenarios defined in TR 38.901, such as Urban Macro (UMa), Urban Micro (UMi), Rural Macro (RMa), Indoor-Hotspot
+(InH) and Indoor-Factory (InF). Moreover, we add the capability of simulating unmanned aerial vehicle (UAV) acting as
 5G base stations (BSs) following the Urban Aerial-to-Ground (UAG) channel model as described in [REF]. In any case, the 
 simulated use case could be a complex three-dimensional (3D) heterogeneous network (HetNet) with multiple TNs, NTNs, and 
 UAVs covering the desired service area.
@@ -47,7 +49,22 @@ LLSsim5G could be a useful tool for addressing various open research challenges.
 - [References](#acknowledgements)
 
 
-## Main Features
+## Main Characteristics
+
+
+
+Table I. LLSim5G main parameters.
+
+| Parameters                | Value                                                                                                         |
+|---------------------------|---------------------------------------------------------------------------------------------------------------|
+| Scenarious                | TN: UMa, UMi, RMa, InH, InF, <br/> NTN: HAPS, LEO, MEO, GEO,<br/>A2G                                          |
+| Link Modes                | TN: downlink (DL), uplink (UL), <br/> NTN: DL<br/>  D2D                                                       |
+| NEtwork Topology          | Single Cell or Multicell<br/                                                                                  |
+| EDs type                  | pedestrian, vehicle, IoT                                                                                      |
+| Frequancy range (GHz)     | 0.5-100                                                                                                       |
+| Path Loss models          | TN/D2D: TR 38.901,<br/> NTN: TR 38.811,<br/>A2G: [REF]                                                        |
+| Large scale fading models | TN/D2D/A2G: TR 38.901,<br/> NTN: TR 38.811                                                                    |
+| Fast fading models        | TN/D2D/A2G: TDL, CDL (s.t. TR 38.901), Jakes (s.t. [REF]),<br/> NTN: TDL (s.t. TR 38.811), Jakes (s.t. [REF]) |
 
 ## Structure
 
@@ -138,3 +155,6 @@ Evaluation of 5G Networks," in IEEE Access, vol. 8, pp. 181176-181191, 2020, doi
 
 [14] W. Khawaja, I. Guvenc, D. W. Matolak, U.-C. Fiebig, and N. Schneck enburger, “A survey of air-to-ground propagation channel modeling for
 unmanned aerial vehicles,” IEEE Communications Surveys & Tutorials, vol. 21, no. 3, pp. 2361–2391, 2019.
+
+
+</div>
