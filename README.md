@@ -9,7 +9,7 @@ The rationale behind this proposal is to tailor a controlled simulated environme
 terrestrial networks (TNs) and non-terrestrial networks (NTNs) with multiple concurrent users under diverse mobility behaviors
 and reception conditions, requesting differentiated broadband traffic from the available infrastructure.
 
-The implemented link channel models for TN and NTN comply with the 3GPP standards TR 38.901 [REF] and TR 38.811 [REF],
+The implemented link channel models for TN and NTN comply with the 3GPP standards TR 38.901 [1] and TR 38.811 [2],
 respectively, for frequencies from 0.5 to 100 GHz. For the NTN use cases, it could be simulated the satellite service links
 from spaceborne or airborne platforms to multiple handheld or IoT end devices. Regarding TN, the LLSim5G allows recreating 
 all the scenarios defined in TR 38.901, such as Urban Macro (UMa), Urban Micro (UMi), Rural Macro (RMa), Indoor-Hotspot
@@ -19,7 +19,7 @@ simulated use case could be a complex three-dimensional (3D) heterogeneous netwo
 UAVs covering the desired service area.
 
 Regarding the end devices (EDs), their configuration for the link computation is compliant with the 3GPP standards 
-TR 38.901 [REF] and TR 38.811 [REF], and subject to the considered network. The resulting link computation could be 
+TR 38.901 [1] and TR 38.811 [2], and subject to the considered network. The resulting link computation could be 
 subject to (s.t.), if enabled, fast-fading (FF), shadowing fading (SF), atmospheric absorption (AA), line-of-sight (LOS)
 or non-line-of-sight (NLOS), outdoor-to-indoor (O2I) penetration, and human blockage (HB). In the simulation, we can
 define multiple (only constrained for the resulting simulation time) EDs freely distributed in the service area, with
