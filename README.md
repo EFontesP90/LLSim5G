@@ -70,10 +70,10 @@ Table I. LLSim5G main parameters.
 | Antenna Model               | TN/UAV/D2D: s.t. TR 38.901 (Omnidirectional, Three sectors (120°), Four sectors (90°))  <br/> NTN: s.t. TR 38.811        |
 | Antenna Polarization        | single, dual                                                                                                             |
 | EDs mobility models         | Stationary,  Linear, Random Walk, Random Waypoint,<br/>Random Direction, Truncated Levy Walk, Gauss-Markov, Gauss-Markov |            
-| NTN and UAV mobility        | Not available                                                                                                            |
-| MIMO                        | Not available                                                                                                            |
-| Interference considerations | Not available                                                                                                            |
-| Outputs                     | BLER, SINR, CQI, nodes coordinates, speed, Grid and nodes movement video                                                 |
+| NTN and UAV mobility        | Not available in this current version                                                                                    |
+| MIMO                        | Not available in this current version                                                                                    |
+| Interference considerations | Not available in this current version                                                                                    |
+| Outputs                     | BLER, SINR, CQI, nodes coordinates, speed, Grid, and nodes movement video                                                |
 
 ## Structure
 
