@@ -77,11 +77,20 @@ Table I. LLSim5G main parameters.
 
 ## Structure
 
-![LLSim5G abstraction model](general/img/SchemeFlow.png)
-Fig. 1: LLSim5G abstraction model 
+<img src="general/img/SchemeFlow.png" alt="Diagram" width="350">
 
-![LLSim5G internal structure](general/img/LLSim5g_IStructure.png)
-Fig. 1: LLSim5G internal structure
+Fig. 1: LLSim5G abstraction model. 
+
+[//]: # (![LLSim5G abstraction model]&#40;general/img/SchemeFlow.png&#41;)
+[//]: # (Fig. 1: LLSim5G abstraction model )
+
+
+<img src="general/img/LLSim5g_IStructure.png" alt="Diagram" width="350">
+
+Fig. 2: LLSim5G internal structure.
+
+[//]: # (![LLSim5G internal structure]&#40;general/img/LLSim5g_IStructure.png&#41;)
+[//]: # (Fig. 1: LLSim5G internal structure)
 
 ## Installation
 
