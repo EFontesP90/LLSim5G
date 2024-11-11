@@ -7,6 +7,7 @@ P. Dent, G. E. Bottomley, and T. Croft, “Jakes fading model revisited,”
 Electronics letters, vol. 13, no. 29, pp. 1162–1163, 1993.
 
 Author: Ernesto Fontes Pupo / Claudia Carballo González
+        University of Cagliari
 Date: 2024-10-30
 Version: 1.0.0
 SPDX-License-Identifier: Apache-2.0

@@ -7,6 +7,7 @@ with a link model s.t. 6.6.2 Path loss and Shadow fading, 3GPP TR 38.811 version
 15.4.0 Release 15.
 
 Author: Ernesto Fontes Pupo / Claudia Carballo González
+        University of Cagliari
 Date: 2024-10-30
 Version: 1.0.0
 SPDX-License-Identifier: Apache-2.0

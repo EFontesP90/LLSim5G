@@ -1,3 +1,14 @@
+"""
+File: test3.py
+
+Author: Ernesto Fontes Pupo / Claudia Carballo González
+        University of Cagliari
+Date: 2024-10-30
+Version: 1.0.0
+SPDX-License-Identifier: Apache-2.0
+
+"""
+
 import numpy as np
 
 # Constants
@@ -9,7 +20,7 @@ desired_elevation_angle = 80.0  # degrees
 satellite_altitude = 50000.0  # altitude in meters
 
 # Grid center in LLA (latitude, longitude)
-# Via dei Pisani 4, 09124 Cagliari CA, Italia
+# Cagliari CA, 09124, Italy
 grid_center_lat = 39.2137738  # degrees
 grid_center_lon = 9.1153844  # degrees
 

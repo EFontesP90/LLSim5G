@@ -7,6 +7,7 @@ Khawaja, W., Guvenc, I., Matolak, D. W., Fiebig, U. C., & Schneckenburger, N. (2
 propagation channel modeling for unmanned aerial vehicles. IEEE Communications Surveys & Tutorials, 21(3), 2361-2391.
 
 Author: Ernesto Fontes Pupo / Claudia Carballo González
+        University of Cagliari
 Date: 2024-10-30
 Version: 1.0.0
 SPDX-License-Identifier: Apache-2.0

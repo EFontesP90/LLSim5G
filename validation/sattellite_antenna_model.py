@@ -1,3 +1,18 @@
+"""
+File: sattellite_antenna_model.py
+
+Purpose:
+TODO: This file defines...
+
+
+Author: Ernesto Fontes Pupo / Claudia Carballo González
+        University of Cagliari
+Date: 2024-10-30
+Version: 1.0.0
+SPDX-License-Identifier: Apache-2.0
+
+"""
+
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.special import jn

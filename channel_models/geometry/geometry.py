@@ -9,6 +9,8 @@ with three symmetric sectors of 120 degrees or four sectors of four symmetric se
 d2d communication, the antenna pattern is assumed to be omnidirectional.
 
 Author: Ernesto Fontes Pupo / Claudia Carballo González
+        University of Cagliari
+
 Date: 2024-10-30
 Version: 1.0.0
 SPDX-License-Identifier: Apache-2.0
