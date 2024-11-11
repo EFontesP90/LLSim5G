@@ -83,7 +83,7 @@ Our open-source LLS is wholly programmed in Python language with a modular struc
 Fig. 1. The first step is the initialization of the parameters and simulation settings, such as simulation time,
 resolution, grid size, type and the number of users, mobility models, the number of TNs, NTNs, and UAVs covering the desired service
 area, among multiple others, as defined in [SimulationConfiguration](./SimulationConfiguration.pdf). Once the 
-simulator’s initialization and resource pool selection is finalized, it starts the iterative link computation
+simulator’s initialization and resource pool selection are finalized, it starts the iterative link computation
 along the defined simulation time. The links are computed among all the available BSs and EDs and subject to the selected
 link modes, s.t. Table I. In the case of D2D, the simulator calculates the D2D link among all the EDs (with the D2D mode
 enabled) independently of their distance. The link computation ends with the resulting SINR for each enabled link. Then,
@@ -127,7 +127,7 @@ The LLSim5G has been the baseline platform for the assessments of the contributi
 - E. F. Pupo, C. C. González and M. Murroni, "Multi-rate Multicasting Over Fixed Pre-Computed MIMO Beams," 2024 IEEE 
 International Symposium on Broadband Multimedia Systems and Broadcasting (BMSB), Toronto, ON, Canada, 2024, pp. 1-6, 
 doi: 10.1109/BMSB62888.2024.10608199.
-- A. Collu, E. F. Pupo, C. C. González and M. Murroni, "Exploiting the benefits of in-band D2D communications for 
+- A. Collu, E. F. Pupo, C. C. González, and M. Murroni, "Exploiting the benefits of in-band D2D communications for 
 5G-MBS use cases," 2024 IEEE International Symposium on Broadband Multimedia Systems and Broadcasting (BMSB), 
 Toronto, ON, Canada, 2024, pp. 1-6, doi: 10.1109/BMSB62888.2024.10608283.
 - C. C. González, E. F. Pupo, J. Montalban, E. Iradier, P. Angueira and M. Murroni, "Federated Learning-based 
@@ -142,7 +142,7 @@ Technology, vol. 73, no. 8, pp. 11862-11877, Aug. 2024, doi: 10.1109/TVT.2024.33
 - E. Fontes Pupo, C. Carballo González, J. Montalban, P. Angueira, M. Murroni and E. Iradier, "Artificial Intelligence 
 Aided Low Complexity RRM Algorithms for 5G-MBS," in IEEE Transactions on Broadcasting, vol. 70, no. 1, pp. 110-122, 
 March 2024, doi: 10.1109/TBC.2023.3311337.
-- E. F. Pupo, C. C. Gonzalez, V. Popescu, D. Giusto and M. Murroni, "Beyond 5G Multicast for XR Communications aided
+- E. F. Pupo, C. C. Gonzalez, V. Popescu, D. Giusto, and M. Murroni, "Beyond 5G Multicast for XR Communications aided
 by Pre-computed Multi-beams and NOMA," 2023 IEEE Globecom Workshops (GC Wkshps), Kuala Lumpur, Malaysia, 2023, 
 pp. 738-743, doi: 10.1109/GCWkshps58843.2023.10465216.
 - C. C. González, E. F. Pupo, J. Montalban, S. Pizzi, E. Iradier and M. Murroni, "Hybrid Terrestrial-Airborne
@@ -150,23 +150,23 @@ Connectivity for Unicast/Broadcast Services Beyond 5G," 2023 IEEE International 
 Systems and Broadcasting (BMSB), Beijing, China, 2023, pp. 1-6, doi: 10.1109/BMSB58369.2023.10211608.
 
 This software is provided on an "as is" basis, without warranties of any kind, either express or implied, including,
-but not limited to, warranties of accuracy, adequacy, validity, reliability or compliance for any specific purpose.
+but not limited to, warranties of accuracy, adequacy, validity, reliability, or compliance for any specific purpose.
 Neither the University of Cagliari nor the authors of this software are liable for any loss, expense or damage of
 any type that may arise in using this software.
 
 ## Limitations
 
-The current version of LLSim5G v.1.0.0 is subject to the following limitation (some of them are underdevelopment
+The current version of LLSim5G v.1.0.0 is subject to the following limitations (some of them are underdevelopment
 capabilities):
 
-- No support for MIMO
-- No support for mobility simulations on the BSs (i.e., the defined UAV, or NTNs) side.
+- No support for MIMO.
+- No support for mobility simulations on the BSs (i.e., the defined UAVs or NTNs) side.
 - The fast-fading CDL model is not enabled for NTN simulations.
 - No interference considerations.
 - Lack of Parallelization and GPU Support. 
 
-Of course, the identified limitations and missing capabilities could be infinity regarding personal research interest or
-other available simulators. Nevertheless, we are highlighting the ones that are current underdevelopment works, or we
+Of course, the identified limitations and missing capabilities could be infinity regarding personal research interests or
+other available simulators. Nevertheless, we are highlighting the current underdevelopment works, which we
 identify as important for the rationale behind the project. In any case, we encourage any interested researcher to help
 us advance this simulator toward a more comprehensive and usable solution. 
 
@@ -178,8 +178,7 @@ https://scholar.google.com/citations?user=2-FLQJEAAAAJ&hl=en.
 Claudia Carballo Gonzalez, orcid: "0000-0002-6429-1375", e-mail: ccgclaudia7892@gmail.com, Google Scholar:
 https://scholar.google.com/citations?user=E0oft9oAAAAJ&hl=en&oi=ao.
 
-The LLS was developed during their Ph.D. studies with the Department of Electrical and Electronic Engineering 
-(DIEE/UdR CNIT), University of Cagliari.
+The LLS was developed during their Ph.D. studies with the Department of Electrical and Electronic Engineering (DIEE/UdR CNIT), University of Cagliari.
 
 ## License and Citation
 
