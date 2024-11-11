@@ -8,6 +8,7 @@ o2i losses, los probability, hb probability and losses, shadowing fading, the an
 the fast fading attenuation and finally the resulting SINR.
 
 Author: Ernesto Fontes Pupo / Claudia Carballo González
+        University of Cagliari
 Date: 2024-10-30
 Version: 1.0.0
 SPDX-License-Identifier: Apache-2.0

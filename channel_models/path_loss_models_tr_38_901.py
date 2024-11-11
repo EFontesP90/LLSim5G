@@ -6,6 +6,7 @@ This file comprises the Path loss computation s.t. Table 7.4.1-1: Pathloss model
 3GPP TR 38.901 version 16.1.0 Release 16.
 
 Author: Ernesto Fontes Pupo / Claudia Carballo González
+        University of Cagliari
 Date: 2024-10-30
 Version: 1.0.0
 SPDX-License-Identifier: Apache-2.0
