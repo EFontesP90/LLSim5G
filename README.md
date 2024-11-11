@@ -96,8 +96,8 @@ Fig. 1: LLSim5G abstraction model.
 [//]: # (![LLSim5G abstraction model]&#40;general/img/SchemeFlow.png&#41;)
 [//]: # (Fig. 1: LLSim5G abstraction model )
 
-Fig. 2 present the internal structure of the simulator including the dependencies of the .py files, the inputs and 
-outputs. The destails about the overal outputs of the simulator can be found in [SimulationOutputs](./SimulationOutputs.pdf).
+Fig. 2 presents the internal structure of the simulator, including the dependencies of the .py files, as well as the inputs and 
+outputs. The details about the overall outputs of the simulator can be found in [SimulationOutputs](./SimulationOutputs.pdf).
 
 <img src="general/img/LLSim5g_IStructure.png" alt="Diagram" width="700">
 
