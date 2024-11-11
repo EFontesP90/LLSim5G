@@ -6,6 +6,7 @@ This file defines the functions for executing the link to system adaptation and 
 the target BLER.
 
 Author: Ernesto Fontes Pupo / Claudia Carballo González
+        University of Cagliari
 Date: 2024-10-30
 Version: 1.0.0
 SPDX-License-Identifier: Apache-2.0

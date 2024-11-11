@@ -2,7 +2,7 @@
 File: sattellite_antenna_model.py
 
 Purpose:
-This file defines...
+TODO: This file defines...
 
 
 Author: Ernesto Fontes Pupo / Claudia Carballo González
