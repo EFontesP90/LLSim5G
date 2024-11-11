@@ -48,12 +48,12 @@ LLSsim5G could be a useful tool for addressing various open research challenges.
 - [Acknowledgements](#acknowledgements)
 - [References](#acknowledgements)
 
-
+Table I summarize the main LLSim5G characteristics for this initial version (v.1.0.0).
 ## Main Characteristics
 
 Table I. LLSim5G main parameters.
 
-| Parameters                  | Value (version 1.0.0)                                                                                                    |
+| Parameters                  | Value (v.1.0.0)                                                                                                          |
 |-----------------------------|--------------------------------------------------------------------------------------------------------------------------|
 | Scenarios                   | TN: UMa, UMi, RMa, InH, InF, <br/> NTN: HAPS, LEO, MEO, GEO,<br/>UAV: A2G                                                |
 | Link Modes                  | TN/UAV: downlink (DL), uplink (UL), <br/> NTN: DL<br/>  D2D                                                              |
@@ -76,6 +76,12 @@ Table I. LLSim5G main parameters.
 | Outputs                     | BLER, SINR, CQI, nodes coordinates, speed, Grid and nodes movement video                                                 |
 
 ## Structure
+
+![LLSim5G abstraction model](general/img/SchemeFlow.png)
+Fig. 1: LLSim5G abstraction model 
+
+![LLSim5G abstraction model](general/img/LLSim5g internal structure.png)
+Fig. 1: LLSim5G internal structure
 
 ## Installation
 
@@ -165,5 +171,7 @@ Evaluation of 5G Networks," in IEEE Access, vol. 8, pp. 181176-181191, 2020, doi
 [14] W. Khawaja, I. Guvenc, D. W. Matolak, U.-C. Fiebig, and N. Schneck enburger, “A survey of air-to-ground propagation channel modeling for
 unmanned aerial vehicles,” IEEE Communications Surveys & Tutorials, vol. 21, no. 3, pp. 2361–2391, 2019.
 
+“5g; NR; physical layer procedures for data,” 3GPP, Sophia Antipolis,
+ France, 3GPP Rep. TS 38.214 version 16.2.0 release 16, 2020.
 
 </div>
