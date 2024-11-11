@@ -76,7 +76,7 @@ Table I. LLSim5G main parameters.
 | MIMO                        | Not available                                                                                                            |
 | Interference considerations | Not available                                                                                                            |
 | Outputs                     | BLER, SINR, CQI, nodes coordinates, speed, Grid and nodes movement video                                                 |
-,
+
 ## Structure
 
 ## Installation
