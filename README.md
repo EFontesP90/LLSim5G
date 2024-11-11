@@ -85,7 +85,7 @@ Fig. 1: LLSim5G abstraction model.
 [//]: # (Fig. 1: LLSim5G abstraction model )
 
 
-<img src="general/img/LLSim5g_IStructure.png" alt="Diagram" width="500">
+<img src="general/img/LLSim5g_IStructure.png" alt="Diagram" width="700">
 
 Fig. 2: LLSim5G internal structure.
 
