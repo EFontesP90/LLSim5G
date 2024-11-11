@@ -193,7 +193,7 @@ Credits and acknowledgements for resources, libraries, inspiration, etc.
 
 [1] G. T. 38.901, “5G; study on channel model for frequencies from 0.5 to 100 GHz (3GPP TR 38.901 version 16.1.0 release 16),” 2020.
 
-[2] TR 38.811,
+[2] TR 38.811, “Technical Specification Group Radio Access Network; Study on New Radio (NR) to support non-terrestrial networks (Release 15),” 2020.
 
 G. Nardini, D. Sabella, G. Stea, P. Thakkar, A. Virdis, "Simu5G – An OMNeT++ Library for End-to-End Performance
 Evaluation of 5G Networks," in IEEE Access, vol. 8, pp. 181176-181191, 2020, doi: 10.1109/ACCESS.2020.3028550.
