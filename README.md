@@ -51,8 +51,6 @@ LLSsim5G could be a useful tool for addressing various open research challenges.
 
 ## Main Characteristics
 
-
-
 Table I. LLSim5G main parameters.
 
 | Parameters                  | Value (version 1.0.0)                                                                                                    |
