@@ -39,11 +39,9 @@ LLSsim5G could be a useful tool for addressing various open research challenges.
 
 - [Main Features](#installation)
 - [Structure](##contributing)
-- [Installation](#contributing)
-- [Dependencies](#contributors)
+- [Installation/Requirements](#contributing)
 - [How to use](#contributing)
 - [Contributing](#contributing)
-- [Contributing](#license)
 - [License and Citation](#acknowledgements)
 - [Acknowledgements](#acknowledgements)
 - [References](#acknowledgements)
@@ -108,15 +106,18 @@ Fig. 2: LLSim5G internal structure.
 [//]: # (![LLSim5G internal structure]&#40;general/img/LLSim5g_IStructure.png&#41;)
 [//]: # (Fig. 1: LLSim5G internal structure)
 
-## Installation
 
 
+## Installation/Requirements
 
-## Dependencies
-
-[requirnments](./requirements.txt)
+You need to clone the project from GitHub using the link: https://github.com/EFontesP90/lls_tn-ntn_5g.git;
+or download the ZIP file of the project.
+Then you need to check that all the requirements, main dependencies and external libraries and versions are satisfied 
+([requirements](./requirements.txt))
 
 ## How to use
+
+
 
 ## Contributing
 
