@@ -111,24 +111,26 @@ Fig. 2: LLSim5G internal structure.
 ## Installation and Requirements
 
 You need to clone the project from GitHub using the link: https://github.com/EFontesP90/lls_tn-ntn_5g.git;
-or download the ZIP file of the project.
-Then you need to check that all the requirements, main dependencies and external libraries and versions are satisfied 
-([requirements](./requirements.txt))
+or download the project ZIP file.
+Then, you need to check that all the requirements, main dependencies, and external libraries and versions are satisfied 
+([requirements](./requirements.txt)).
 
 ## How to use
 
 First, you need to carefully check the [SimulationConfiguration](./SimulationConfiguration.pdf) and 
-[SimulationOutputs](./SimulationOutputs.pdf) files as well as the additional complementary documents. 
-Additionally, we include the file [Scenario_Description_example1](./Scenario_Description_example1.pdf), describing
+[SimulationOutputs](./SimulationOutputs.pdf) files and the additional complementary documents. 
+Further, we include the file [Scenario_Description_example1](./Scenario_Description_example1.pdf), describing
 a possible use case with the corresponding initialization setup and application.
 
 
 
 ## Contributing
 
-Ernesto Fontes Pupo, orcid: "0000-0002-1715-6015", affiliation: "University of Cagliari", e-mail: efontesp90@gmail.com
+Ernesto Fontes Pupo, orcid: "0000-0002-1715-6015", e-mail: efontesp90@gmail.com
 
-Claudia Carballo Gonzalez, orcid: "0000-0002-6429-1375", affiliation: "University of Cagliari", e-mail: ccgclaudia7892@gmail.com
+Claudia Carballo Gonzalez, orcid: "0000-0002-6429-1375", e-mail: ccgclaudia7892@gmail.com
+
+The LLS was developed during their Ph.D. studies with the Department of Electrical and Electronic Engineering (DIEE/UdR CNIT), University of Cagliari.
 
 ## License and Citation
 
