@@ -216,7 +216,7 @@ Services," 2023 IEEE International Symposium on Broadband Multimedia Systems and
 
 ## Additional Support
 
-Please contact the contributing authors.
+Please contact the contributing authors
 e-mail: efontesp90@gmail.com, ccgclaudia7892@gmail.com 
 
 
