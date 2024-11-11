@@ -41,6 +41,7 @@ LLSsim5G could be a useful tool for addressing various open research challenges.
 - [Structure](##contributing)
 - [Installation/Requirements](#contributing)
 - [How to use](#contributing)
+- [Limitations](#limitations)
 - [Contributing](#contributing)
 - [License and Citation](#acknowledgements)
 - [Additional Support](#support)
@@ -120,6 +121,14 @@ First, you need to carefully check the [SimulationConfiguration](./SimulationCon
 [SimulationOutputs](./SimulationOutputs.pdf) files and the additional complementary documents. 
 Further, we include the file [Scenario_Description_example1](./Scenario_Description_example1.pdf), describing
 a possible use case with the corresponding initialization setup and application.
+
+This software is provided on an "as is" basis, without warranties of any kind, either express or implied, including,
+but not limited to, warranties of accuracy, adequacy, validity, reliability or compliance for any specific purpose.
+Neither the University of Cagliari nor the authors of this software are liable for any loss, expense or damage of
+any type that may arise in using this software.
+
+## Limitations
+
 
 ## Contributing
 
