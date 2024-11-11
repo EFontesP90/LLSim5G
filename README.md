@@ -154,12 +154,12 @@ Services," 2023 IEEE International Symposium on Broadband Multimedia Systems and
 
 ## Additional Support
 
-Please contact with the contributing authors.
+Please contact the contributing authors.
 e-mail: efontesp90@gmail.com, ccgclaudia7892@gmail.com 
 
-
-
 ## Acknowledge
+
+Thanks to the Department of Communications Engineering, University of the Basque Country (UPV/EHU), where the authors stayed during their Ph.D. period abroad.
 
 ## References
 
