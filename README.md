@@ -108,7 +108,7 @@ Fig. 2: LLSim5G internal structure.
 
 
 
-## Installation/Requirements
+## Installation and Requirements
 
 You need to clone the project from GitHub using the link: https://github.com/EFontesP90/lls_tn-ntn_5g.git;
 or download the ZIP file of the project.
