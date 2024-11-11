@@ -78,13 +78,16 @@ Table I. LLSim5G main parameters.
 ## Structure
 
 Our open-source LLS is wholly programmed in Python language with a modular structure and flow process, according to
-Fig. 1. The first step of the simulation setup is the initialization of the parameters, such as simulation time,
-resolution, grid size, type and the number of users, the number of TNs, NTNs, and UAVs covering the desired service
-area, among multiple others, as defined in [SimulationConfiguration](./SimulationConfiguration.pdf).
+Fig. 1. The first step is the initialization of the parameters and simulation settings, such as simulation time,
+resolution, grid size, type and the number of users, mobility models, the number of TNs, NTNs, and UAVs covering the desired service
+area, among multiple others, as defined in [SimulationConfiguration](./SimulationConfiguration.pdf). Once the 
+simulator’s initialization and resource pool selection is finalized, it starts the iterative link computation
+along the defined simulation time. The links are computed among al the available BSs and EDs and subject to the selected
+link modes, s.t. Table I. In the case of D2D, the simulator calculates the D2D link among all the EDs (with the D2D mode
+enabled) independently of their distance. The link computation ends with the resulting SINR for each enabled link. Then
+is executed the link to system abstraction where for each SINR value is estimated the BLER and the Corresponding CQI.
 
-base stations (BSs), BSs’
- scenarios, and selection of the available modes, according to
- Table II-A.
+
 
 <img src="general/img/SchemeFlow.png" alt="Diagram" width="500">
 
@@ -93,6 +96,8 @@ Fig. 1: LLSim5G abstraction model.
 [//]: # (![LLSim5G abstraction model]&#40;general/img/SchemeFlow.png&#41;)
 [//]: # (Fig. 1: LLSim5G abstraction model )
 
+Fig. 2 present the internal structure of the simulator including the dependencies of the .py files, the inputs and 
+outputs. The destails about the overal outputs of the simulator can be found in [SimulationOutputs](./SimulationOutputs.pdf).
 
 <img src="general/img/LLSim5g_IStructure.png" alt="Diagram" width="700">
 
