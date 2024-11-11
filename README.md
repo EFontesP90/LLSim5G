@@ -77,6 +77,15 @@ Table I. LLSim5G main parameters.
 
 ## Structure
 
+Our open-source LLS is wholly programmed in Python language with a modular structure and flow process, according to
+Fig. 1. The first step of the simulation setup is the initialization of the parameters, such as simulation time,
+resolution, grid size, type and the number of users, the number of TNs, NTNs, and UAVs covering the desired service
+area, among multiple others, as defined in [Simulation Configuration](./Simulation COnfiguration.pdf).
+
+base stations (BSs), BSs’
+ scenarios, and selection of the available modes, according to
+ Table II-A.
+
 <img src="general/img/SchemeFlow.png" alt="Diagram" width="500">
 
 Fig. 1: LLSim5G abstraction model. 
