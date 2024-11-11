@@ -123,9 +123,9 @@ a possible use case with the corresponding initialization setup and application.
 
 ## Contributing
 
-Ernesto Fontes Pupo, orcid: "0000-0002-1715-6015", e-mail: efontesp90@gmail.com
+Ernesto Fontes Pupo, orcid: "0000-0002-1715-6015", e-mail: efontesp90@gmail.com, Google Scholar: https://scholar.google.com/citations?user=2-FLQJEAAAAJ&hl=en.
 
-Claudia Carballo Gonzalez, orcid: "0000-0002-6429-1375", e-mail: ccgclaudia7892@gmail.com
+Claudia Carballo Gonzalez, orcid: "0000-0002-6429-1375", e-mail: ccgclaudia7892@gmail.com, Google Scholar: https://scholar.google.com/citations?user=E0oft9oAAAAJ&hl=en&oi=ao.
 
 The LLS was developed during their Ph.D. studies with the Department of Electrical and Electronic Engineering (DIEE/UdR CNIT), University of Cagliari.
 
