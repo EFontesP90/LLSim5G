@@ -157,69 +157,6 @@ Services," 2023 IEEE International Symposium on Broadband Multimedia Systems and
 
 ## References
 
-------------------------------------
-----------------------------------
-
-
-Instructions on how to install your project. For example:
-
-```bash
-pip install your_project_name
-```
-
-## Instructions on how to use your project.
-
-```bash
-import your_project_name
-```
-
-# Example usage
-
-```bash
-your_project_name.some_function()
-```
-
-# Features
-List of features your project provides.
-
-# Core Contributors
-
-Ernesto Fontes Pupo, orcid: "0000-0002-1715-6015", affiliation: "University of Cagliari", e-mail: efontesp90@gmail.com
-
-Claudia Carballo Gonzalez, orcid: "0000-0002-6429-1375", affiliation: "University of Cagliari", e-mail: ccgclaudia7892@gmail.com
-
-# Contributing
-
-Guidelines on how to contribute to your project. For example:
-
--Fork the repository
--Create a new branch (git checkout -b feature/feature-name)
--Commit your changes (git commit -m 'Add some feature')
--Push to the branch (git push origin feature/feature-name)
--Open a Pull Request
-
-## License
-
-This project is licensed under the Apache License 2.0. For details, see the [LICENSE](./LICENSE) file.
-
-## Acknowledgements
-
-- Thanks to [Person](https://github.com/person) for their guidance.
-- [Library](https://link-to-library) for providing useful resources.
-
----
-
-*This project is a part of XYZ initiative and is maintained by [Your Name](https://github.com/your-github-profile).*
-
-For any questions or issues, please contact [Your Email](mailto:your-email@example.com).
-
-# Acknowledgements
-
-Credits and acknowledgements for resources, libraries, inspiration, etc.
-
-## References
-
-
 G. T. 38.901, “5g; study on channel model for frequencies from 0.5 to 100 ghz (3gpp tr 38.901 version 16.1.0 release 16),” 2020.
 
 G. Nardini, D. Sabella, G. Stea, P. Thakkar, A. Virdis, "Simu5G – An OMNeT++ Library for End-to-End Performance
