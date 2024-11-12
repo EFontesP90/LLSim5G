@@ -199,7 +199,7 @@ Unless required by applicable law or agreed to in writing, software distributed 
 an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. Please look at the License for the 
 specific language governing permissions and limitations under the License.
 
-    LLSim5G is a link-level simulator to for HetNet 5G use cases
+    LLSim5G is a link-level simulator for HetNet 5G use cases.
     Copyright (C) 2024  Ernesto Fontes & Claudia Carballo
 
     This program is free software: you can redistribute it and/or modify
