@@ -9,9 +9,29 @@ Authors: Ernesto Fontes Pupo / Claudia Carballo González
          University of Cagliari
 Date: 2024-10-30
 Version: 1.0.0
-SPDX-License-Identifier: Apache-2.0
+
+                   GNU LESSER GENERAL PUBLIC LICENSE
+                       Version 3, 29 June 2007
+
+    LLSim5G is a link-level simulator to for HetNet 5G use cases
+    Copyright (C) 2024  Ernesto Fontes, Claudia Carballo
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 """
+
+
 
 # Standard library imports
 import logging
@@ -33,7 +53,7 @@ import general.general as ge
 
 # pd.set_option('display.max_rows', None)  # This specific setting ensures that all rows in a DataFrame will be displayed when it's printed.
 # pd.set_option('display.max_columns', None)  # This specific setting ensures that all columns in a DataFrame will be displayed when it's printed.
-# pd.set_option('display.width', 1000)          # Increase width for better readability
+# pd.set_option('display.width', 1000)  # Increase width for better readability
 pd.set_option('display.colheader_justify', 'center')  # Center-align column headers
 pd.set_option('display.precision', 2)         # Set decimal precision if needed
 
