@@ -7,9 +7,9 @@ performance of your proposed algorithms, this could be a solution, facilitating 
 The LLSim5G is an open-source link-level simulator (LLS) developed in Python to recreate heterogeneous 5G use cases.
 The rationale behind this proposal is to tailor a controlled simulated environment where it could coexist
 terrestrial networks (TNs) and non-terrestrial networks (NTNs) with multiple concurrent users under diverse mobility behaviors
-and reception conditions, requesting differentiated broadband traffic from the available infrastructure. We intend for
-a usable and comprehensive solution where the outcome could be easily integrated into data-driven and machine-learning
-research approaches for multiple applications.
+and reception conditions, requesting differentiated broadband traffic from the available infrastructure. We intend to
+create a usable and comprehensive solution in which the outcomes can be easily integrated into data-driven and 
+machine-learning research approaches for multiple applications.
 
 The implemented link channel models for TN and NTN comply with the 3GPP standards TR 38.901 [1] and TR 38.811 [2],
 respectively, for frequencies from 0.5 to 100 GHz. For the NTN use cases, it could be simulated the satellite service links
