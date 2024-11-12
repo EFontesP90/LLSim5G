@@ -13,7 +13,7 @@ Version: 1.0.0
                    GNU LESSER GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 
-    LLSim5G is a link-level simulator to for HetNet 5G use cases
+    LLSim5G is a link-level simulator for HetNet 5G use cases.
     Copyright (C) 2024  Ernesto Fontes, Claudia Carballo
 
     This program is free software: you can redistribute it and/or modify
