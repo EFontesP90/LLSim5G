@@ -7,7 +7,7 @@ d2d possible forwarding user) and rx (e.g., user equipment), our implementation 
 o2i losses, los probability, hb probability and losses, shadowing fading, the angular attenuation, the path loss,
 the fast fading attenuation and finally the resulting SINR.
 
-Author: Ernesto Fontes Pupo / Claudia Carballo González
+Authors: Ernesto Fontes Pupo / Claudia Carballo González
         University of Cagliari
 Date: 2024-10-30
 Version: 1.0.0

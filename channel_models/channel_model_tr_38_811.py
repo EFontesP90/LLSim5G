@@ -7,7 +7,7 @@ For a pair tx (a Satellite) and rx (e.g., user equipment), our implementation co
 o2i losses, loss probability, shadowing fading, the angular attenuation, the atmospheric absorption, the path loss,
 the fast-fading attenuation and finally the resulting SINR.
 
-Author: Ernesto Fontes Pupo / Claudia Carballo González
+Authors: Ernesto Fontes Pupo / Claudia Carballo González
         University of Cagliari
 Date: 2024-10-30
 Version: 1.0.0

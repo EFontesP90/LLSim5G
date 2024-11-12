@@ -5,7 +5,7 @@ Purpose:
 This file is used to validate the implementation of the NTN antenna model.
 
 
-Author: Ernesto Fontes Pupo / Claudia Carballo González
+Authors: Ernesto Fontes Pupo / Claudia Carballo González
         University of Cagliari
 Date: 2024-10-30
 Version: 1.0.0

@@ -1,5 +1,5 @@
 """
-File: sattelite_lla_info.py
+File: satellites_lla_info.py
 
 Purpose:
 This file defines the methods for converting from and to: LLA (Latitude, Longitude, Altitude) and ECEF (Earth-Centered,
@@ -23,7 +23,7 @@ ECEF coordinates are fixed relative to the Earth, so as it rotates, the coordina
 This makes ECEF useful for calculations that involve Earth’s rotational dynamics or high-precision navigation systems.
 ----------------------------------
 
-Author: Ernesto Fontes Pupo / Claudia Carballo González
+Authors: Ernesto Fontes Pupo / Claudia Carballo González
         University of Cagliari
 Date: 2024-10-30
 Version: 1.0.0

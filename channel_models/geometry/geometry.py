@@ -8,7 +8,7 @@ and their relative speeds. In the case of the horizontal angle, the angle comput
 with three symmetric sectors of 120 degrees or four sectors of four symmetric sectors of 90 degrees. In the case of
 d2d communication, the antenna pattern is assumed to be omnidirectional.
 
-Author: Ernesto Fontes Pupo / Claudia Carballo González
+Authors: Ernesto Fontes Pupo / Claudia Carballo González
         University of Cagliari
 
 Date: 2024-10-30

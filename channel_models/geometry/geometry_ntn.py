@@ -5,7 +5,7 @@ Purpose:
 The class Geometry_ntn allows computing for a pair rx (receiver, e.g., user equipment) and tx (transmitter, a Satellite) the
 three-dimensional distance, the elevation angle, the relative speeds and Doppler shift angle.
 
-Author: Ernesto Fontes Pupo / Claudia Carballo González
+Authors: Ernesto Fontes Pupo / Claudia Carballo González
         University of Cagliari
 Date: 2024-10-30
 Version: 1.0.0

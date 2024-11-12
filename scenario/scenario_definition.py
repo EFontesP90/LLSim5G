@@ -5,7 +5,7 @@ Purpose:
 This file allows to define the whole grid and mobility behaviors. Its outputs are the coordinates
 of each user in the grid as well as the coordinates of the base stations.
 
-Author: Ernesto Fontes Pupo / Claudia Carballo González
+Authors: Ernesto Fontes Pupo / Claudia Carballo González
         University of Cagliari
 Date: 2024-10-30
 Version: 1.0.0
