@@ -33,8 +33,6 @@ import general.general as ge
 
 # pd.set_option('display.max_rows', None)  # This specific setting ensures that all rows in a DataFrame will be displayed when it's printed.
 # pd.set_option('display.max_columns', None)  # This specific setting ensures that all columns in a DataFrame will be displayed when it's printed.
-
-# pd.set_option('display.max_columns', None)    # Show all columns
 # pd.set_option('display.width', 1000)          # Increase width for better readability
 pd.set_option('display.colheader_justify', 'center')  # Center-align column headers
 pd.set_option('display.precision', 2)         # Set decimal precision if needed
@@ -46,8 +44,8 @@ if __name__ == "__main__":
 
 
     ########## Uncomment to fix the random outputs during simulations ##########
-    np.random.seed(42)  # Use any integer seed value
-    random.seed(42)  # Use any integer seed value
+    # np.random.seed(42)  # Use any integer seed value
+    # random.seed(42)  # Use any integer seed value
     ######################################################################
 
     simulation_settings = "from_main_script"  # String: ("from_main_script", "from_excel"). To set the simulation settings directly from the script or from external excels placed in the simulation_settings folder
