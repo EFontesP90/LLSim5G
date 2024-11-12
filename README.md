@@ -7,7 +7,9 @@ performance of your proposed algorithms, this could be a solution, facilitating 
 The LLSim5G is an open-source link-level simulator (LLS) developed in Python to recreate heterogeneous 5G use cases.
 The rationale behind this proposal is to tailor a controlled simulated environment where it could coexist
 terrestrial networks (TNs) and non-terrestrial networks (NTNs) with multiple concurrent users under diverse mobility behaviors
-and reception conditions, requesting differentiated broadband traffic from the available infrastructure.
+and reception conditions, requesting differentiated broadband traffic from the available infrastructure. We intend for
+a usable and comprehensive solution where the outcome could be easily integrated into data-driven and machine-learning
+research approaches for multiple applications.
 
 The implemented link channel models for TN and NTN comply with the 3GPP standards TR 38.901 [1] and TR 38.811 [2],
 respectively, for frequencies from 0.5 to 100 GHz. For the NTN use cases, it could be simulated the satellite service links
@@ -30,9 +32,9 @@ such as D2D multicasting (D2DM), forwarding device (FD) selection, or vehicle-to
 The physical (PHY) link layer of a wireless communication system is typically simulated through LLSs, mathematically 
 modeling the point-to-point communication of a paired transmitter (Tx) and receiver (Rx) with a detailed link characterization
 and evaluating metrics such as bit/block error rate (BER/BLER) and signal-to-interference-plus-noise ratio (SINR) (typically
-used as reference inputs to system-level simulators (SLS)) [4]. Multiple research fields take advantage of LLSs for
-advancing fields such as radio resource management, interference management, channel estimation, Multiple-Input
-Multiple-Output (MIMO) and Adaptive Modulation and Coding (AMC) scheme. In such context, the initial version of the
+used as reference inputs to system-level simulators (SLS)) [4]. Multiple research fields could take advantage of LLSim5G for
+advancing fields such as radio resource management, network slicing, V2V and D2D communications, interference management,
+channel estimation, MIMO and Adaptive Modulation and Coding scheme. In such context, the initial version of the
 LLSsim5G could be a useful tool for addressing various open research challenges. 
 
 ## Table of Contents
@@ -83,7 +85,7 @@ Our open-source LLS is wholly programmed in Python language with a modular struc
 Fig. 1. The first step is the initialization of the parameters and simulation settings, such as simulation time,
 resolution, grid size, type and the number of users, mobility models, the number of TNs, NTNs, and UAVs covering the desired service
 area, among multiple others, as defined in [SimulationConfiguration](./SimulationConfiguration.pdf). Once the 
-simulator’s initialization and resource pool selection are finalized, it starts the iterative link computation
+simulator’s initialization and resource pool selection is finalized, it starts the iterative link computation
 along the defined simulation time. The links are computed among all the available BSs and EDs and subject to the selected
 link modes, s.t. Table I. In the case of D2D, the simulator calculates the D2D link among all the EDs (with the D2D mode
 enabled) independently of their distance. The link computation ends with the resulting SINR for each enabled link. Then,
@@ -178,7 +180,9 @@ https://scholar.google.com/citations?user=2-FLQJEAAAAJ&hl=en.
 Claudia Carballo Gonzalez, orcid: "0000-0002-6429-1375", e-mail: ccgclaudia7892@gmail.com, Google Scholar:
 https://scholar.google.com/citations?user=E0oft9oAAAAJ&hl=en&oi=ao.
 
-The LLS was developed during their Ph.D. studies with the Department of Electrical and Electronic Engineering (DIEE/UdR CNIT), University of Cagliari.
+The LLS was developed during their Ph.D. studies with the Department of Electrical and Electronic Engineering
+(DIEE/UdR CNIT), University of Cagliari.
+https://web.unica.it/unica/en/homepage.page
 
 ## License and Citation
 
