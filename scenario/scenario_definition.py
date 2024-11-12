@@ -377,5 +377,5 @@ def scenario_definition(general_simulation_parameters, bs_parameters, general_ch
     sx = Scenario(general_simulation_parameters, bs_parameters, general_channel_modeling, sub_groups_parameters, general_parameters)
 
     df_x, df_y, df_z, df_tbs_xyz, df_abs_xyz, df_sat_lla, time_map, grid_lla, grid_xy = sx.scenario()
-    return df_x, df_y, df_z, df_tbs_xyz, df_abs_xyz, df_sat_lla, time_map, grid_lla, grid_xy
+    return round(df_x, 2), round(df_y, 2), df_z, df_tbs_xyz, df_abs_xyz, df_sat_lla, time_map, grid_lla, grid_xy
 

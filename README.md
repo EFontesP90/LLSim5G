@@ -55,27 +55,27 @@ Table I summarizes the main LLSim5G characteristics for this initial version (v.
 
 Table I. LLSim5G main parameters.
 
-| Parameters                  | Value (v.1.0.0)                                                                                                                     |
-|-----------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| Scenarios                   | TN: UMa, UMi, RMa, InH, InF, <br/> NTN: HAPS, LEO, MEO, GEO,<br/>UAV: A2G                                                           |
-| Link Modes                  | TN/UAV: downlink (DL), uplink (UL), <br/> NTN: DL<br/>  D2D                                                                         |
-| Network Topology            | Single Cell or Multicell                                                                                                            |
-| EDs type                    | pedestrian, vehicle, IoT                                                                                                            |
-| Frequency range (GHz)       | 0.5-100                                                                                                                             |
-| NR numerology               | 0-4, s.t. 3GPP TS 38.214 [5]                                                                                                        |
-| Path Loss models            | TN/D2D: TR 38.901,<br/> NTN: TR 38.811,<br/>A2G: [3]                                                                                |
-| Large scale fading models   | TN/D2D/UAV: TR 38.901,<br/> NTN: TR 38.811                                                                                          |
-| Fast fading models          | TN/D2D/UAV: TDL, CDL (s.t. TR 38.901), Jakes (s.t. [6]),<br/> NTN: TDL (s.t. TR 38.811), Jakes (s.t. [6])                           |
-| Propagation conditions      | O2O (LOS/NLOS), O2I (NLOS), I2I (LOS/NLOS)                                                                                          |
-| Link to system Adaptation   | BLER and CQI estimation                                                                                                             |
-| Atmospheric Absorption      | yes, TN/A2G: TR 38.901,<br/> NTN: TR 38.811                                                                                         |
-| Antenna Model               | TN/UAV/D2D: s.t. TR 38.901 (Omnidirectional, Three sectors (120°), Four sectors (90°))  <br/> NTN: s.t. TR 38.811                   |
-| Antenna Polarization        | single, dual                                                                                                                        |
-| EDs mobility models         | Stationary,  Linear, Random Walk, Random Waypoint,<br/>Random Direction, Truncated Levy Walk, Gauss-Markov, Gauss-Markov (s.t. [7]) |            
-| NTN and UAV mobility        | Not available in this current version                                                                                               |
-| MIMO                        | Not available in this current version                                                                                               |
-| Interference considerations | Not available in this current version                                                                                               |
-| Outputs                     | BLER, SINR, CQI, nodes coordinates, speed, Grid, and nodes movement video                                                           |
+| Parameters                         | Value (v.1.0.0)                                                                                                                     |
+|------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| Scenarios                          | TN: UMa, UMi, RMa, InH, InF, <br/> NTN: HAPS, LEO, MEO, GEO,<br/>UAV: A2G                                                           |
+| Link Modes                         | TN/UAV: downlink (DL), uplink (UL), <br/> NTN: DL<br/>  D2D                                                                         |
+| Network Topology                   | Single Cell or Multicell                                                                                                            |
+| EDs type                           | pedestrian, vehicle, IoT                                                                                                            |
+| Frequency range (GHz)              | 0.5-100                                                                                                                             |
+| NR numerology                      | 0-4, s.t. 3GPP TS 38.214 [5]                                                                                                        |
+| Path Loss models                   | TN/D2D: TR 38.901,<br/> NTN: TR 38.811,<br/>A2G: [3]                                                                                |
+| Large scale fading models          | TN/D2D/UAV: TR 38.901,<br/> NTN: TR 38.811                                                                                          |
+| Fast fading models                 | TN/D2D/UAV: TDL, CDL (s.t. TR 38.901), Jakes (s.t. [6]),<br/> NTN: TDL (s.t. TR 38.811), Jakes (s.t. [6])                           |
+| Propagation conditions             | O2O (LOS/NLOS), O2I (NLOS), I2I (LOS/NLOS)                                                                                          |
+| Link to system Adaptation          | BLER and CQI estimation                                                                                                             |
+| Atmospheric Absorption             | yes, TN/A2G: TR 38.901,<br/> NTN: TR 38.811                                                                                         |
+| Antenna Model                      | TN/UAV/D2D: s.t. TR 38.901 (Omnidirectional, Three sectors (120°), Four sectors (90°))  <br/> NTN: s.t. TR 38.811                   |
+| Antenna Polarization               | single, dual                                                                                                                        |
+| EDs mobility models                | Stationary,  Linear, Random Walk, Random Waypoint,<br/>Random Direction, Truncated Levy Walk, Gauss-Markov, Gauss-Markov (s.t. [7]) |            
+| NTN and UAV mobility               | Not available in this current version                                                                                               |
+| MIMO                               | Not available in this current version                                                                                               |
+| Interference considerations        | Not available in this current version                                                                                               |
+| [Outputs](./SimulationOutputs.pdf) | BLER, SINR, CQI, nodes coordinates, and nodes movement video                                                                        |             
 
 ## Structure
 

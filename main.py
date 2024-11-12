@@ -18,6 +18,9 @@ import logging
 
 # Third-party imports
 import pandas as pd
+import numpy as np
+import random
+from tabulate import tabulate
 
 # Local application/library-specific imports
 import scenario.scenario_definition as sx
@@ -31,6 +34,11 @@ import general.general as ge
 # pd.set_option('display.max_rows', None)  # This specific setting ensures that all rows in a DataFrame will be displayed when it's printed.
 # pd.set_option('display.max_columns', None)  # This specific setting ensures that all columns in a DataFrame will be displayed when it's printed.
 
+# pd.set_option('display.max_columns', None)    # Show all columns
+# pd.set_option('display.width', 1000)          # Increase width for better readability
+pd.set_option('display.colheader_justify', 'center')  # Center-align column headers
+pd.set_option('display.precision', 2)         # Set decimal precision if needed
+
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
@@ -38,8 +46,8 @@ if __name__ == "__main__":
 
 
     ########## Uncomment to fix the random outputs during simulations ##########
-    # np.random.seed(42)  # Use any integer seed value
-    # random.seed(42)  # Use any integer seed value
+    np.random.seed(42)  # Use any integer seed value
+    random.seed(42)  # Use any integer seed value
     ######################################################################
 
     simulation_settings = "from_main_script"  # String: ("from_main_script", "from_excel"). To set the simulation settings directly from the script or from external excels placed in the simulation_settings folder
@@ -52,16 +60,16 @@ if __name__ == "__main__":
                 "[100, 100]",  # "grid_xy". Definition of the simulation grid's x and y in meters (m). It must be defined as a string to ensure saving and uploading in and from the configuration Excel.
                 39.2137738,  # "grid_center_latitude". Latitude in degrees of the grid center, default value: grid_center_lat = 39.2137738 degrees, used for non-terrestrial network (NTN) simulations.
                 9.1153844,  # "grid_center_longitude". Longitude in degrees of the grid center in degrees, default value: grid_center_lat = 9.1153844 degrees, used for NTN simulations.
-                1,  # "simulation_time". Simulation time in seconds (s).
-                0.1,  # "simulation_resolution". Simulation resolution, e.g., 1 means a one-second resolution (one sample per second), 0.1 means a 0.1-second resolution (100 ms), or ten samples for every second.
+                5,  # "simulation_time". Simulation time in seconds (s).
+                1,  # "simulation_resolution". Simulation resolution, e.g., 1 means a one-second resolution (one sample per second), 0.1 means a 0.1-second resolution (100 ms), or ten samples for every second.
                 True,  # "downlink". To enable the downlink computation from the base stations (BSs) to the end-devices (EDs).
                 False,  # "uplink". To enable the uplink computation from the EDs to the BSs. TODO is not enabled between the EDs and the NTNs.
                 False,  # "d2d_link". To enable the device-to-device (D2D) link computation among EDs.
                 True,  # "ntn_link". To enable the link computation between the available NTNs (e.g., LEO, MEO, HAPS) and the EDs.
-                False,  # "save_scenario_xlsx". To save (./output/scenario/) as .xlsx the simulated scenario. It means the coordinate x, y, and z of each EDs or BSs or the latitude, longitude, and altitude (LLA) of the NTNs.
-                False,  # "save_metrics_xlsx". To save (./output/metrics/) the resulting LLS outputs: SINR, CQI, BLER, among each ED and each BS (TN/NTN) or EDs for D2D communications, as .xlsx.
+                True,  # "save_scenario_xlsx". To save (./output/scenario/) as .xlsx the simulated scenario. It means the coordinate x, y, and z of each EDs or BSs or the latitude, longitude, and altitude (LLA) of the NTNs.
+                True,  # "save_metrics_xlsx". To save (./output/metrics/) the resulting LLS outputs: SINR, CQI, BLER, among each ED and each BS (TN/NTN) or EDs for D2D communications, as .xlsx.
                 True,  # "show_video". Boolean to enable or disable the simulation video display regarding the grid and the configured BSs and EDs with their mobility behaviour. (The link computation is executed after we closed the video).
-                False,  # "save_video". Boolean to enable saving the video file.
+                True,  # "save_video". Boolean to enable saving the video file.
                 "gif",  # "video_format". ("mp4", "gif", "Both"). For now, the video format (in the general_simulation_parameters input data frame) can be saved as a .gif file.
                 0.1,  # "video_velocity". Float variable for modifying the video velocity. Default value: 0.1.
                 True,  # "print_scenario_outputs". A Boolean to enable printing the scenario output. It means the coordinates x, y, and z of each EDs or BSs or the LLA of the NTNs.
@@ -74,7 +82,7 @@ if __name__ == "__main__":
 
         general_channel_modeling = pd.DataFrame(
             [[
-                False,           # "dynamic_loss": Boolean, where True means a dynamic Line of Sight (LOS). Regarding each BS, a user could be in LOS or non-LOS (NLOS). False means only LOS.
+                True,           # "dynamic_loss": Boolean, where True means a dynamic Line of Sight (LOS). Regarding each BS, a user could be in LOS or non-LOS (NLOS). False means only LOS.
                 False,          # "dynamic_hb": Boolean, where True means a dynamic human blockage (HB) in the link between the BS and the ED (mainly used for mmWave simulations). False means no HB considerations.
                 False,          # "o2i": Boolean where True means a dynamic outdoor-to-indoor (o2i), a user could be simulated in o2i or not conditions regarding the BS (It means NLOS). False means only LOS.
                 "dynamic",     # "inside_what_o2i": ("dynamic", "building", "car"). "dynamic" means that it will be chosen randomly if the user is inside a building or a car; it will modify the penetration losses considered. The other options are to fix or inside a building or a car.
@@ -106,9 +114,9 @@ if __name__ == "__main__":
         #                               [25, 75, 100, "abs", "A2G", "three_sectors", 28, 2, 50, 10, 10, 2, 7, 15, None],
         #                               [None, None, 8000, "sat", "HAPS", "Sat_ax", 28, 2, 50, 10, 10, 2, 7, None, 50]])
         bs_parameters = pd.DataFrame([
-                                      [50, 50, 25, "tbs", "UMa", "three_sectors", "dual", "E", "B", 28, 2, 1, 20, 20, 2, 7, 15, None],
-                                      [75, 75, 10, "tbs", "UMi", "three_sectors", "dual", "D", "A", 28, 2, 1, 10, 10, 2, 7, 15, None],
-                                      [25, 25, 10, "tbs", "UMi", "three_sectors", "dual", "D", "A", 28, 2, 1, 10, 10, 2, 7, 15, None],
+                                      [50, 50, 25, "tbs", "UMa", "three_sectors", "dual", "E", "B", 28, 2, 50, 20, 10, 2, 7, 15, None],
+                                      # [75, 75, 10, "tbs", "UMi", "three_sectors", "dual", "D", "A", 28, 2, 1, 10, 10, 2, 7, 15, None],
+                                      # [25, 25, 10, "tbs", "UMi", "three_sectors", "dual", "D", "A", 28, 2, 1, 10, 10, 2, 7, 15, None],
                                       [39.2337738, 9.12153844, 50000, "sat", "HAPS", "Sat_ax", "dual", "C_ntn", "A_ntn", 2, 2, 50, 36, 30, 2, 7, None, 85],
                                       # [39.2137738, 9.1153844, 50000, "sat", "HAPS", "Sat_ax", "dual", "C_ntn", "A_ntn", 2, 2, 50, 36, 30, 2, 7, None, 90],
                                       ])
@@ -138,7 +146,7 @@ if __name__ == "__main__":
 
 
         sub_groups_parameters = pd.DataFrame(
-            [["pedestrian", 10, "omni", 0, 0, 0, 7, True, True, "[1, 1]", "[50, 50]", "[0.4, 1.2]", 1, "Random Waypoint", None, None, "[1.5, 1.5]", "urban"],
+            [["pedestrian", 4, "omni", 0, 0, 0, 7, True, True, "[1, 1]", "[50, 50]", "[0.4, 1.2]", 1, "Random Waypoint", None, None, "[1.5, 1.5]", "urban"],
              # ["pedestrian", 10, "three_sectors", 0, 0, 0, 7, True, False, "[0.5, 0.5]", "[150, 150]", "[1, 5]", 1, "Random Direction model", None, None, "[1.5, 1.5]", "urban"],
              # ["car_mounted", 1, "three_sectors", 10, 10, 0, 7, True, False, "[1, 0.2]", "[50, 75]", "[10, 15]", 1, "Random Waypoint", None, None, "[1.5, 1.5]", "urban"],
              # ["iot", 1, "three_sectors", 10, 10, 0, 7, True, False, "[0.25, 0.25]", "[75, 75]", "[0.0001, 0.0002]", 1, "Random Waypoint", None, None, "[1.5, 1.5]", "urban"]
@@ -191,11 +199,16 @@ if __name__ == "__main__":
         sub_groups_parameters["min_max_velocity"] = sub_groups_parameters["min_max_velocity"].apply(ge.convert_grid_xy)
         sub_groups_parameters["min_max_height"] = sub_groups_parameters["min_max_height"].apply(ge.convert_grid_xy)
 
-        print(general_simulation_parameters)
-        print(general_channel_modeling)
-        print(general_parameters)
-        print(bs_parameters)
-        print(sub_groups_parameters)
+    print("general_simulation_parameters")
+    print(tabulate(general_simulation_parameters, headers='keys', tablefmt='fancy_grid'))
+    print("general_channel_modeling")
+    print(tabulate(general_channel_modeling, headers='keys', tablefmt='fancy_grid'))
+    print("general_parameters")
+    print(tabulate(general_parameters, headers='keys', tablefmt='fancy_grid'))
+    print("bs_parameters")
+    print(tabulate(bs_parameters, headers='keys', tablefmt='fancy_grid'))
+    print("sub_groups_parameters")
+    print(tabulate(sub_groups_parameters, headers='keys', tablefmt='fancy_grid'))
 
     # logger.info("Starting the simulation with %d EDs", sub_groups_parameters["k_sub"])
 
