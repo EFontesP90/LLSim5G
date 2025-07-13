@@ -52,7 +52,7 @@ cdl_cp = {
             [5.3043, -19.9, +126.50, -151.8, +022.7, 150.7],
             [9.6586, -29.7, -56.200, +55.20, +144.9, 156.1],
         ],
-        dtype=np.float_,
+        dtype=np.float64,
     ),
     # Table 7.7.1-2: CDL-B
     "B": np.array(
@@ -81,7 +81,7 @@ cdl_cp = {
             [4.2790, -9.20, +075.60, +088.7, +117.8, +60.1],
             [4.7834, -11.3, -077.60, -060.4, +115.7, +62.3],
         ],
-        dtype=np.float_,
+        dtype=np.float64,
     ),
     # Table 7.7.1-3: CDL-C
     "C": np.array(
@@ -111,7 +111,7 @@ cdl_cp = {
             [7.0427, -21.6, +119.5, -021.9, +105.2, +058.0],
             [8.6523, -22.8, -123.8, +033.6, +107.8, +057.0],
         ],
-        dtype=np.float_,
+        dtype=np.float64,
     ),
     # Table 7.7.1-4: CDL-D
     "D": np.array(
@@ -131,7 +131,7 @@ cdl_cp = {
             [09.708, -30.0, -132.1, -009.1, +080.3, +70.6],
             [12.525, -27.7, +077.2, -083.8, +086.5, +72.9],
         ],
-        dtype=np.float_,
+        dtype=np.float64,
     ),
     # Table 7.7.1-5: CDL-E
     "E": np.array(
@@ -152,7 +152,7 @@ cdl_cp = {
             [12.0034, -29.80, +55.9, -036.2, +095.6, +88.6],
             [20.6419, -29.20, +57.6, -026.0, +104.6, +78.3],
         ],
-        dtype=np.float_,
+        dtype=np.float64,
     ),
     # Table 6.9.1-1 NTN-CDL-A at elevation
     "A_ntn": np.array(
@@ -162,7 +162,7 @@ cdl_cp = {
             [2.8416, -6.482, +00.0, 111.5, 140, 127.4 ],
 
         ],
-        dtype=np.float_,
+        dtype=np.float64,
     ),
     # Table 6.9.1-2 NTN-CDL-B at elevation
     "B_ntn": np.array(
@@ -173,7 +173,7 @@ cdl_cp = {
             [5.7392, -11.914, +00.0, -88.8, 140, 174.1],
 
         ],
-        dtype=np.float_,
+        dtype=np.float64,
     ),
     # Table 6.9.1-3 NTN-CDL-C at elevation
     "C_ntn": np.array(
@@ -183,7 +183,7 @@ cdl_cp = {
             [14.8124, -23.373, +00.0, -75.9, 140, 87.1],
 
         ],
-        dtype=np.float_,
+        dtype=np.float64,
     ),
 
     # Table 6.9.1-4 NTN-CDL-D at elevation
@@ -195,7 +195,7 @@ cdl_cp = {
             [7.3340, -16.771, +00.0, -121.5, 140, 136.0],
 
         ],
-        dtype=np.float_,
+        dtype=np.float64,
     ),
 }
 
@@ -229,7 +229,7 @@ ray_offset_angles = np.array(
         1.5195, -1.5195,
         2.1551, -2.1551,
     ],
-    dtype=np.float_,
+    dtype=np.float64,
 )
 
 # Large scale cross correlations
@@ -261,7 +261,7 @@ umi_large_scale_correlations = np.array(
         [+0.0, +0.2, +0.5],  # 19: ZSA vs ASA
         [+0.0, +0.0, +0.5],  # 20: ZSD vs ZSA
     ],
-    dtype=np.float_,
+    dtype=np.float64,
 ).T
 
 uma_large_scale_correlations = np.array(
@@ -289,7 +289,7 @@ uma_large_scale_correlations = np.array(
         [+0.4, +0.0, +0.5],  # 19: ZSA vs ASA
         [+0.0, +0.0, +0.5],  # 20: ZSD vs ZSA
     ],
-    dtype=np.float_,
+    dtype=np.float64,
 ).T
 
 rma_large_scale_correlations = np.array(
@@ -317,7 +317,7 @@ rma_large_scale_correlations = np.array(
         [+0.24, +0.26, -0.22],  # 19: ZSA vs ASA
         [-0.07, -0.27, +0.00],  # 20: ZSD vs ZSA
     ],
-    dtype=np.float_,
+    dtype=np.float64,
 ).T
 
 inh_large_scale_correlations = np.array(
@@ -345,7 +345,7 @@ inh_large_scale_correlations = np.array(
         [+0.50, +0.43],  # 19: ZSA vs ASA
         [+0.00, +0.42],  # 20: ZSD vs ZSA
     ],
-    dtype=np.float_,
+    dtype=np.float64,
 ).T
 
 inf_large_scale_correlations = np.array(
@@ -373,7 +373,7 @@ inf_large_scale_correlations = np.array(
         [+0.00, +0.00],  # 19: ZSA vs ASA
         [+0.00, +0.00],  # 20: ZSD vs ZSA
     ],
-    dtype=np.float_,
+    dtype=np.float64,
 ).T
 
 umi_mean_spread = np.array(
@@ -385,7 +385,7 @@ umi_mean_spread = np.array(
         [0.73, 0.92, 1.01],  # 3: ZOA
         [9.0, None, None],  # 4: K
     ],
-    dtype=np.float_,
+    dtype=np.float64,
 )
 
 umi_std_spread = np.array(
@@ -397,7 +397,7 @@ umi_std_spread = np.array(
         [0.34, 0.41, 0.43],  # 3: ZOA
         [5.0, None, None],  # 4: K
     ],
-    dtype=np.float_,
+    dtype=np.float64,
 )
 
 k_mean_std = {
@@ -450,12 +450,12 @@ desired_delay_spread = np.array(
         300*1e-9,  # Long delay spread
         1000*1e-9,  # Very long delay spread
     ],
-    dtype=np.float_,
+    dtype=np.float64,
 )
 
 
 # def c_mm(large_scale_correlations):
-#     c_cmm_matrix = np.empty((3, 7, 7), dtype=np.float_)
+#     c_cmm_matrix = np.empty((3, 7, 7), dtype=np.float64)
 #     for c, C in enumerate(large_scale_correlations):
 #         c_mm_squared = np.array(
 #             [
@@ -468,7 +468,7 @@ desired_delay_spread = np.array(
 #                 [C[8], C[6], C[7], C[13], C[12], 1.0, C[9]],  # K
 #                 [C[4], C[3], C[2], C[11], C[10], C[9], 1.0],  # SF
 #             ],
-#             dtype=np.float_,
+#             dtype=np.float64,
 #         )
 #
 #         # Section 4 of ETSI TR 138.901 v17.0.0 hints at using the cholesky decomposition

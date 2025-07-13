@@ -81,7 +81,7 @@ if __name__ == "__main__":
                 5,  # "simulation_time". Simulation time in seconds (s).
                 1,  # "simulation_resolution". Simulation resolution, e.g., 1 means a one-second resolution (one sample per second), 0.1 means a 0.1-second resolution (100 ms), or ten samples for every second.
                 True,  # "downlink". To enable the downlink computation from the base stations (BSs) to the end-devices (EDs).
-                False,  # "uplink". To enable the uplink computation from the EDs to the BSs. TODO is not enabled between the EDs and the NTNs.
+                True,  # "uplink". To enable the uplink computation from the EDs to the BSs. TODO is not enabled between the EDs and the NTNs.
                 False,  # "d2d_link". To enable the device-to-device (D2D) link computation among EDs.
                 True,  # "ntn_link". To enable the link computation between the available NTNs (e.g., LEO, MEO, HAPS) and the EDs.
                 True,  # "save_scenario_xlsx". To save (./output/scenario/) as .xlsx the simulated scenario. It means the coordinate x, y, and z of each EDs or BSs or the latitude, longitude, and altitude (LLA) of the NTNs.
@@ -135,7 +135,7 @@ if __name__ == "__main__":
                                       [50, 50, 25, "tbs", "UMa", "three_sectors", "dual", "E", "B", 28, 2, 50, 20, 10, 2, 7, 15, None],
                                       # [75, 75, 10, "tbs", "UMi", "three_sectors", "dual", "D", "A", 28, 2, 1, 10, 10, 2, 7, 15, None],
                                       # [25, 25, 10, "tbs", "UMi", "three_sectors", "dual", "D", "A", 28, 2, 1, 10, 10, 2, 7, 15, None],
-                                      [39.2337738, 9.12153844, 50000, "sat", "HAPS", "Sat_ax", "dual", "C_ntn", "A_ntn", 2, 2, 50, 36, 30, 2, 7, None, 85],
+                                      # [39.2337738, 9.12153844, 50000, "sat", "HAPS", "Sat_ax", "dual", "C_ntn", "A_ntn", 2, 2, 50, 36, 30, 2, 7, None, 85],
                                       # [39.2137738, 9.1153844, 50000, "sat", "HAPS", "Sat_ax", "dual", "C_ntn", "A_ntn", 2, 2, 50, 36, 30, 2, 7, None, 90],
                                       ])
         # fast_fading_los_type: TN_los: "D", "E"; NTN: "C_ntn", "D_ntn"
@@ -256,11 +256,11 @@ if __name__ == "__main__":
                                                         df_z, time_map, grid_lla, grid_xy)
         out.bs2d_ul_outputs(general_simulation_parameters, bs_parameters, general_channel_modeling,
                             sub_groups_parameters, general_parameters, df_x, df_y,
-                            df_z, df_tbs_xyz, df_abs_xyz, time_map, metrics_dic_bs_dl, metrics_dic_bs_ul,
+                            df_z, df_tbs_xyz, df_abs_xyz, df_sat_lla, time_map, metrics_dic_bs_dl, metrics_dic_bs_ul,
                             metrics_dic_d2d)
 
     if general_simulation_parameters["d2d_link"][0]:
         metrics_dic_d2d = lc.link_computation_d2d(bs_parameters, general_channel_modeling, sub_groups_parameters, general_parameters, df_x, df_y,
                             df_z, time_map, grid_lla, grid_xy)
         out.d2d_outputs(general_simulation_parameters, bs_parameters, general_channel_modeling, sub_groups_parameters, general_parameters, df_x, df_y,
-                    df_z, df_tbs_xyz, df_abs_xyz, time_map, metrics_dic_bs_dl, metrics_dic_bs_ul, metrics_dic_d2d)
+                    df_z, df_tbs_xyz, df_abs_xyz, df_sat_lla, time_map, metrics_dic_bs_dl, metrics_dic_bs_ul, metrics_dic_d2d)
